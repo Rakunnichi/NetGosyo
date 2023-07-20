@@ -87,3 +87,9 @@
 .attachment {
     width: 100%;
 }
+
+.strokeme
+{
+    color: #E6873C;
+    text-shadow: 3px 3px #1a1b1d; 
+}

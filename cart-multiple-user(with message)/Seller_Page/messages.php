@@ -168,14 +168,14 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
 								<option value="">- select recipient -</option>
 								<?php foreach ($users as $row) { ?>
 									<?php if ($row['id'] != $user_id) { ?>
-										<option value="<?= $row['id'] ?>"><?= $row['name'] ?> <?= $row['id'] == 1 ? '(Seller)' : '' ?></option>
+										<option value="<?= $row['id'] ?>"> <?= $row['name'] ?></option>
 									<?php } ?>
 								<?php } ?>
 							</select>
 						</div>
 						<div class="form-group">
 							<label>Subject</label>
-							<input type="text" class="form-control" name="subject"  required>
+							<input type="text" class="form-control" name="subject" required>
 						</div>
 						<div class="form-group">
 							<label>Message</label>

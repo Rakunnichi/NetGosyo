@@ -84,17 +84,15 @@ if ($res = mysqli_fetch_array($findresult)) {
 			?>
 			<div class="row">
 				<div class="col-md-3 color_left ">
-					<div class="d-flex flex-column align-items-center text-center p-3 py-1">
-						<div style="max-width:256px">
+					<div class="d-flex flex-column align-items-center text-center p-3 py-1 pt-5">
+						<div style="max-width:256px;margin-bottom:12px">
 							<?php if ($image == NULL) {
 								echo '<img src="user_profile/profile.png" class="img-fluid">';
 							} else {
-								echo '<img src="user-profiles/' . $image . '" style="height:150px; width: 150px;" class="rounded-circle mt-5">';
+								echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid">';
 							}
 							?>
 						</div>
-						<div class="row mt-1"></div>
-						<div class="row mt-2"></div>
 						<span class="font-weight-bold"><?php echo $fullname; ?></span><span class=><?php echo $email; ?></span><span> </span>
 					</div>
 					<nav id="navbar" class="nav-menu navbar">
