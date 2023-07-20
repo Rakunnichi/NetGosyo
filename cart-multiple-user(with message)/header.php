@@ -225,9 +225,9 @@ if (isset($message)) {
             <h2 class="brand-name">NetGosyo</h2>
           </div>
           <div class="col-md-5 my-auto">
-            <form role="search">
+            <form role="search" method="GET" action="category-page.php">
               <div class="input-group">
-                <input type="search" placeholder="Search Products" class="form-control" />
+                <input type="text" name="search" placeholder="Search Products" class="form-control" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                 <div class="input-group-append">
                   <button class="btn border text-white" type="submit">
                     <i class="fa fa-search"></i>
