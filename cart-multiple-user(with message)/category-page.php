@@ -97,18 +97,19 @@
 
         	<div class="grid">
             	<?php
-  			        $stmt = $conn->prepare('SELECT * FROM products');
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    while ($row = $result->fetch_assoc()):
+  			        $search = isset($_GET['search']) ? $_GET['search'] : '';
+					$select_product = mysqli_query($conn, "SELECT * FROM `products` WHERE `name` LIKE '%{$search}%'") or die('query failed!');
+					$rows = mysqli_fetch_all($select_product, MYSQLI_ASSOC);
+					if (mysqli_num_rows($select_product) > 0) {
+					foreach ($rows as $fetch_product) {
                 ?>
-					<div class="grid-item <?php echo $row['item_brand'] ?? "Brand"; ?>">
+					<div class="grid-item <?php echo $fetch_product['item_brand'] ?? "Brand"; ?>">
 						<div class="item" style="width:200px;">
 							<div class="product font-rale">
-							<a href="<?php printf('%s?id=%s', 'product.php',  $row['id']); ?>"><img src="image/<?php echo $row['image'] ?? "assets/products/1.png"; ?>"
+							<a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>"><img src="image/<?php echo $fetch_product['image'] ?? "assets/products/1.png"; ?>"
 									alt="product1" class="img-fluid"></a>
 								<div class="text-center">
-									<h6><b><?php echo $row['name'] ?? "Unknown"; ?></b></h6>
+									<h6><b><?php echo $fetch_product['name'] ?? "Unknown"; ?></b></h6>
 				
 									<form action="" class="form-submit">
 										<div class="row p-2">
@@ -116,7 +117,7 @@
 										<div class="margin-left-10 price py-2  d-flex justify-content-between margin-right-10">
 
 										<div class="price py-2">
-										<span><b>₱&nbsp;<?php echo $row['price'] ?? '0'; ?></b></span>
+										<span><b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?></b></span>
 									</div>
 										
 
@@ -134,7 +135,12 @@
 							</div>
 						</div>
 					</div>
-				<?php endwhile; ?>
+				<?php 
+						}
+					} else {
+						echo "There is no product found!";
+					}
+				?>
 			</div>
 		</div>
 					<!-- Sorting by <div class="row"> -->
