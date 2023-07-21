@@ -48,7 +48,7 @@ if ($res = mysqli_fetch_array($findresult)) {
         <div class="row gx-4 mb-2">
           <div class="col-auto">
             <div class="avatar avatar-xl position-relative">
-              <img src="/user-profiles/<?php echo $image;?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+              <img src="../user-profiles/<?php echo $image;?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>
           <div class="col-auto my-auto">
