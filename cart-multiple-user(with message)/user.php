@@ -8,7 +8,7 @@ include('config.php');
 $username = $_SESSION["user_id"];
 $findresult = mysqli_query($conn, "SELECT * FROM user_form WHERE id = '$user_id'");
 if ($res = mysqli_fetch_array($findresult)) {
-	$fullname = $res['name'] ?? '';
+	$fullname = $res['fullname'] ?? '';
 	$username = $res['username']  ?? '';
 	$oldusername = $res['username']  ?? '';
 	$email = $res['email']  ?? '';
@@ -46,7 +46,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 		<div class="mt-6 mb-6">
 			<?php
 			if (isset($_POST['update_user'])) {
-				$fullname = $_POST['name'];
+				$fullname = $_POST['fullname'];
 				$username = $_POST['username'];
 				$email = $_POST['emails'];
 				$phonenumber = $_POST['number'];
@@ -56,7 +56,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 
 				$folder = 'user-profiles/';
 				$file = $_FILES['image']['tmp_name'];
-				$file_name = $_FILES['image']['name'];
+				$file_name = $_FILES['image']['fullname'];
 
 				$file_name_array = explode(".", $file_name);
 				$extension = end($file_name_array);
@@ -66,7 +66,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 				// echo "<pre>";
 				// print_r(var_dump($_FILES['image']['name']));
 				// die;
-				if ($_FILES['image']['name']) {
+				if ($_FILES['image']['fullname']) {
 					if ($_FILES["image"]["size"] > 10000000) {
 						header("location: user.php?error=Sorry, your image is too large. Upload less than 10 MB in size .");
 						exit;
@@ -199,13 +199,16 @@ if ($res = mysqli_fetch_array($findresult)) {
 
 							<div class="mt-2 mb-4 col-md-6"><label class="labels" style="font-size: 17px;">Gender</label>
            			 			<select name="Gender" class="custom-select" id="gender">
-            					<option selected><?php echo $gender; ?></option>	
-								<?php if($gender == "Male"){ ?>	
-									<option value="Female">Female</option>			
-								<?php } else if ($gender == "Female"){ ?>	
-            					<option value="Male">Male</option>
-								<?php } ?>
+									<?php if (empty($gender['gender'])) { ?>
+										<option selected><?php echo $gender; ?></option>
+												<option value="Male">Male</option>	
+												<option value="Female">Female</option>
+									<?php } else { ?>
+										<option selected><?php echo $gender; ?></option>
+										
+									<?php } ?>
             					</select>
+
 								<!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
 							</div>
 						</div>

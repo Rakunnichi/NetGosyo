@@ -182,7 +182,7 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
 								<option value="">- select recipient -</option>
 								<?php foreach ($users as $row) { ?>
 									<?php if ($row['id'] != $user_id) { ?>
-										<option value="<?= $row['id'] ?>"><?= $row['name'] ?> <?= $row['id'] == 1 ? '(Seller)' : '' ?></option>
+										<option value="<?= $row['id'] ?>"><?= $row['name'] ?></option>
 									<?php } ?>
 								<?php } ?>
 							</select>
