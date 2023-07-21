@@ -48,7 +48,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 
 
 				if ($new_password != $confirm_password) {
-					header("location: user2ChangePassword.php?error=New password and confirm password do not match");
+					header("location: user-changepass.php?error=New password and confirm password do not match");
 					exit;
 				}
 
@@ -59,12 +59,12 @@ if ($res = mysqli_fetch_array($findresult)) {
 					$row = mysqli_fetch_assoc($result);
 					$current_password_hash = $row["password"];
 				} else {
-					header("location: user2ChangePassword.php?error=User not found");
+					header("location: user-changepass.php?error=User not found");
 					exit;
 				}
 
 				if (md5($current_password) != $current_password_hash) {
-					header("location: user2ChangePassword.php?error=Current password is incorrect");
+					header("location: user-changepass.php?error=Current password is incorrect");
 					exit;
 				}
 
@@ -74,7 +74,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 				$sql = "UPDATE user_form SET password = '$new_password_hash' WHERE id = '$user_id'";
 
 				if (mysqli_query($conn, $sql)) {
-					header("location: user2ChangePassword.php?status=Your password has been updated");
+					header("location: user-changepass.php?status=Your password has been updated");
 				} else {
 					echo "Error updating password: " . mysqli_error($conn);
 				}

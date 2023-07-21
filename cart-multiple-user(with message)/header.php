@@ -296,7 +296,7 @@ if (isset($message)) {
                       <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Purchases</a></li>
                       <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
                       <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li>
-                      <li><a class="dropdown-item" href="user2ChangePassword.php"><i class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
+                      <li><a class="dropdown-item" href="user-changepass.php"><i class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
                 
                       <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
                       <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
