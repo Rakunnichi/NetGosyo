@@ -99,13 +99,13 @@ $messages = mysqli_query($conn, $messages_query);
 
 				<div class="d-flex flex-column align-items-center text-center p-3 py-1 pt-5">
 					<div style="max-width:256px;margin-bottom:12px">
-						<?php if ($image == NULL) {
-							echo '<img src="user_profile/profile.png" class="img-fluid">';
-						} else {
-							echo '<img src="images/' . $image . '" class="rounded-circle img-fluid">';
-						}
-						?>
-					</div>
+							<?php if ($image == NULL) {
+								echo '<img src="user_profile/profile.png" class="img-fluid">';
+							} else {
+								echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid">';
+							}
+							?>
+						</div>
 					<span class="font-weight-bold"><?php echo $fullname; ?></span><span class=><?php echo $email; ?></span><span> </span>
 				</div>
 				<nav id="navbar" class="nav-menu navbar">
