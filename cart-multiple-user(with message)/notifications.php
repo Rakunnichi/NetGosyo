@@ -43,7 +43,7 @@ if ($res = mysqli_fetch_array($result)) {
 			<div class="col-3 color_left">
 
 				<div class="d-flex flex-column align-items-center text-center p-3 py-1 pt-5">
-					<div style="max-width:256px;margin-bottom:12px">
+					<div style="max-width:150px;margin-bottom:12px">
 						<?php if ($image == NULL) {
 							echo '<img src="user_profile/profile.png" class="img-fluid">';
 						} else {

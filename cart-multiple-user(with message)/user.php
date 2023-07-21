@@ -66,7 +66,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 				// echo "<pre>";
 				// print_r(var_dump($_FILES['image']['name']));
 				// die;
-				if ($_FILES['image']['fullname']) {
+				if ($_FILES['image']['name']) {
 					if ($_FILES["image"]["size"] > 10000000) {
 						header("location: user.php?error=Sorry, your image is too large. Upload less than 10 MB in size .");
 						exit;
@@ -121,7 +121,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 				<div class="col-3 color_left">
 
 					<div class="d-flex flex-column align-items-center text-center p-3 py-1 pt-5">
-						<div style="max-width:256px">
+						<div style="max-width:150px">
 							<?php if ($image == NULL) {
 								echo '<img src="user_profile/profile.png" class="img-fluid">';
 							} else {
@@ -208,7 +208,6 @@ if ($res = mysqli_fetch_array($findresult)) {
 										
 									<?php } ?>
             					</select>
-
 								<!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
 							</div>
 						</div>
