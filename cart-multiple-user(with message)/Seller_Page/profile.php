@@ -47,7 +47,7 @@ if ($res = mysqli_fetch_array($findresult)) {
       <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4 mb-2">
           <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
+            <div class="avatar avatar-xl mt-2 position-relative">
               <img src="../user-profiles/<?php echo $image;?>" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
             </div>
           </div>

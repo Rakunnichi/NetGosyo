@@ -56,7 +56,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 
 				$folder = 'user-profiles/';
 				$file = $_FILES['image']['tmp_name'];
-				$file_name = $_FILES['image']['fullname'];
+				$file_name = $_FILES['image']['name'];
 
 				$file_name_array = explode(".", $file_name);
 				$extension = end($file_name_array);
