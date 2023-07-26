@@ -9,7 +9,7 @@ $user = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($user) > 0) {
   $row = mysqli_fetch_assoc($user);
-  $name = $row["name"];
+  $name = $row["fullname"];
 }
 
 $stmt = $conn->prepare('SELECT * FROM products');

@@ -1,5 +1,15 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'vendor/autoload.php';
+
+
+
+
 if (isset($_POST['submit'])) {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -20,29 +30,36 @@ if (isset($_POST['submit'])) {
       
      
         //sending email
-        $template_file = "Templates/_register-mail.php";
-        $to = $email;
-        $subject = "NetGosyo Project";
-  
-        if(file_exists($template_file)){
-          $messages = file_get_contents($template_file);
-        }else{
-          die("template file missing");
-        }
-  
-        
-       
-        $headers = "From: <b>noreply \r\n";
-        $headers .= "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-  
-        mail($to,$subject,$messages,$headers);
-        
-    
-  
-      $message[] = 'registered successfully! please check your email address!';
-     
+        $mail = new PHPMailer(true);
+
+        try {
+          //Server settings
+          $mail->isSMTP();                                            //Send using SMTP
+          $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+          $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+          $mail->Username   = 'netgosyo398@gmail.com';                     //SMTP username
+          $mail->Password   = 'oxohqqatqijavfza';                               //SMTP password
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+          $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
       
+          //Recipients
+          $mail->setFrom('netgosyo398@gmail.com', 'Noreply');
+          $mail->addAddress( $email, $name);     //Add a recipient
+         
+      
+         
+          //Content
+          $mail->isHTML(true);                                  //Set email format to HTML
+          $mail->Subject = 'Email Verfication';
+          $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+         
+          $mail->send();
+          $message[] = 'registered successfully! please check your email address!';
+
+      } catch (Exception $e) {
+          $message[] =  "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      }
+
     }
   
     

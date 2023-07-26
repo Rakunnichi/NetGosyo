@@ -53,7 +53,6 @@ if ($res = mysqli_fetch_array($findresult)) {
 				$address = $_POST['address'];
 				$dateofbirth = $_POST['datebirth'];
 				$gender = $_POST['Gender'];
-
 				$folder = 'user-profiles/';
 				$file = $_FILES['image']['tmp_name'];
 				$file_name = $_FILES['image']['name'];
