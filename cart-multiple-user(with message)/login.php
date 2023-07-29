@@ -15,9 +15,20 @@ if (isset($_POST['submit'])) {
   if (mysqli_num_rows($select) > 0) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION = $row;
+    $verified = $row['verified'];
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['role'] = 'user';
-    header('location:index.php');
+
+    if($verified == 1){
+      header('Location:index.php');
+    
+  }else{
+    $message[] = 'Please Check Your Email First To Verify your Account!';
+  }
+
+
+
+   
   } else {
     $message[] = 'Incorrect Credentials!';
   }
@@ -33,6 +44,10 @@ if (isset($_POST['submit2'])) {
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['role'] = 'seller';
     header('location:Seller_Page/index.php');
+
+
+
+
   } else {
     $message[] = 'Incorrect Credentials!';
   }

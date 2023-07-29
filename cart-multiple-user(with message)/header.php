@@ -334,6 +334,9 @@ if (isset($message)) {
                 <a class="nav-link" href="index.php">All Categories</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="index.php">View Shops</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="index.php">Top Products</a>
               </li>
               <li class="nav-item">
