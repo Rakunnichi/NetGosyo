@@ -446,8 +446,6 @@ form.sign-in-form {
   color: #656565;
 }
 
-
-
 .wrapper{
   width: 380px;
   position: absolute;
@@ -455,3 +453,5 @@ form.sign-in-form {
   top: 10%;
   left: 85%;
 }
+
+

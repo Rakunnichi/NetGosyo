@@ -15,7 +15,7 @@
         if($resultSet ->num_rows == 1){
             //validating email
 
-            $update = $mysqli ->query("update user set  verified = 1 where vkey= '$vkey' limit 1");
+            $update = $mysqli ->query("update user_form set  verified = 1 where vkey= '$vkey' limit 1");
 
             if($update){
                 echo "<center>Account has been verified! you can now login</center>";

@@ -22,7 +22,14 @@ if (isset($_POST['submit'])) {
     $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
     if (mysqli_num_rows($select) > 0) {
       $message[] = 'user already exist!';
-    } else {
+
+    
+    } 
+    else if($pass != $cpass){
+      $message[] = 'password does not match!';
+    }
+    
+    else {
       mysqli_query($conn, "INSERT INTO `user_form` (fullname, email, password, vkey) VALUES('$name', '$email', '$pass', '$vkey')") or die('query failed');
       $user_id = mysqli_insert_id($conn);
       mysqli_query($conn, "INSERT INTO notifications SET user_id='1', notification='A new user registered to NetGosyo. Congratulations!'");
@@ -51,7 +58,9 @@ if (isset($_POST['submit'])) {
           //Content
           $mail->isHTML(true);                                  //Set email format to HTML
           $mail->Subject = 'Email Verfication';
-          $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+          $template_file = "Templates/register_mail_template.php";
+          $mail->Body    = "Click the link to Verify your Email Address <a href='http://localhost:3000/cart-multiple-user(with%20message)/verify.php?vkey=$vkey'>Verify Account</a>";
+          // file_get_contents($template_file);
          
           $mail->send();
           $message[] = 'registered successfully! please check your email address!';
