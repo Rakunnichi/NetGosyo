@@ -16,15 +16,21 @@ if (isset($_POST['submit'])) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION = $row;
     $verified = $row['verified'];
+    $ifseller = $row['shopname'];
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['role'] = 'user';
 
-  if($verified == 1){
-      header('Location:index.php');
-    
-  }else{
-    $message[] = 'Please Check Your Email First To Verify your Account!';
-  }
+    if($ifseller == !null){
+      $message[] = 'The Account your trying to login is not a User Account!';
+    }else{
+      if($verified == 1){
+        header('Location:index.php');
+      
+    }else{
+      $message[] = 'Please Check Your Email First To Verify your Account!';
+    }
+    }
+
 
    
   } else {
