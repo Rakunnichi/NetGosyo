@@ -19,14 +19,12 @@ if (isset($_POST['submit'])) {
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['role'] = 'user';
 
-    if($verified == 1){
+  if($verified == 1){
       header('Location:index.php');
     
   }else{
     $message[] = 'Please Check Your Email First To Verify your Account!';
   }
-
-
 
    
   } else {
@@ -42,12 +40,22 @@ if (isset($_POST['submit2'])) {
   if (mysqli_num_rows($select) > 0) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION['user_id'] = $row['id'];
+    $ifuser = $row['shopname'];
+    $verified = $row['verified'];
     $_SESSION['role'] = 'seller';
-    header('location:Seller_Page/index.php');
 
+    if($ifuser == null){
+      $message[] = 'The Account your trying to login is not a Seller Account!';
+    }else{
 
-
-
+      if($verified == 1){
+        header('location:Seller_Page/index.php');
+      }else{
+        $message[] = 'Please Check Your Email First To Verify your Account!';
+      }
+         
+    }
+   
   } else {
     $message[] = 'Incorrect Credentials!';
   }
@@ -125,7 +133,7 @@ if (isset($_POST['submit2'])) {
 
           <input type="submit" class="btn" value="Login" name="submit2" form="frmSeller">
 
-          <p class="social-text">Don`t have an account? <a href="register.php">Register Here!
+          <p class="social-text">Don`t have an account? <a href="register-seller.php">Register Here!
           </p>
           <div class="social-media">
             <a href="https://facebook.com" target="_blank" class="social-icon">

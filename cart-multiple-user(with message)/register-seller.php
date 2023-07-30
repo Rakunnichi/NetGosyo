@@ -2,7 +2,8 @@
 
 include 'config.php';
 
-include 'controller/register_coms.php';
+include 'controller/register-seller_coms.php';
+
 
 ?>
 
@@ -56,6 +57,10 @@ include 'controller/register_coms.php';
       <div class="input-field">
         <i class="fas fa-user"></i>
         <input type="text" required placeholder="Fullname" class="form-control" name="name" autocomplete="on">
+      </div>
+      <div class="input-field">
+        <i class="fas fa-store"></i>
+        <input type="text" required placeholder="Shop Name" class="form-control" name="shopname" autocomplete="on">
       </div>
       <div class="input-field">
         <i class="fas fa-envelope"></i>

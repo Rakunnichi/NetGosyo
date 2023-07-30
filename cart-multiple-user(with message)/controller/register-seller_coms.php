@@ -11,6 +11,7 @@ require 'vendor/autoload.php';
 
 
 if (isset($_POST['submit'])) {
+    $shopname = mysqli_real_escape_string($conn, $_POST['shopname']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -31,7 +32,7 @@ if (isset($_POST['submit'])) {
     }
     
     else {
-      mysqli_query($conn, "INSERT INTO `user_form` (fullname, email, username, password, vkey) VALUES('$name', '$email', '$username', '$pass', '$vkey')") or die('query failed');
+      mysqli_query($conn, "INSERT INTO `user_form` (fullname, email, username, password, shopname, vkey) VALUES('$name', '$email', '$username', '$pass', '$shopname', '$vkey')") or die('query failed');
       $user_id = mysqli_insert_id($conn);
       mysqli_query($conn, "INSERT INTO notifications SET user_id='1', notification='A new user registered to NetGosyo. Congratulations!'");
       mysqli_query($conn, "INSERT INTO notifications SET user_id='$user_id', notification='Thank you for registering to NetGosyo. Have a happy shopping!'");
