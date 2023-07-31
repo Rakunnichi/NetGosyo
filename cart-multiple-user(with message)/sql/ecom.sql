@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2023 at 02:50 PM
+-- Generation Time: Jul 31, 2023 at 09:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -44,7 +44,8 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`id`, `user_id`, `product_id`, `seller_id`, `name`, `price`, `image`, `quantity`) VALUES
 (78, 1, 3, 7, 'Banig Bag - ZigZag', '400', '3.png', 1),
-(79, 2, 4, 7, 'I Love Tacloban Shirt', '250', '4.png', 1);
+(79, 2, 4, 7, 'I Love Tacloban Shirt', '250', '4.png', 1),
+(80, 38, 2, 8, 'Banig Bag - Rectangular', '300', '2.png', 1);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,63 @@ INSERT INTO `notifications` (`notification_id`, `user_id`, `notification`, `noti
 (33, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-20 19:53:01', '2023-07-20 19:53:01'),
 (34, 10, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-20 19:53:01', '2023-07-20 19:53:01'),
 (35, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-20 19:54:06', '2023-07-20 19:54:06'),
-(36, 11, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-20 19:54:06', '2023-07-20 19:54:06');
+(36, 11, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-20 19:54:06', '2023-07-20 19:54:06'),
+(37, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 00:46:20', '2023-07-21 00:46:20'),
+(38, 12, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 00:46:20', '2023-07-21 00:46:20'),
+(39, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 00:48:24', '2023-07-21 00:48:24'),
+(40, 13, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 00:48:24', '2023-07-21 00:48:24'),
+(41, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 00:53:11', '2023-07-21 00:53:11'),
+(42, 14, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 00:53:11', '2023-07-21 00:53:11'),
+(43, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 00:54:23', '2023-07-21 00:54:23'),
+(44, 15, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 00:54:23', '2023-07-21 00:54:23'),
+(45, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 00:56:06', '2023-07-21 00:56:06'),
+(46, 16, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 00:56:06', '2023-07-21 00:56:06'),
+(47, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 02:51:47', '2023-07-21 02:51:47'),
+(48, 17, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 02:51:47', '2023-07-21 02:51:47'),
+(49, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 02:53:04', '2023-07-21 02:53:04'),
+(50, 18, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 02:53:04', '2023-07-21 02:53:04'),
+(51, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 03:15:34', '2023-07-21 03:15:34'),
+(52, 19, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 03:15:34', '2023-07-21 03:15:34'),
+(53, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 03:18:43', '2023-07-21 03:18:43'),
+(54, 20, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 03:18:43', '2023-07-21 03:18:43'),
+(55, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 03:19:06', '2023-07-21 03:19:06'),
+(56, 21, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 03:19:06', '2023-07-21 03:19:06'),
+(57, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 13:25:34', '2023-07-21 13:25:34'),
+(58, 22, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 13:25:34', '2023-07-21 13:25:34'),
+(59, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 13:34:35', '2023-07-21 13:34:35'),
+(60, 23, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 13:34:35', '2023-07-21 13:34:35'),
+(61, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-21 13:38:17', '2023-07-21 13:38:17'),
+(62, 24, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-21 13:38:17', '2023-07-21 13:38:17'),
+(63, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 01:51:36', '2023-07-27 01:51:36'),
+(64, 25, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 01:51:36', '2023-07-27 01:51:36'),
+(65, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 01:53:11', '2023-07-27 01:53:11'),
+(66, 26, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 01:53:11', '2023-07-27 01:53:11'),
+(67, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 01:56:27', '2023-07-27 01:56:27'),
+(68, 27, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 01:56:27', '2023-07-27 01:56:27'),
+(69, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 02:58:28', '2023-07-27 02:58:28'),
+(70, 28, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 02:58:28', '2023-07-27 02:58:28'),
+(71, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 02:59:38', '2023-07-27 02:59:38'),
+(72, 29, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 02:59:38', '2023-07-27 02:59:38'),
+(73, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 03:00:40', '2023-07-27 03:00:40'),
+(74, 30, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 03:00:40', '2023-07-27 03:00:40'),
+(75, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 03:05:17', '2023-07-27 03:05:17'),
+(76, 31, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 03:05:17', '2023-07-27 03:05:17'),
+(77, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-27 03:08:04', '2023-07-27 03:08:04'),
+(78, 32, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-27 03:08:04', '2023-07-27 03:08:04'),
+(79, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-29 20:02:03', '2023-07-29 20:02:03'),
+(80, 33, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-29 20:02:03', '2023-07-29 20:02:03'),
+(81, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-29 20:26:43', '2023-07-29 20:26:43'),
+(82, 34, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-29 20:26:43', '2023-07-29 20:26:43'),
+(83, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-29 23:01:52', '2023-07-29 23:01:52'),
+(84, 35, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-29 23:01:52', '2023-07-29 23:01:52'),
+(85, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:19:52', '2023-07-30 18:19:52'),
+(86, 36, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:19:52', '2023-07-30 18:19:52'),
+(87, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:23:52', '2023-07-30 18:23:52'),
+(88, 37, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:23:52', '2023-07-30 18:23:52'),
+(89, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:29:29', '2023-07-30 18:29:29'),
+(90, 38, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:29:29', '2023-07-30 18:29:29'),
+(91, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:58:32', '2023-07-30 18:58:32'),
+(92, 39, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:58:32', '2023-07-30 18:58:32');
 
 -- --------------------------------------------------------
 
@@ -257,32 +314,36 @@ INSERT INTO `products` (`id`, `user_id`, `name`, `price`, `image`, `item_brand`,
 
 CREATE TABLE `user_form` (
   `id` int(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `fullname` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `fullname` varchar(255) NOT NULL,
   `phonenumber` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `dateofbirth` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL
+  `image` varchar(255) NOT NULL,
+  `shopname` varchar(250) NOT NULL,
+  `vkey` varchar(50) NOT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT 0,
+  `register_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user_form`
 --
 
-INSERT INTO `user_form` (`id`, `name`, `email`, `username`, `password`, `fullname`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`) VALUES
-(1, 'Earl Cartney Centino', 'izukumidoriya032@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_1879505811.jpg'),
-(2, 'Kuya Ey', 'centinoearlcartney@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', 'Tacloban City', '', '', ''),
-(3, 'dummy', 'dummy@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', ''),
-(4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', ''),
-(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', 'Test', '09150125941', 'Tacloban City', '1994-07-30', 'test', ''),
-(6, 'try', 'try@try.com', '', '080f651e3fcca17df3a47c2cecfcb880', '', '', '', '', '', ''),
-(7, 'Earl Cartney Centino', 'seller@gmail.com', 'Seller101', '81dc9bdb52d04dc20036dbd8313ed055', 'Earl Cartney Norombaba Centino', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1879505811.jpg'),
-(8, 'Seller2', 'seller2@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', ''),
-(11, 'Andrew Afable Agda', 'anrew@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '');
+INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`, `shopname`, `vkey`, `verified`, `register_date`) VALUES
+(1, 'Earl Cartney Centino', 'izukumidoriya032@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_924862043.JPG', '', '', 1, '2023-07-29 14:39:16'),
+(2, 'Kuya Ey', 'centinoearl@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', 'Tacloban City', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
+(3, 'dummy', 'dummy@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
+(4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
+(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'test', '', '', '', 0, '2023-07-20 18:40:36'),
+(6, 'try', 'try@try.com', '', '080f651e3fcca17df3a47c2cecfcb880', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
+(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'ukayukays', '', 1, '2023-07-30 10:44:08'),
+(8, 'Seller2', 'seller2@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
+(38, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'San Jose Tacloban City', '2023-07-19', 'Male', 'profile_1688312480.jpg', '', 'dace671a97ec2ca4d3bfb1ef53fef858', 1, '2023-07-30 10:34:54'),
+(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-07-30 11:01:55');
 
 --
 -- Indexes for dumped tables
@@ -344,7 +405,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `convo`
@@ -368,7 +429,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -386,7 +447,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `user_form`
 --
 ALTER TABLE `user_form`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
