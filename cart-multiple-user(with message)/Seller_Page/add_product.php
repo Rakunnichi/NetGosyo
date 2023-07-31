@@ -26,106 +26,64 @@
         </div>
     </nav>
 
-    
     <div class="container-fluid py-4">
-    <form action="" method="post" enctype='multipart/form-data'>
-            <div class="mt-2">
 
-                <div class="row">
-                    <div class="col-4 color_left">
-                        <div class="p-5 py-5">
-                            <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
-                                <h4 class="text-right"></h4>
-                            </div>
-                            <div class="d-flex flex-column align-items-center text-center p-1 py-6">
-                                <div style="max-width:90px">
+        <div class="content-wrapper">
 
-                                    <img src="assets/img/logo.png" class="img-fluid">
+            <div class="row mb-2">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Add New Product</h5>
 
-
-                                </div>
-
-                                <div class="form-group">
-                                    <br>
-                                    <label>Add Image &#8595;</label>
-                                    <input class="form-control border-styling" type="file" name="image" style="width:100%;">
-                                    <br>
-                                    <label>File size: maximum 10 MB</label>
-                                    <label>File extension: .JPEG, .PNG, .JPG</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row col-6 border-right pr-0">
-
-                        <div class="p-5 py-5">
-                            <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
-                                <h4 class="text-right" style="font-size: 30px;">Add New Product</h4>
-                            </div>
-                            <div class="row mt-2 border-top">
+                            <form action="" method="post" enctype='multipart/form-data'>
                                 <input type="hidden" name="user_id" value="">
-
-                                <div class="mt-3 col-md-6"><label class="labels" style="font-size: 17px;">Full
-                                        Name</label>
-                                    <input type="text" name="fullname" placeholder="Enter your fullname"
-                                        class="form-control" value="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-outline my-3">
+                                            <input type="text" name="prodname" placeholder="Product Name"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-outline my-3">
+                                            <input type="text" name="prodprice" placeholder="Product Price"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-outline my-3">
+                                            <input type="number" name="prodquantity" placeholder="Product Quantity"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group input-group-outline my-3">
+                                            <select class="form-control" name="category" id="category">
+                                                <option selected="">Choose a Category</option>
+                                                <option value="Banig">Banig</option>
+                                                <option value="Clothes">Clothes</option>
+                                                <option value="Food">Food</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
-                                <div class="mt-3 col-md-6"><label class="labels"
-                                        style="font-size: 17px;">Username</label>
-                                    <input type="text" name="username" placeholder="Enter your username"
-                                        class="form-control" value="">
-                                </div>
+                                <button class="btn btn-icon btn-3 button-update" type="button">
+                                    <span class="btn-inner--icon"><i class="material-icons">add_circle</i></span>
+                                    <span class="btn-inner--text">Add Product</span>
+                                </button>
+                            </form>
 
-                                <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Email
-                                        Address</label>
-                                    <input type="text" name="emails" placeholder="Enter your email address"
-                                        class="form-control" value="">
-                                </div>
 
-                                <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Mobile
-                                        Number</label>
-                                    <input type="text" name="number" placeholder="Enter your mobile number"
-                                        class="form-control" value="">
-                                </div>
-
-                                <div class="mt-2 col-md-6"><label class="labels"
-                                        style="font-size: 17px;">Address</label>
-                                    <input type="text" name="address" placeholder="Enter your address"
-                                        class="form-control" value="">
-                                </div>
-
-                                <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Date of
-                                        Birth</label>
-                                    <input type="date" name="datebirth" class="form-control" value="">
-                                </div>
-
-                                <div class="mt-2 mb-4 col-md-6"><label class="labels"
-                                        style="font-size: 17px;">Gender</label>
-                                    <select name="Gender" class="custom-select" id="gender">
-                                        <option selected></option>
-
-                                        <option value="Female">Female</option>
-
-                                        <option value="Male">Male</option>
-
-                                    </select>
-
-                                </div>
-                            </div>
-                            <input type="submit" value="Update" name="update_user" class="btn btn-warning">
                         </div>
                     </div>
-    </form>
-       
+                </div>
+            </div>
+        </div>
 
-
-
-
-
-
-
-  <?php
+        <?php
   include('footer.php');
   ?>
