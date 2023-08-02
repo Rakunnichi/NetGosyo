@@ -2749,10 +2749,8 @@ progress {
 }
 
 .form-control:focus {
-  color: #495057;
+  color: #848484;
   background-color: transparent;
-  border-color: transparent;
-  outline: 0;
   box-shadow: none;
 }
 
@@ -22659,7 +22657,7 @@ label,
 }
 
 .form-control {
-  border: none;
+ border: groove;
 }
 
 .form-control.is-invalid {
