@@ -69,14 +69,16 @@ button, button:focus {
     background: #ff8989;
 }
 .color-orange-bg {
-    background: #E6873C;
+    background: #E6873C !important;;
 }
 .color-orange-button {
     background-color: #E6873C;
 }
 .text-orange{
-    color: #E6873C;
+    color: #E6873C !important;
 }
+
+
 .text-grey{
     color: #333333;
 }
@@ -299,88 +301,432 @@ h5{
    font-weight: bold;
 }
 
+/*   For Ratings */
+
+.progress-label-left
+{
+    float: left;
+    margin-right: 0.5em;
+    line-height: 1em;
+}
+.progress-label-right
+{
+    float: right;
+    margin-left: 0.3em;
+    line-height: 1em;
+}
+.star-light
+{
+	color:#e9ecef;
+}
 
 
-/* .testimonials{
-    padding:1em 0em;
-    background: #262424;
-    background: -webkit-linear-gradient(to right, #7c8283, #313138);
-    background: linear-gradient(to right, #737b7d, #575761);
-}
-.shadow-effect{
-    background:#fff;
-    padding:20px;
-    border-radius: 5px;
-    text-align: center;
-    border:1px solid #ececec;
-    box-shadow: 0 19px 38px rgba(255,255,255,0.08), 0 15px 12px rgba(255,255,255,0.08);
-} 
-#customers-testimonials .shadow-effect p{
-    font-family: inherit;
-    font-size: 17px;
-    line-height: 1.5;
-    margin:0 0 17px 0;
-    font-weight:300;
-}
-.testimonial-name{
-    margin:-17px auto 0;
-    display: table;
-    width:auto;
-    background:#E6873C;
-    padding:9px 35px;
-    border-radius: 12px;
-    text-align: center;
-    color:#fff;
-    box-shadow: 0 9px 18px rgba(0,0,0,0.12), 0 5px 7px rgba(0,0,0,0.05);
-}
-#customers-testimonials .item{
-    text-align: center;
-    padding:50px;
-    margin-bottom: 20px;
-    opacity: 0.2;
-    -webkit-transform: scale3d(0.8,0.8,1);
-    transform: scale3d(0.8,0.8,1);
-    -webkit-transition:all 0.3s ease-in-out;
-    -moz-transition:all 0.3s ease-in-out;
-    transition:all 0.3s ease-in-out;
-}
-#customers-testimonials .owl-item.active.center .item{
-    opacity: 1;
-    -webkit-transform: scale3d(1,1,1);
-    transform: scale3d(1,1,1);
-}
-.owl-carousel .owl-item img{
-    max-width:150px;
-    margin: 0 auto 17px;
-    border-radius: 6px;
-}
+/*   For Categories */
 
-#customers-testimonials.owl-carousel .owl-dots .owl-dot.active span,
-#customers-testimonials.owl-carousel .owl-dots .owl-dot:hover span{
-    background-color:#E6873C;
-    transform:translate3d(0px, -50%, 0px) scale(0.7);
-}
-#customers-testimonials.owl-carousel .owl-dots{
-    display: inline-block;
-    width:100%;
-    text-align:center;
-}
+.category{
+    padding-top: 20px;
+    padding-bottom: 40px;
 
-#customers-testimonials.owl-carousel .owl-dots .owl-dot{
-    display: inline-block;
 }
-
-#customers-testimonials.owl-carousel .owl-dots .owl-dot span{
+.category_text{
     background: #E6873C;
-    display: inline-block;
-    height:20px;
-    margin:0 2px 5px;
-    transform:translate3d(0px, -50%, 0px) scale(0.3);
-    transform-origin: 50% 50% 0;
-    transition: all 250ms ease-out 0s;
-    width:20px;
+    color: rgb(255, 255, 255);   
+    padding: 5px;
+    
+}
+.category_name {
+    font-size: 14px;
+    font-weight: bold;
 }
 
-  
+.gadgets {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none; 
+}
+.gadgets:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.women-apparel {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.women-apparel:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.men-apparel {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.men-apparel:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.delicacies {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc;
+    color: black;
+    text-decoration:none; 
+    color: black;
+    text-decoration:none;  
+}
+.delicacies:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.women-bags {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.women-bags:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.women-accessories {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.women-accessories:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.men-bags {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.men-bags:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.makeup {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.makeup:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.furniture {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.furniture:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.home-living {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.home-living:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.souvenir {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.souvenir:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.men-shoes {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.men-shoes:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.women-shoes {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.women-shoes:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.babies {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.babies:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.lingerie {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.lingerie:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.toys {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.toys:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.pottery {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
+.pottery:hover{
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    background: #E6873C;  
+    color: rgb(255, 255, 255);
+    text-decoration:none; 
+}
+.sports {
+    height: 90px;
+    width: 150px;
+    margin: 2px 2px 2px 2px;
+    overflow: hidden;
+    border: none;
+    border-radius: 5px;   
+    background: #b8e8fc; 
+    color: black;
+    text-decoration:none;  
+}
 
- */
+
+/*   For Services */
+
+.services .icon-box {
+    box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
+    padding: 50px 30px;
+    transition: all ease-in-out 0.4s;
+    background: #fff;
+  }
+  
+  .services .icon-box .icon {
+    margin-bottom: 10px;
+  }
+  
+  .services .icon-box .icon i {
+    color: #E6873C;
+    font-size: 36px;
+    transition: 0.3s;
+  }
+  
+  .services .icon-box h4 {
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  .services .icon-box h4 a {
+    color: #E6873C;
+    transition: ease-in-out 0.3s;
+  }
+  
+  .services .icon-box p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .services .icon-box:hover {
+    transform: translateY(-10px);
+   
+  }
+  
+  .services .icon-box:hover h4 a {
+    color: #080808;
+    text-decoration: none;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #080808;
+  }
+
+ #services {
+    padding: 60px 0;
+    overflow: hidden;
+  }
+  
+  .section-bg {
+    background-color: #f3f5fa;
+  }
+  
+  .section-title {
+    text-align: center;
+    padding-bottom: 30px;
+  }
+  

@@ -3,16 +3,18 @@ include 'config.php';
 
 session_start();
 
-// if (!isset($_SESSION['user_id'])) {
-//   header('location:login.php');
-// }
-
 $user_id = $_SESSION['user_id'] ?? '3';
 $notifications = mysqli_query($conn, "SELECT * FROM notifications WHERE user_id='$user_id' ORDER BY notification_added DESC");
 
-// if (!isset($user_id)) {
-//   header('location:index.php');
-// };
+
+$sql = "SELECT * FROM user_form WHERE id=$user_id";
+$select_review = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($select_review) > 0) {
+  $row = mysqli_fetch_assoc($select_review);
+  $reviewer_name = $row["username"];
+ 
+}
 
 if (isset($_GET['logout'])) {
   unset($user_id);
@@ -27,7 +29,7 @@ if (isset($_POST['add_to_cart'])) {
     
 }else{
   $product_id = $_POST['product_id'];
-  $seller_id = $_POST['seller_id'];
+ 
   $product_name = $_POST['product_name'];
   $product_price = $_POST['product_price'];
   $product_image = $_POST['product_image'];
@@ -39,8 +41,8 @@ if (isset($_POST['add_to_cart'])) {
   if (mysqli_num_rows($select_cart) > 0) {
     $message[] = 'Product Already in Cart!';
   } else {
-    mysqli_query($conn, "INSERT INTO `cart` (user_id, product_id,seller_id, name, price, image, quantity) VALUES
-        ('$user_id', '$product_id','$seller_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
+    mysqli_query($conn, "INSERT INTO `cart` (user_id, product_id, name, price, image, quantity) VALUES
+        ('$user_id', '$product_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
     $message[] = 'Product Added to Cart!';
   }
 }
@@ -164,12 +166,19 @@ if (isset($_POST['compose'])) {
   <meta charset="UTF-8">
   <meta name="author" content="Sahil Kumar">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>NetGosyo Project</title>
   <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
   <!--Bootstrap CDN-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
   <!-- Owl-carousel CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
@@ -184,6 +193,9 @@ if (isset($_POST['compose'])) {
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' />
+  
+
+ 
 
   <style>
     .btn-warning {
@@ -331,23 +343,21 @@ if (isset($message)) {
                 <a class="nav-link" href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">All Categories</a>
+                <a class="nav-link" href="categories.php">All Categories</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">View Shops</a>
+                <a class="nav-link" href="view-shops.php">View Shops</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">Top Products</a>
+                <a class="nav-link" href="view-top-products.php">Top Products</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">Special Offers</a>
+                <a class="nav-link" href="view-special-offers.php">Special Offers</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.php">New Arrivals</a>
+                <a class="nav-link" href="view-new-arrivals.php">New Arrivals</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">Latest News</a>
-              </li>
+              
           
               <!-- <li class="nav-item">
                 <a class="nav-link" href="orders.php">Orders</a>

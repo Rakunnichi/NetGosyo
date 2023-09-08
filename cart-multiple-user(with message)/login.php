@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['role'] = 'user';
 
-    if($ifseller == !null){
+    if($ifseller != 'user'){
       $message[] = 'The Account your trying to login is not a User Account!';
     }else{
       if($verified == 1){
@@ -49,16 +49,17 @@ if (isset($_POST['submit2'])) {
     $ifuser = $row['shopname'];
     $verified = $row['verified'];
     $_SESSION['role'] = 'seller';
-
-    if($ifuser == null){
-      $message[] = 'The Account your trying to login is not a Seller Account!';
-    }else{
-
+   
+    if($ifuser != 'user'){
+     
       if($verified == 1){
         header('location:Seller_Page/index.php');
       }else{
         $message[] = 'Please Check Your Email First To Verify your Account!';
       }
+    }else if($ifuser == 'user'){
+
+      $message[] = 'The Account your trying to login is not a Seller Account!';
          
     }
    
@@ -86,7 +87,7 @@ if (isset($_POST['submit2'])) {
   <?php
   if (isset($message)) {
     foreach ($message as $message) {
-      echo '<div class="message" onclick="this.remove();" style="text-align:center;background:#333;color:white">' . $message . '</div>';
+      echo '<div class="message" href="login.php" onclick="this.remove();" style="text-align:center;background:#333;color:white">' . $message . '</div>';
     }
   }
   ?>
@@ -94,6 +95,7 @@ if (isset($_POST['submit2'])) {
   <div class="container">
 
     <div class="forms-container">
+     
       <div class="signin-signup">
         <form action="" class="sign-in-form" method="post" id="frmUser">
           <h2 class="title">User Login</h2>

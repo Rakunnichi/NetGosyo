@@ -1,8 +1,8 @@
 <!-- Top Products -->
 <section id="top-products">
-  <div class="container py-5">
+  <div class="container py-2">
     <div id="message"></div>
-    <h4 class="font-rubik font-size-20"><b>Top Products</b></h4>
+    <h4 class="font-rubik font-size-20"><b>All Products</b></h4>
 
     <hr>
     <!-- Owl-carousel -->

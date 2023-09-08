@@ -17,7 +17,7 @@
                             <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>"><img src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="product1" class="img-fluid"></a>
                             <div class="text-center">
                                 <h6><b><?php echo $fetch_product['name'] ?? '0';?></b></h6>
-                                <div class="rating text-warning font-size-12">
+                                <div class="rating text-orange font-size-12">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>

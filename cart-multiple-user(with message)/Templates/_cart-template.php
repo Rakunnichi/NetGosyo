@@ -23,7 +23,7 @@
                 <small>by <?php echo $fetch_cart['item_brand'] ?? "Brand"; ?></small>
                 <!-- Product Ratings -->
                 <div class="d-flex mb-3">
-                  <div class="rating text-warning font-size-12">
+                  <div class="rating text-orange  font-size-12">
                     <span><i class="fas fa-star"></i></span>
                     <span><i class="fas fa-star"></i></span>
                     <span><i class="fas fa-star"></i></span>
