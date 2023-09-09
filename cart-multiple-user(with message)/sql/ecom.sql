@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2023 at 09:57 AM
+-- Generation Time: Sep 09, 2023 at 12:07 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,7 +45,23 @@ CREATE TABLE `cart` (
 INSERT INTO `cart` (`id`, `user_id`, `product_id`, `seller_id`, `name`, `price`, `image`, `quantity`) VALUES
 (78, 1, 3, 7, 'Banig Bag - ZigZag', '400', '3.png', 1),
 (79, 2, 4, 7, 'I Love Tacloban Shirt', '250', '4.png', 1),
-(80, 38, 2, 8, 'Banig Bag - Rectangular', '300', '2.png', 1);
+(80, 38, 2, 8, 'Banig Bag - Rectangular', '300', '2.png', 1),
+(83, 1, 2, 0, 'Banig Bag - Rectangular', '300', '2.png', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `keywords` varchar(250) NOT NULL,
+  `slug` varchar(250) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `dateadded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -244,7 +260,9 @@ INSERT INTO `notifications` (`notification_id`, `user_id`, `notification`, `noti
 (89, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:29:29', '2023-07-30 18:29:29'),
 (90, 38, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:29:29', '2023-07-30 18:29:29'),
 (91, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-07-30 18:58:32', '2023-07-30 18:58:32'),
-(92, 39, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:58:32', '2023-07-30 18:58:32');
+(92, 39, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-07-30 18:58:32', '2023-07-30 18:58:32'),
+(93, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-08-03 16:10:04', '2023-08-03 16:10:04'),
+(94, 40, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-08-03 16:10:04', '2023-08-03 16:10:04');
 
 -- --------------------------------------------------------
 
@@ -304,7 +322,41 @@ INSERT INTO `products` (`id`, `user_id`, `name`, `price`, `image`, `item_brand`,
 (5, 7, 'Baybayin Jacket', '400', '5.png', 'Clothes', 60, '2023-07-09 17:22:13'),
 (6, 7, 'Baybayin Taktop', '134', '6.png', 'Clothes', 60, '2023-07-09 17:22:33'),
 (7, 7, 'Leyte`s Special Binagol', '150', '7.png', 'Foods', 200, '2023-07-09 17:22:44'),
-(8, 7, 'Leyte`s Chocolate Moron', '45', '8.png', 'Foods', 211, '2023-07-09 17:22:57');
+(8, 7, 'Leyte`s Chocolate Moron', '45', '8.png', 'Foods', 211, '2023-07-09 17:22:57'),
+(9, 7, 'Samsung Galaxy', '500', '1690791628-12.png', 'Gadget', 23, '2023-07-31 08:20:28');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review_table`
+--
+
+CREATE TABLE `review_table` (
+  `review_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `user_name` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+  `user_rating` int(1) NOT NULL,
+  `user_review` text CHARACTER SET utf8mb4 NOT NULL,
+  `datetime` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `review_table`
+--
+
+INSERT INTO `review_table` (`review_id`, `product_id`, `user_name`, `user_rating`, `user_review`, `datetime`) VALUES
+(1, 1, 'Earl Cartney', 4, 'Good Product', 1693636467),
+(2, 1, 'James ', 5, 'Bad Product', 1693636534),
+(3, 0, 'Asoy', 3, 'Meh', 1693636660),
+(4, 0, 'Andrew', 1, 'Scam', 1693636724),
+(5, 0, 'Kennan', 1, 'ew', 1693636819),
+(6, 0, 'Joey', 5, 'Great Product', 1693636919),
+(7, 0, 'Theresa', 3, 'Okay', 1693638755),
+(8, 0, 'Earl Cartney', 3, 'asdadads', 1693638802),
+(9, 0, 'Coline', 4, 'Nice Product ', 1693653937),
+(10, 0, 'Earl Cartney Centino', 4, 'Sample Review Readonly', 1693654404),
+(11, 0, 'Rakunnichi', 2, 'Hey Hey Hey', 1693721304),
+(12, 5, 'Rakunnichi', 2, 'Not true to size', 1693742995);
 
 -- --------------------------------------------------------
 
@@ -323,7 +375,7 @@ CREATE TABLE `user_form` (
   `dateofbirth` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `shopname` varchar(250) NOT NULL,
+  `shopname` varchar(250) NOT NULL DEFAULT 'user',
   `vkey` varchar(50) NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
   `register_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -334,16 +386,15 @@ CREATE TABLE `user_form` (
 --
 
 INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`, `shopname`, `vkey`, `verified`, `register_date`) VALUES
-(1, 'Earl Cartney Centino', 'izukumidoriya032@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_924862043.JPG', '', '', 1, '2023-07-29 14:39:16'),
-(2, 'Kuya Ey', 'centinoearl@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', 'Tacloban City', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
-(3, 'dummy', 'dummy@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
-(4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
-(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'test', '', '', '', 0, '2023-07-20 18:40:36'),
-(6, 'try', 'try@try.com', '', '080f651e3fcca17df3a47c2cecfcb880', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
-(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'ukayukays', '', 1, '2023-07-30 10:44:08'),
-(8, 'Seller2', 'seller2@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', '', '', 0, '2023-07-20 18:40:36'),
-(38, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'San Jose Tacloban City', '2023-07-19', 'Male', 'profile_1688312480.jpg', '', 'dace671a97ec2ca4d3bfb1ef53fef858', 1, '2023-07-30 10:34:54'),
-(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-07-30 11:01:55');
+(1, 'Earl Cartney Centino', 'izukumidoriya032@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_924862043.JPG', 'user', '', 1, '2023-08-03 08:02:49'),
+(2, 'Kuya Ey', 'centinoearl@gmail.com', 'Joey', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-09-02 11:47:44'),
+(3, 'dummy', 'dummy@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', '', 0, '2023-08-03 08:07:16'),
+(4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', '', 0, '2023-08-03 08:07:31'),
+(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'test', '', 'user', '', 0, '2023-08-03 08:32:01'),
+(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-09-05 13:14:02'),
+(8, 'Seller2', 'seller2@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Master Store', '', 0, '2023-08-03 08:35:34'),
+(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-07-30 11:01:55'),
+(40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-08-03 08:10:04');
 
 --
 -- Indexes for dumped tables
@@ -354,6 +405,12 @@ INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `pho
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
 
 --
 -- Indexes for table `convo`
@@ -392,6 +449,12 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `review_table`
+--
+ALTER TABLE `review_table`
+  ADD PRIMARY KEY (`review_id`);
+
+--
 -- Indexes for table `user_form`
 --
 ALTER TABLE `user_form`
@@ -405,7 +468,13 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `convo`
@@ -429,7 +498,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -441,13 +510,19 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `review_table`
+--
+ALTER TABLE `review_table`
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_form`
 --
 ALTER TABLE `user_form`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
