@@ -163,59 +163,68 @@ if (isset($_POST['compose'])) {
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Sahil Kumar">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>NetGosyo Project</title>
-  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="author" content="Sahil Kumar">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!--Bootstrap CDN-->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NetGosyo Project</title>
+    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Owl-carousel CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
 
-  <!-- font awesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <!-- Owl-carousel CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
 
-  <!-- CSS File -->
-  <link rel="stylesheet" href="css/style-header.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' />
-  
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
- 
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/style-header.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' />
 
-  <style>
+
+
+
+    <style>
     .btn-warning {
-      background-color: #e6873c !important;
-      color: #fff;
-      border-color: #e6873c !important;
+        background-color: #e6873c !important;
+        color: #fff;
+        border-color: #e6873c !important;
     }
 
     .btn-warning {
-      color: #fff !important
+        color: #fff !important
     }
 
     .row {
-      align-items: flex-start;
+        align-items: flex-start;
     }
 
     .color_left {
-      min-height: 620px !important;
+        min-height: 620px !important;
     }
-  </style>
+    </style>
 </head>
 
 <?php
@@ -228,138 +237,160 @@ if (isset($message)) {
 
 <body>
 
-  <!-- Navbar start -->
-  <div class="main-navbar shadow-sm sticky-top">
-    <div class="top-navbar">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-2 my-auto d-none d-sm-none d-md-block d-lg-block">
-            <h2 class="brand-name">NetGosyo</h2>
-          </div>
-          <div class="col-md-5 my-auto">
-            <form role="search" method="GET" action="category-page.php">
-              <div class="input-group">
-                <input type="text" name="search" placeholder="Search Products" class="form-control" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
-                <div class="input-group-append">
-                  <button class="btn border text-white" type="submit">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-5 my-auto">
-            <ul class="nav justify-content-end">
+    <!-- Navbar start -->
+    <div class="main-navbar shadow-sm sticky-top">
+        <div class="top-navbar">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="brand-name ml-4" href="index.php">NetGosyo</a>
+                    </div>
 
-            <?php if($user_id == 3){?>
-                           
-            <?php }else{
+                    <div class="col-md-4 my-auto">
+                        <!-- <form role="search" method="GET" action="category-page.php">
+                            <div class="searchBox">
+                                <input class="searchInput" type="text" name="search" placeholder="Search Products"
+                                    value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                                <button class="searchButton" href="#">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form> -->
+                        <form role="search" method="GET" action="category-page.php">
+                            <div class="input-group">
+                                <input type="text" name="search" placeholder="Search Products" class="form-control"
+                                    value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
+                                <div class="input-group-append">
+                                    <button class="btn border text-white" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 my-auto">
+                        <ul class="nav justify-content-end">
+
+                            <?php if($user_id == 3){?>
+
+                            <?php }else{
             ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="cart-main.php">
-                    <i class="fa fa-shopping-cart"></i> Cart <span id="cart-item" class="badge badge-success"></span>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="checkout.php">
-                    <i class="fas fa-money-check-alt"></i> Checkout</a>
-                  </a>
-                </li>
-                  
-                <?php }
+                            <li class="nav-item">
+                                <a class="nav-link" href="cart-main.php">
+                                    <i class="fa fa-shopping-cart"></i> Cart <span id="cart-item"
+                                        class="badge badge-success"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="checkout.php">
+                                    <i class="fas fa-money-check-alt"></i> Checkout</a>
+                                </a>
+                            </li>
+
+                            <?php }
                 ?>
 
-              <li class="nav-item">
-                <a class="nav-link" href="about-us.php">
-                  <i class="fa-sharp fa-solid fa-circle-question"></i> About us</a>
-              </li>
-              <div class="user-profile">
+                            
+                            <div class="user-profile">
 
-                <?php
+                                <?php
                 $select_user = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id' ") or die('query failed!');
                 if (mysqli_num_rows($select_user) > 0) {
                   $fetch_user = mysqli_fetch_assoc($select_user);
                 };
                 ?>
 
-                 
-                <?php if($user_id == 3){
+
+                                <?php if($user_id == 3){
                   ?>
-                   <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                <i class="fa fa-user"></i></a>
+                                        <i class="fa fa-user"></i></a>
 
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="login.php"><i class="fa fa-sign-in"></i>Sign In</a></li>
-                                </ul>
-                            </li>        
-                            <?php
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="login.php"><i class="fa fa-sign-in"></i>Sign
+                                                In</a></li>
+                                    </ul>
+                                </li>
+                                <?php
                     }else{
                         ?>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                    <i class="fa fa-user"></i> <?php echo $fetch_user['username']; ?></a>
+                                        <i class="fa fa-user"></i> <?php echo $fetch_user['username']; ?></a>
 
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                   
-                      <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
-                      <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Purchases</a></li>
-                      <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
-                      <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li>
-                      <li><a class="dropdown-item" href="user-changepass.php"><i class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
-                
-                      <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                                        <li><a class="dropdown-item" href="user.php"><i
+                                                    class="fa fa-user text-dark mr-1"></i> Profile</a></li>
+                                        <li><a class="dropdown-item" href="orders.php"><i
+                                                    class="fa fa-cart-shopping text-dark mr-1"></i> Purchases</a></li>
+                                        <li><a class="dropdown-item" href="messages.php"><i
+                                                    class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
+                                        <li><a class="dropdown-item" href="notifications.php"><i
+                                                    class="fa fa-bell text-dark mr-1"></i> Notifications <span
+                                                    class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="user-changepass.php"><i
+                                                    class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
+
+                                        <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
                       <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
                       <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
                       <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
-                  
-                    <li><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
-                  </ul>
-                </li>
-                <?php
+
+                                        <li><a class="dropdown-item" href="logout.php"><i
+                                                    class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
+                                    </ul>
+                                </li>
+                                <?php
                     }
-                    ?>      
+                    ?>
 
-            </ul>
-          </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none px-4">
-          NetGosyo
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none px-4">
+                    NetGosyo
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-         
-              <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="categories.php">All Categories</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="view-shops.php">View Shops</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="view-top-products.php">Top Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="view-special-offers.php">Special Offers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="view-new-arrivals.php">New Arrivals</a>
-              </li>
-              
-          
-              <!-- <li class="nav-item">
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories.php">All Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-shops.php">View Shops</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-top-products.php">Top Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-special-offers.php">Special Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-new-arrivals.php">New Arrivals</a>
+                        </li>
+
+
+                        <!-- <li class="nav-item">
                 <a class="nav-link" href="orders.php">Orders</a>
               </li>
               <li class="nav-item">
@@ -368,11 +399,11 @@ if (isset($message)) {
               <li class="nav-item">
                 <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
               </li> -->
-           
-          </ul>
-        </div>
 
-      </div>
-    </nav>
-  </div>
-  <!-- Navbar end -->
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar end -->

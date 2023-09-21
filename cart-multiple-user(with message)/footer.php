@@ -23,7 +23,7 @@
             <div class="col-lg-2 col-12">
                 <h4 class="font-rubik font-size-20">Information</h4>
                 <div class="d-flex flex-column flex-wrap">
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">About Us</a>
+                    <a href="about-us.php" class="font-rale font-size-14 text-white-50 pb-1">About Us</a>
                     <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Delivery Information</a>
                     <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Privacy Policy</a>
                     <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Terms & Conditions</a>

@@ -5,10 +5,10 @@
             <img src="assets/Banners/Banner1.png" alt="Banner1">
         </div>
         <div class="item">
-            <img src="assets/Banners/Banner1.png" alt="Banner2">
+            <img src="assets/Banners/Banner2.png" alt="Banner2">
         </div>
         <div class="item">
-            <img src="assets/Banners/Banner1.png" alt="Banner3">
+            <img src="assets/Banners/Banner3.png" alt="Banner3">
         </div>
     </div>
 </section>
