@@ -5,17 +5,17 @@
         </div>
         <div class="row">
             <div class="col-md-2">
-                <a href="gadgets.html" class="gadgets">
+                <a href="./view-gadgets.php" class="gadgets">
                     <div class="gadgets p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
-                            <div class="flex-column lh-1 category_name"> <span>Mobile</span> <span>Phones</span> </div>
+                            <div class="flex-column lh-1 category_name"> <span>Gadgets</span></div>
                             <div> <img src="assets/categories/gadgets.png" height="70" width="70" /> </div>
                         </div>
                     </div>
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="women-apparel.html" class="women-apparel">
+                <a href="./view-womens-apparel.php" class="women-apparel" >
                     <div class="women-apparel p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Women's</span> <span>Apparel</span>
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="men-apparel.html" class="men-apparel">
+                <a href="./view-mens-apparel.php" class="men-apparel">
                     <div class="men-apparel p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Men's</span> <span>Apparel</span> </div>
@@ -36,7 +36,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="women-accessories.html" class="women-accessories">
+                <a href="./view-womens-accesories.php" class="women-accessories">
                     <div class="women-accessories p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Women's</span> <span>Accessories</span>
@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="men-bags.html" class="men-bags">
+                <a href="./view-mens-accesories.php" class="men-bags">
                     <div class="men-bags p-2">
                         <div class="d-flex justify-content-between align-items-center p-2">
                             <div class="flex-column lh-1 category_name"> <span>Men's</span> <span>Bags &
@@ -58,7 +58,7 @@
                 </a>
             </div>
             <div class="col-md-2 ">
-                <a href="makeup.html" class="makeup">
+                <a href="./view-makeup-fragrance.php" class="makeup">
                     <div class="makeup p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Makeup and</span> <span>Fragrance</span>
@@ -69,7 +69,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="women-bags.html" class="women-bags">
+                <a href="./view-womens-bags.php" class="women-bags">
                     <div class="women-bags p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Women's</span> <span>Bag</span> </div>
@@ -79,7 +79,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="home-living.html" class="home-living">
+                <a href="./view-home-living.php" class="home-living">
                     <div class="home-living p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Home &</span> <span>Living</span> </div>
@@ -89,7 +89,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="furniture.html" class="furniture">
+                <a href="./view-furnitures.php" class="furniture">
                     <div class="furniture p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Furniture</span> </div>
@@ -99,7 +99,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="souvenir.html" class="souvenir">
+                <a href="./view-souvenirs.php" class="souvenir">
                     <div class="souvenir p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Souvenirs</span></div>
@@ -109,7 +109,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="delicacies.html" class="delicacies">
+                <a href="./view-delicacies.php" class="delicacies">
                     <div class="delicacies p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"><span>Delicacies</span></div>
@@ -119,7 +119,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="men-shoes.html" class="men-shoes">
+                <a href="./view-mens-shoes.php" class="men-shoes">
                     <div class="men-shoes p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Men's</span> <span>Shoes</span> </div>
@@ -129,7 +129,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="women-shoes.html" class="women-shoes">
+                <a href="./view-womens-shoes.php" class="women-shoes">
                     <div class="women-shoes p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Women's</span> <span>Shoes</span> </div>
@@ -139,7 +139,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="sports.html" class="sports">
+                <a href="./view-sports-travel.php" class="sports">
                     <div class="sports  p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Sports &</span> <span>Travel</span>
@@ -150,7 +150,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="toys.html" class="toys">
+                <a href="./view-toys.php" class="toys">
                     <div class="toys p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Toys</span></div>
@@ -160,7 +160,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="lingerie.html" class="lingerie">
+                <a href="./view-lingerie.php" class="lingerie">
                     <div class="lingerie p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Lingerie &</span> <span>Loungewear</span>
@@ -171,7 +171,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="pottery.html" class="pottery">
+                <a href="./view-pottery.php" class="pottery">
                     <div class="pottery p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Pottery</span></div>
@@ -181,7 +181,7 @@
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="babies.html" class="babies">
+                <a href="./view-babies.php" class="babies">
                     <div class="babies p-2">
                         <div class="d-flex justify-content-between align-items-center p-1">
                             <div class="flex-column lh-1 category_name"> <span>Babies &</span> <span>Kids</span> </div>

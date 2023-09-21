@@ -97,10 +97,23 @@
                                         <div class="input-group input-group-outline my-3">
                                             <select class="form-control" name="category" id="category">
                                                 <option selected="">Choose a Category</option>
-                                                <option value="Banig">Banig</option>
-                                                <option value="Clothes">Clothes</option>
-                                                <option value="Food">Food</option>
                                                 <option value="Gadget">Gadgets</option>
+                                                <option value="Women-Apparel">Women-Apparel</option>
+                                                <option value="Men-Apparel">Men-Apparel</option>
+                                                <option value="Men-Bag-Accesories">Men-Bag-Accesories</option>
+                                                <option value="Makeup-Fragrance">Makeup-Fragrance</option>
+                                                <option value="Women-Bag">Women-Bag</option>
+                                                <option value="Home-Living">Home-Living</option>
+                                                <option value="Furniture">Furniture</option>
+                                                <option value="Souvenirs">Souvenirs</option>
+                                                <option value="Foods">Foods</option>
+                                                <option value="Men-Shoes">Men-Shoes</option>
+                                                <option value="Women-Shoes">Women-Shoes</option>
+                                                <option value="Sports-Travel">Sports-Travel</option>
+                                                <option value="Toys">Toys</option>
+                                                <option value="Lingerie-Loungewear">Lingerie-Loungewear</option>
+                                                <option value="Pottery">Pottery</option>
+                                                <option value="Babies-Kids">Babies-Kids</option>         
                                             </select>
                                         </div>
                                     </div>
