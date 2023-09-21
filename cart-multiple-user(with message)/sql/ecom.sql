@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2023 at 12:07 PM
+-- Generation Time: Sep 21, 2023 at 02:23 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -315,12 +315,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `user_id`, `name`, `price`, `image`, `item_brand`, `quantity`, `date_added`) VALUES
-(1, 8, 'Banig Bag - Rounded', '200', '1.png', 'Banig', 20, '2023-07-09 17:21:26'),
-(2, 8, 'Banig Bag - Rectangular', '300', '2.png', 'Banig', 100, '2023-07-09 17:21:38'),
-(3, 7, 'Banig Bag - ZigZag', '400', '3.png', 'Banig', 50, '2023-07-09 17:21:50'),
-(4, 7, 'I Love Tacloban Shirt', '250', '4.png', 'Clothes', 30, '2023-07-09 17:22:02'),
-(5, 7, 'Baybayin Jacket', '400', '5.png', 'Clothes', 60, '2023-07-09 17:22:13'),
-(6, 7, 'Baybayin Taktop', '134', '6.png', 'Clothes', 60, '2023-07-09 17:22:33'),
+(1, 8, 'Banig Bag - Rounded', '200', '1.png', 'Women-Bag', 20, '2023-09-21 11:59:21'),
+(2, 8, 'Banig Bag - Rectangular', '300', '2.png', 'Women-Bag', 100, '2023-09-21 11:59:26'),
+(3, 7, 'Banig Bag - ZigZag', '400', '3.png', 'Women-Bag', 50, '2023-09-21 11:59:37'),
+(4, 7, 'I Love Tacloban Shirt', '250', '4.png', 'Men-Apparel', 30, '2023-09-21 11:57:47'),
+(5, 7, 'Baybayin Jacket', '400', '5.png', 'Men-Apparel', 60, '2023-09-21 11:57:56'),
+(6, 7, 'Baybayin Taktop', '134', '6.png', 'Men-Apparel', 60, '2023-09-21 11:58:04'),
 (7, 7, 'Leyte`s Special Binagol', '150', '7.png', 'Foods', 200, '2023-07-09 17:22:44'),
 (8, 7, 'Leyte`s Chocolate Moron', '45', '8.png', 'Foods', 211, '2023-07-09 17:22:57'),
 (9, 7, 'Samsung Galaxy', '500', '1690791628-12.png', 'Gadget', 23, '2023-07-31 08:20:28');
@@ -392,8 +392,8 @@ INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `pho
 (4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', '', 0, '2023-08-03 08:07:31'),
 (5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'test', '', 'user', '', 0, '2023-08-03 08:32:01'),
 (7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-09-05 13:14:02'),
-(8, 'Seller2', 'seller2@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Master Store', '', 0, '2023-08-03 08:35:34'),
-(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-07-30 11:01:55'),
+(8, 'Seller2', 'seller2@gmail.com', 'Dariel', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Caibaan, Tacloban City', '2015-02-10', 'Male', 'profile_1123099532.jpg', 'Master Store', '', 0, '2023-09-21 09:20:47'),
+(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Japan, Tokyo', '2023-09-12', 'Female', 'profile_1223238167.JPG', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-09-21 09:22:13'),
 (40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-08-03 08:10:04');
 
 --
@@ -468,7 +468,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=84;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT for table `categories`
