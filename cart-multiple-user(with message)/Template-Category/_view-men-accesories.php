@@ -7,7 +7,7 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             <?php
-                    $select_product = mysqli_query($conn, "SELECT * FROM `products` where item_brand = 'Men-Accesories' ORDER BY RAND()") or die('query failed!');
+                    $select_product = mysqli_query($conn, "SELECT * FROM `products` where item_brand = 'Men-Bag-Accesories' ORDER BY RAND()") or die('query failed!');
                     if (mysqli_num_rows($select_product) > 0) {
                     while ($fetch_product = mysqli_fetch_assoc($select_product)) {
          
