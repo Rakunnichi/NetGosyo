@@ -63,7 +63,7 @@ while ($row = $result->fetch_assoc()) :
 
         <div class="row py-4">
             <div class="col-12 pt-4">
-                <h6 class="font-rubik">Shop Description Description</h6>
+                <h6 class="font-rubik font-size-20"><b>Shop Description</b></h6>
                 <hr>
                 <p class="font-rale font-size-14">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
                     inventore vero numquam error est ipsa, consequuntur temporibus debitis nobis sit, delectus officia
