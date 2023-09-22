@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5" id="view_special_offers">
     <div class="text-center">
         <h4 class="font-rubik font-size-50"><b>Special Offers</b></h4>
     </div>

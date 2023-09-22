@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5" id="view_new_arrivals">
     <div class="text-center">
         <h4 class="font-rubik font-size-50"><b>New Arrivals</b></h4>
     </div>
@@ -34,9 +34,6 @@
 
                             <b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b>
                         </div>
-                    </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-warning" href="#">Add to cart</a></div>
                     </div>
                 </div>
             </div>

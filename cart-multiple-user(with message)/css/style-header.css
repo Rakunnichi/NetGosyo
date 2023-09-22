@@ -800,12 +800,8 @@ nav{
     /* background-color: transparent; */
     transition: transform .2s cubic-bezier(0.64,0.04,0.26,0.87),
     opacity .5s cubic-bezier(0.64,0.04,0.26,0.87);
- 
-    
-   
 }
 
-  
   #back_button{
     text-decoration: none;
     padding-right: 90%;
@@ -815,6 +811,31 @@ nav{
 
   #back_button:hover{
     color: #000000;
-   
+
 }
-  
+
+ /* Hover View-Top-Products */
+#view_top_products .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+#view_top_products .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
+
+ /* Hover View-New-Arrivals */
+#view_new_arrivals .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+
+#view_new_arrivals .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
+
+ /* Hover View-Special-Offers */
+ #view_special_offers .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+
+#view_special_offers .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
