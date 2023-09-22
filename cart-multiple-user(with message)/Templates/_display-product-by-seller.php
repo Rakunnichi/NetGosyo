@@ -8,7 +8,8 @@
     <!-- Owl-carousel -->
     <div class="owl-carousel owl-theme">
       <?php
-      $select_product = mysqli_query($conn, "SELECT * FROM `products` ") or die('query failed!');
+      
+      $select_product = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed!');
       if (mysqli_num_rows($select_product) > 0) {
         while ($fetch_product = mysqli_fetch_assoc($select_product)) {
          
@@ -26,6 +27,7 @@
                   <span><i class="fas fa-star"></i></span>
                   <span><i class="fas fa-star"></i></span>
                 </div>
+               
                 <div class="price py-2">
                   <span><b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b></span>
                 </div>

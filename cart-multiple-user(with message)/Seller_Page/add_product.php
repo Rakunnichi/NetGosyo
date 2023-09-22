@@ -96,7 +96,7 @@
                                     <div class="col-md-6">
                                         <div class="input-group input-group-outline my-3">
                                             <select class="form-control" name="category" id="category">
-                                                <option selected="">Choose a Category</option>
+                                                <option selected>Choose a Category</option>
                                                 <option value="Gadget">Gadgets</option>
                                                 <option value="Women-Apparel">Women-Apparel</option>
                                                 <option value="Men-Apparel">Men-Apparel</option>

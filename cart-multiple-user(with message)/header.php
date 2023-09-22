@@ -16,6 +16,8 @@ if (mysqli_num_rows($select_review) > 0) {
  
 }
 
+
+
 if (isset($_GET['logout'])) {
   unset($user_id);
   session_destroy();
