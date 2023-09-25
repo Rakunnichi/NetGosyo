@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 $connect = new PDO("mysql:host=localhost;dbname=ecom", "root", "");
 
 if(isset($_POST["rating_data"]))

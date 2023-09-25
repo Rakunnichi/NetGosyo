@@ -16,7 +16,7 @@
                     <div class="col mb-5">
                         <div class="card h-100">
                           
-                            <img class="card-img-top" src="assets/Shop-image/Picture1.png" alt="..." />
+                            <img class="card-img-top" src="user-profiles/<?php echo $fetch_seller['image'] ?? '0'; ?>" alt="..." />
                           
                             <div class="card-body p-4">
                                 <div class="text-center">
