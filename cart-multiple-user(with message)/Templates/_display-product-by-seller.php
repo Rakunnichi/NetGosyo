@@ -19,11 +19,11 @@
             <div class="col mb-5">
                 <div class="card h-100">
 
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                    </div>
-
+                   
+                    <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>">
                     <img class="card-img-top" src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="..." />
-
+                    </a>
+                    
                     <div class="card-body p-4">
                         <div class="text-center">
 
