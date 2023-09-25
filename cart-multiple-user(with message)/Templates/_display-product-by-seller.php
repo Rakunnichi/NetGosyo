@@ -1,61 +1,71 @@
-<!-- Top Products -->
-<section id="top-products">
-  <div class="container py-2">
-    <div id="message"></div>
-    <h4 class="font-rubik font-size-20"><b>All Products</b></h4>
-
-    <hr>
-    <!-- Owl-carousel -->
-    <div class="owl-carousel owl-theme">
-      <?php
+<section class="py-5" id="view_top_products">
+    <div class="text-center">
+        <h4 class="font-rubik font-size-50"><b>All Products</b></h4>
       
-      $select_product = mysqli_query($conn, "SELECT * FROM `products`") or die('query failed!');
-      if (mysqli_num_rows($select_product) > 0) {
-        while ($fetch_product = mysqli_fetch_assoc($select_product)) {
+    </div>
+    <div class="container px-4 px-lg-5 mt-5">
+    
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+            <?php
+                    if(isset($_GET['id'])){
+                      $seller_id = $_GET['id'];
+                
+                      $select_product = mysqli_query($conn, "SELECT * FROM `products`where user_id='$seller_id' ") or die('query failed!');
+                      if (mysqli_num_rows($select_product) > 0) {
+                        while ($fetch_product = mysqli_fetch_assoc($select_product)) {
          
-      ?>
+                ?>
+            <div class="col mb-5">
+                <div class="card h-100">
 
-          <div class="item py-2">
-            <div class="product font-rale">
-              <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>"><img src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="product1" class="img-fluid"></a>
-              <div class="text-center">
-                <h6><b><?php echo $fetch_product['name'] ?? '0'; ?></b></h6>
-                <div class="rating text-orange font-size-12">
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                  <span><i class="fas fa-star"></i></span>
-                </div>
-               
-                <div class="price py-2">
-                  <span><b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b></span>
-                </div>
-                <form method="post">
-                  <input type="hidden" min="1" name="product_quantity" value="1">
-                  <input type="hidden" name="product_id" value="<?php echo $fetch_product['id']; ?>">
-                  <input type="hidden" name="seller_id" value="<?php echo $fetch_product['user_id']; ?>">
-                  <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
-                  <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
-                  <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-                  <button type="submit" class="btn btn-warning font-size-9 addItemBtn" name="add_to_cart">Add to Cart</button>
-                </form>
+                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
+                    </div>
 
-              </div>
+                    <img class="card-img-top" src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="..." />
+
+                    <div class="card-body p-4">
+                        <div class="text-center">
+
+                            <h6 class="fw-bolder"><?php echo $fetch_product['name'] ?? '0'; ?></h6>
+                            
+                            <div class="rating text-orange font-size-12">
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                                <span><i class="fas fa-star"></i></span>
+                            </div>
+
+                            <b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <?php
+                  };
+                }else{
+                  
+
+                  ?>
+          <div class="row py-3 mt-3">
+              <div class="col-sm-12">
+                  <!-- Empty Cart -->
+                      <div class="row">
+                          <div class="col-sm-12 text-center py-2">
+                              <img src="./assets/category_empty.jpg" alt="Empty Category" class="img-fluid" style="height:200px">
+                              <p class="font-baloo font-size-16 text-black"><b>Products are Coming Soon!</b></p>
+                          </div>
+                      </div>
+                  <!-- !Empty Cart -->
+              </div>
           </div>
 
-      <?php
-        };
-      };
-      ?>
-    </div>
-    <!-- !Owl-carousel -->
-  </div>
-</section>
-<!-- !Top Products -->
+                  <?php
+                }
+              };
+                ?>
 
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-<script src="sweetalert/sweetalert2.all.min.js"></script>
-<script src="sweetalert/jquery-3.6.1.min.js"></script>
+        </div>
+    </div>
+</section>

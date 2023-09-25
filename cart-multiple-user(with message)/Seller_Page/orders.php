@@ -141,8 +141,8 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                       </td>
                       <?php }else{ ?>
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary cursor-pointer" disabled>Accept</span>
-                        <span class="badge badge-sm bg-gradient-secondary cursor-pointer" disabled>Reject</span>
+                        <span class="badge badge-lg bg-gradient-success cursor-pointer" disabled>Accepted</span>
+                        <!-- <span class="badge badge-sm bg-gradient-secondary cursor-pointer" disabled>Reject</span> -->
                       </td>
                       <?php }?>
 

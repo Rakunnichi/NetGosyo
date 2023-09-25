@@ -30,3 +30,13 @@ if (isset($_GET['action'])) {
 		header("location: orders.php?status=Order successfully rejected!");
 	}
 }
+
+if(isset($_GET['id'])){
+	
+    $id = $_GET['id'];
+	
+		mysqli_query($conn, "DELETE FROM products WHERE id='$id'");
+		header("location:Seller_Page/my_products.php");
+	
+
+}

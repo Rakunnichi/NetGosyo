@@ -28,7 +28,7 @@
     
     mysqli_query($conn, "INSERT INTO `products` (user_id, name, price, image, item_brand, quantity) VALUES('$user_id', '$prodname', '$prodprice', '$new_file_name', '$prodcategory', '$prodquantity')") or die ('query failed');
        
-    echo "Product uploaded successfully.";
+    $Message = "Product Added Successfully";
     
 }
 
@@ -67,7 +67,21 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title mb-4">Add New Product</h5>
-
+                            <?php
+                            if(!empty($Message)){
+                                echo"
+                                <div class='alert alert-secondary alert-dismissible text-white color-orange-bg' role='alert'>
+                                <span class='text-sm'>$Message</span>
+                                <button type='button' class='btn-close text-lg py-3 opacity-10' data-bs-dismiss='alert'
+                                    aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                                </div>
+                                
+                                ";
+                            }
+                        ?>
+                            
                             <form action="" method="post" enctype='multipart/form-data'>
                                 <input type="hidden" name="user_id" value="">
                                 <div class="row">
