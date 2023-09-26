@@ -114,6 +114,7 @@
                                                 <option value="Gadget">Gadgets</option>
                                                 <option value="Women-Apparel">Women-Apparel</option>
                                                 <option value="Men-Apparel">Men-Apparel</option>
+                                                <option value="Women-Accesories">Women-Accesories</option>
                                                 <option value="Men-Bag-Accesories">Men-Bag-Accesories</option>
                                                 <option value="Makeup-Fragrance">Makeup-Fragrance</option>
                                                 <option value="Women-Bag">Women-Bag</option>
