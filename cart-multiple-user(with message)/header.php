@@ -31,7 +31,7 @@ if (isset($_POST['add_to_cart'])) {
     
 }else{
   $product_id = $_POST['product_id'];
- 
+  $seller_id= $_POST['seller_id'];
   $product_name = $_POST['product_name'];
   $product_price = $_POST['product_price'];
   $product_image = $_POST['product_image'];
@@ -43,8 +43,8 @@ if (isset($_POST['add_to_cart'])) {
   if (mysqli_num_rows($select_cart) > 0) {
     $message[] = 'Product Already in Cart!';
   } else {
-    mysqli_query($conn, "INSERT INTO `cart` (user_id, product_id, name, price, image, quantity) VALUES
-        ('$user_id', '$product_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
+    mysqli_query($conn, "INSERT INTO `cart` (user_id, product_id, seller_id, name, price, image, quantity) VALUES
+        ('$user_id', '$product_id', '$seller_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
     $message[] = 'Product Added to Cart!';
   }
 }
@@ -257,7 +257,7 @@ if (isset($message)) {
                                 <input type="text" name="search" placeholder="Search Products" class="form-control"
                                     value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
                                 <div class="input-group-append">
-                                    <button class="btn border text-white" type="submit">
+                                    <button class="btn border text-white" type="submit" id="searchButton">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </div>

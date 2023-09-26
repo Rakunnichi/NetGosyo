@@ -124,7 +124,7 @@ if ($res = mysqli_fetch_array($findresult)) {
 							<?php if ($image == NULL) {
 								echo '<img src="user_profile/profile.png" class="img-fluid">';
 							} else {
-								echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid">';
+								echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:150px; width: 150px;">';
 							}
 							?>
 						</div>

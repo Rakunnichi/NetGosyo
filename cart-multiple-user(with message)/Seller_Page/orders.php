@@ -134,18 +134,34 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                        
                       </td>
 
-                      <?php if ($row['status'] == 'Pending') { ?>
+                     <?php if ($row['status'] == 'Pending') { ?>
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success cursor-pointer" href="../action.php?action=accept&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>" onclick="return confirm('Are you sure do you want to ACCEPT this order?')">Accept</span>
-                        <span class="badge badge-sm bg-gradient-danger cursor-pointer" href="../action.php?action=reject&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>" onclick="return confirm('Are you sure do you want to REJECT this order?')">Reject</span>
+                        <a href="../action.php?action=accept&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to ACCEPT this order?')">
+                        <span class="badge badge-sm bg-gradient-success cursor-pointer">Accept</span>
+                        </a>
+                        <a href="../action.php?action=reject&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to REJECT this order?')">
+                        <span class="badge badge-sm bg-gradient-danger cursor-pointer">Reject</span>
+                        </a>
+                        <!-- <span class="badge badge-sm bg-gradient-success cursor-pointer" href="../action.php?action=accept&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to ACCEPT this order?')">Accept</span>
+                        <span class="badge badge-sm bg-gradient-danger cursor-pointer" href="../action.php?action=reject&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to REJECT this order?')">Reject</span> -->
                       </td>
-                      <?php }else{ ?>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-lg bg-gradient-success cursor-pointer" disabled>Accepted</span>
-                        <!-- <span class="badge badge-sm bg-gradient-secondary cursor-pointer" disabled>Reject</span> -->
-                      </td>
-                      <?php }?>
 
+
+                      <?php }else if($row['status'] == 'Accepted'){ ?>
+
+                         <td class="align-middle text-center text-sm">
+                         <span class="badge badge-sm bg-gradient-success cursor-pointer" disabled>Accepted</span>
+                         </td>
+                      
+                      <?php }else if($row['status'] == 'Rejected'){ ?>
+
+                         <td class="align-middle text-center text-sm">
+                         <span class="badge badge-sm bg-gradient-danger cursor-pointer"disabled>Rejected</span>
+                         </td>
+                        
+                      <?php } ?>
+                    
+                    
                     </tr>
                     <?php } ?>
                   </tbody>

@@ -55,18 +55,12 @@ if ($res = mysqli_fetch_array($result)) {
 				</div>
 				<nav id="navbar" class="nav-menu navbar">
 					<ul style="list-style: none;">
-						<?php if ($_SESSION['role'] == 'user') { ?>
+						
 							<li><a href="user.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-user" style="width:42px;text-align:center"></i> <span>Profile</span></a></li>
 							<li><a href="orders.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-cart-shopping" style="width:42px;text-align:center"></i> <span>Purchases</span></a></li>
 							<li><a href="messages.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-envelope" style="width:42px;text-align:center"></i> <span>Messages</span></a></li>
 							<li><a href="notifications.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-bell" style="width:42px;text-align:center"></i> <span>Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></span></a></li>
-							<li><a href="user-changepass.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-cog" style="width:42px;text-align:center"></i> <span>Change Password</span></a></li>
-						<?php } else { ?>
-							<li><a href="user.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-user" style="width:42px;text-align:center"></i> <span>Profile</span></a></li>
-							<li><a href="orders.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-cart-shopping" style="width:42px;text-align:center"></i> <span>Orders</span></a></li>
-							<li><a href="messages.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-envelope" style="width:42px;text-align:center"></i> <span>Messages</span></a></li>
-							<li><a href="notifications.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-bell" style="width:42px;text-align:center"></i> <span>Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></span></a></li>
-						<?php } ?>
+							<li><a href="user-changepass.php" class="nav-link scrollto ml-3"><i class="fa-solid fa-cog" style="width:42px;text-align:center"></i> <span>Change Password</span></a></li>		
 					</ul>
 				</nav>
 			</div>
@@ -96,6 +90,7 @@ if ($res = mysqli_fetch_array($result)) {
 								<tr>
 									<th>Notification</th>
 									<th>Date</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -108,8 +103,15 @@ if ($res = mysqli_fetch_array($result)) {
 									<tr>
 										<td><?= $row['notification'] ?></td>
 										<td><?= $row['notification_added'] ?></td>
+										<td><a href="action-notif.php?user_id=<?= $user_id?>" onclick="return confirm('Are you sure do you want to Delete this Notification?')">
+										<button type="button" class="btn btn-danger">Delete</button>
+										</a></td>
 									</tr>
+
+									
 								<?php } ?>
+
+								
 							</tbody>
 						</table>
 					</div>

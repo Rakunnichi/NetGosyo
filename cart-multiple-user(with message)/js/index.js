@@ -3,7 +3,12 @@ $(document).ready(function(){
 // banner owl carousel
 $("#banner-area .owl-carousel").owlCarousel({
     dots: true,
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
     items:1
+    
 });
 
 //top products owl carousel

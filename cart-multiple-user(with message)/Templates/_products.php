@@ -48,6 +48,7 @@ while ($row = $result->fetch_assoc()) :
                     <div class="col">
                         <form action="" class="form-submit" method="POST">
                             <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+                            <input type="hidden" name="seller_id" value="<?= $row['user_id'] ?>">
                             <input type="hidden" name="product_name" value="<?= $row['name'] ?>">
                             <input type="hidden" name="product_price" value="<?= $row['price'] ?>">
                             <input type="hidden" name="product_image" value="<?= $row['image'] ?>">

@@ -284,7 +284,7 @@
   
                       <a href="update_product.php?id=<?php echo $fetch_product['id'];?>"><button type="button" class="btn button-update btn-sm">Update</button></a>
                       
-                        <a href="../action.php?id=<?= $fetch_product['id'] ?>"onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Remove</button></a>
+                        <a href="seller-action.php?id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Remove</button></a>
                                                 
                       </td>
                     </tr>

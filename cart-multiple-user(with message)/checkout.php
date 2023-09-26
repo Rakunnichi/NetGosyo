@@ -15,10 +15,6 @@ if (mysqli_num_rows($user) > 0) {
   $address = $row["address"];
 }
 
-
-
-
-
 function acronym_with_timestamp($string) {
   $string = strtoupper($string);
 
@@ -63,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     mysqli_query($conn, "DELETE FROM cart WHERE user_id = $id");
+    mysqli_query($conn, "UPDATE products SET quantity = quantity - 1 WHERE id='$product_id'");
     mysqli_query($conn, "INSERT INTO notifications SET user_id='1', notification='A buyer placed an order. Go to the orders page for more information.'");
     echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Order placed successfully!</div>";
   } else {
@@ -71,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
   $getCart = "SELECT * FROM cart WHERE user_id=$id";
   $result = mysqli_query($conn, $getCart);
+  
 }
 ?>
 
@@ -132,6 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <table class="table table-bordered">
           <thead>
             <tr>
+              <th>Id</th>
               <th>Product</th>
               <th>Price</th>
               <th>Qty</th>
@@ -147,6 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               while ($row = mysqli_fetch_assoc($result)) {
                 $total += $row["quantity"] * $row["price"]; ?>
                 <tr>
+                  <td><?= $row["product_id"]?></td>
                   <td><?= $row["name"] ?></td>
                   <td>₱<?= number_format($row["price"], 2) ?></td>
                   <td><?= $row["quantity"] ?></td>
