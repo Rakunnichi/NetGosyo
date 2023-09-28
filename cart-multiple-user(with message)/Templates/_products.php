@@ -53,7 +53,7 @@ while ($row = $result->fetch_assoc()) :
                             <input type="hidden" name="product_price" value="<?= $row['price'] ?>">
                             <input type="hidden" name="product_image" value="<?= $row['image'] ?>">
                             <input type="hidden" name="product_quantity" value="1">
-                            <button type="submit" name="add_to_cart" class="btn btn-warning form-control addItemBtn">Add
+                            <button type="submit" name="add_to_cart" class="btn color-orange-bg form-control">Add
                                 to Cart</button>
                         </form>
                     </div>
@@ -123,7 +123,7 @@ while ($row = $result->fetch_assoc()) :
                 <div id="order-details" class="font-rale d-flex flex-column text-dark">
                     <small><i class="fas fa-calendar color-primary mr-1" style="width:16px"></i> Delivery by : Jun 23 -
                         Jun 28</small>
-                    <small><i class="fas fa-check color-primary mr-1" style="width:16px"></i> Sold by <a
+                    <small><i class="fas fa-check color-primary mr-1" style="width:16px; text-decoration:"></i> Sold by <a
                             href="javascript:">NetGosyo </a></small>
                     <small><i class="fas fa-map-marker-alt color-primary mr-1" style="width:16px"></i> Deliver to
                         Customer - <?= $name ?></small>

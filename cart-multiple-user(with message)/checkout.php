@@ -186,9 +186,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </table>
 
         <?php if ($cart) { ?>
-          <input type="submit" value="Place Order" class="btn btn-warning btn-block" form="frmCheckout">
+          <input type="submit" value="Place Order" class="btn color-orange-bg btn-block" form="frmCheckout">
         <?php } else { ?>
-          <a href="index.php" class="btn btn-warning btn-block mb-2">Shop Now!</a>
+          <a href="index.php" class="btn color-orange-bg btn-block mb-2">Shop Now!</a>
         <?php } ?>
         <a href="cart-main.php" class="btn btn-light btn-block mb-2">Back to Cart</a>
 

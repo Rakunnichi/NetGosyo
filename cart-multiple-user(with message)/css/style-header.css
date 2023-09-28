@@ -21,6 +21,7 @@ button, button:focus {
 
 .font-size-12 {
     font-size: 12px;
+    
 }
 
 .font-size-14 {
@@ -822,9 +823,6 @@ nav{
     color: #000000;
 
 }
-<<<<<<< HEAD
-=======
-
 
  /* Hover View-Top-Products */
 #view_top_products .container .row .col .card img{
@@ -891,8 +889,3 @@ nav{
         margin-top: 20px;
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
->>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914

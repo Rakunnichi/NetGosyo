@@ -89,9 +89,9 @@
 										
 
 										<?php if(isset($_SESSION["user_id"])){
-												echo '<button type="submit" class="btn btn-warning font-size-12 rounded-pill addItemBtn"><i class="fas fa-shopping-cart"></i></button>';
+												echo '<button type="submit" class="btn color-orange-bg font-size-12 rounded-pill addItemBtn"><i class="fas fa-shopping-cart"></i></button>';
 											}else{
-												echo '<button type="submit" class="btn btn-warning font-size-12 rounded-pill addItemBtn" disabled><i class="fas fa-shopping-cart"></i></button>';
+												echo '<button type="submit" class="btn color-orange-bg font-size-12 rounded-pill addItemBtn" disabled><i class="fas fa-shopping-cart"></i></button>';
 											}
 											
 											

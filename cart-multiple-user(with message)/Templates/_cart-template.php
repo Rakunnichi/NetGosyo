@@ -84,8 +84,8 @@
         <div class="sub-total border text-center mt-2">
           <h6 class="font-size-12 font-rale text-success py-3 mb-0"><i class="fas fa-check"></i> Orders are Elgible for Free Shipping.</h6>
           <div class="border-top py-4">
-            <h5 class="font-baloo font-size-20">Subtotal: &nbsp;<span class="text-danger">₱<span class="text-danger" id="deal-price"><?php echo $grand_total; ?></span></span></h5>
-            <a href="checkout.php" type="submit" name="checkout-cart" class="btn btn-warning mt-3">Checkout Cart</a>
+            <h5 class="font-baloo font-size-20">Subtotal: &nbsp;<span class="text-danger">₱<span class="text-danger" id="deal-price"><?php echo $grand_total; ?>.00</span></span></h5>
+            <a href="checkout.php" type="submit" name="checkout-cart" class="btn color-orange-bg mt-3">Checkout Cart</a>
           </div>
         </div>
       </div>
