@@ -1,5 +1,5 @@
 <?php
-include 'new_navbar.php';
+include 'header.php';
 
 $id = $_SESSION['user_id'] ?? '3';
 $name = '';

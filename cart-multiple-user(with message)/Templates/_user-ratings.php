@@ -66,12 +66,12 @@
 						
 						<?php if($user_id == 3){?>
 
-							<button type="button" name="add_review" id="add_review" class="btn btn-warning" disabled>Review Product</button>	
+							<button type="button" name="add_review" id="add_review" class="btn color-orange-bg" disabled>Review Product</button>	
 
 						<?php }else{
             			?>
 
-						<button type="button" name="add_review" id="add_review" class="btn btn-warning">Review Product</button>
+						<button type="button" name="add_review" id="add_review" class="btn color-orange-bg">Review Product</button>
 						
 						<?php }
                 		?>

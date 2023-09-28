@@ -295,7 +295,7 @@ if (isset($message)) {
                                         <i class="fa fa-user"></i></a>
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="login.php"><i class="fa fa-sign-in"></i>Sign
+                                        <li><a class="dropdown-item" href="login.php"><i class="fas fa-sign-in-alt text-dark mr-1"></i></i>Sign
                                                 In</a></li>
                                     </ul>
                                 </li>
