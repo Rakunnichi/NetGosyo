@@ -78,7 +78,6 @@ button, button:focus {
     color: #E6873C !important;
 }
 
-
 .text-grey{
     color: #333333;
 }
@@ -90,12 +89,7 @@ nav{
     align-content: center;
     justify-content: space-between;
 }
-.logo{
-    height: 43px;
-    width: 48px;
-    margin-left: 60px;
-    margin-top: 0px;
-}
+
 .collapse{
     display: flex;
     justify-content: center;
@@ -219,89 +213,19 @@ input{
     margin-top: 20px;
 }
 .margin-right-10{
-    margin-right: 10px;
+    margin-right: 0px;
 }
 .margin-left-10{
     margin-left: 10px;
     margin-right: 10px;
 }
-h5{
-    font-size: 10px;
-    margin-left: 10px;
     
-}
 .text-blue{
     color: #67BCCE;
 }
 .padding{
     padding-left: 10px;
     padding-right: 10px;
-}
-
-
-/*   For Navbar */
-
-.main-navbar{
-    border-bottom: 1px solid #ccc;
-}
-.main-navbar .top-navbar{
-    background-color: #E6873C;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.main-navbar .top-navbar .brand-name{
-    color: #fff;
-    font-weight: bold;
-    font-size: 30px;
-    margin-left: 10px;
-}
-.main-navbar .top-navbar .nav-link{
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-}
-.main-navbar .top-navbar .dropdown-menu{
-    padding: 0px 0px;
-    border-radius: 0px;
-}
-.main-navbar .top-navbar .dropdown-menu .dropdown-item{
-    padding: 8px 16px;
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-}
-.main-navbar .top-navbar .dropdown-menu .dropdown-item i{
-    width: 20px;
-    text-align: center;
-    color: #2874f0;
-    font-size: 14px;
-}
-.main-navbar .navbar{
-    padding: 0px;
-    background-color: #ddd;
-}
-.main-navbar .navbar .nav-item .nav-link{
-    padding: 8px 20px;
-    color: #000;
-    font-size: 15px;
-}
-
-@media only screen and (max-width: 600px) {
-    .main-navbar .top-navbar .nav-link{
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    .main-navbar .top-navbar .nav-link{
-        font-size: 12px;
-        padding: 8px 10px;
-    }
-}
-
-#navbar-icon-design{
-   font-size: 50px;
-   font-weight: bold;
 }
 
 /*   For Ratings */
@@ -344,7 +268,7 @@ h5{
 
 .gadgets {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -352,6 +276,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none; 
+    box-shadow: 1px 1px 5px #333333;
 }
 .gadgets:hover{
     -webkit-transform: scale(1.1);
@@ -362,7 +287,7 @@ h5{
 }
 .women-apparel {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -370,6 +295,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-apparel:hover{
     -webkit-transform: scale(1.1);
@@ -380,7 +306,7 @@ h5{
 }
 .men-apparel {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -388,6 +314,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-apparel:hover{
     -webkit-transform: scale(1.1);
@@ -398,16 +325,15 @@ h5{
 }
 .delicacies {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
     border-radius: 5px;   
     background: #ede9e6; 
     color: black;
-    text-decoration:none; 
-    color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .delicacies:hover{
     -webkit-transform: scale(1.1);
@@ -418,7 +344,7 @@ h5{
 }
 .women-bags {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -426,6 +352,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-bags:hover{
     -webkit-transform: scale(1.1);
@@ -436,14 +363,15 @@ h5{
 }
 .women-accessories {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
     border-radius: 5px;   
     background: #ede9e6; 
     color: black;
-    text-decoration:none;  
+    text-decoration:none; 
+    box-shadow: 1px 1px 5px #333333; 
 }
 .women-accessories:hover{
     -webkit-transform: scale(1.1);
@@ -454,7 +382,7 @@ h5{
 }
 .men-bags {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -462,6 +390,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-bags:hover{
     -webkit-transform: scale(1.1);
@@ -472,7 +401,7 @@ h5{
 }
 .makeup {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -480,6 +409,7 @@ h5{
     background: #ede9e6;  
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .makeup:hover{
     -webkit-transform: scale(1.1);
@@ -490,7 +420,7 @@ h5{
 }
 .furniture {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -498,6 +428,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .furniture:hover{
     -webkit-transform: scale(1.1);
@@ -508,7 +439,7 @@ h5{
 }
 .home-living {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -516,6 +447,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .home-living:hover{
     -webkit-transform: scale(1.1);
@@ -526,7 +458,7 @@ h5{
 }
 .souvenir {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -534,6 +466,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .souvenir:hover{
     -webkit-transform: scale(1.1);
@@ -544,7 +477,7 @@ h5{
 }
 .men-shoes {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -552,6 +485,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-shoes:hover{
     -webkit-transform: scale(1.1);
@@ -562,7 +496,7 @@ h5{
 }
 .women-shoes {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -570,6 +504,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-shoes:hover{
     -webkit-transform: scale(1.1);
@@ -580,7 +515,7 @@ h5{
 }
 .babies {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -588,6 +523,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .babies:hover{
     -webkit-transform: scale(1.1);
@@ -598,7 +534,7 @@ h5{
 }
 .lingerie {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -606,6 +542,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .lingerie:hover{
     -webkit-transform: scale(1.1);
@@ -616,7 +553,7 @@ h5{
 }
 .toys {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -624,6 +561,7 @@ h5{
     background: #ede9e6;  
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .toys:hover{
     -webkit-transform: scale(1.1);
@@ -634,7 +572,7 @@ h5{
 }
 .pottery {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -642,6 +580,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .pottery:hover{
     -webkit-transform: scale(1.1);
@@ -652,7 +591,7 @@ h5{
 }
 .sports {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -660,6 +599,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .sports:hover {
     -webkit-transform: scale(1.1);
@@ -739,72 +679,6 @@ h5{
     text-align: center;
     padding-bottom: 30px;
   }
-
-  .searchBox {
-    display: flex;
-    width: 300px;
-    max-width: 500px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    background: #ffffff;
-    border-radius: 50px;
-    position: relative;
-  }
-  
-  .searchButton {
-    color: white;
-    position: absolute;
-    right: 8px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
-    border: 0;
-    display: inline-block;
-    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  }
-  /*hover effect*/
-  button:hover {
-    color: #fff;
-    background-color: #1A1A1A;
-    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
-    transform: translateY(-3px);
-  }
-  /*button pressing effect*/
-  button:active {
-    box-shadow: none;
-    transform: translateY(0);
-  }
-  
-  .searchInput {
-    border: none;
-    background: none;
-    color: #333333;
-    font-size: 15px;
-    padding: 14px 26px 14px 16px;
-  }
-  
-  /*   For Navbar */
-.navbar{
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    /* border-bottom: 1px solid #ccc; */
-    box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, 0.836);
-    
-}
-nav{
-    background-color: #252525;
-    transition: background-color 0.5s ease;
-    opacity: 1;
-    /* background-color: transparent; */
-    transition: transform .2s cubic-bezier(0.64,0.04,0.26,0.87),
-    opacity .5s cubic-bezier(0.64,0.04,0.26,0.87);
- 
-    
-   
-}
-
   
   #back_button{
     text-decoration: none;
@@ -817,4 +691,3 @@ nav{
     color: #000000;
    
 }
-  

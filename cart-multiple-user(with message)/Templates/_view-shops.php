@@ -14,7 +14,7 @@
                 ?>
 
                     <div class="col mb-5">
-                        <div class="card h-100">
+                        <div class="card h-100"  style="box-shadow: 1px 1px 5px #333333;">
                           
                             <img class="card-img-top" src="assets/Shop-image/Picture1.png" alt="..." />
                           

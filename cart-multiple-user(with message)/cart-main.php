@@ -1,7 +1,7 @@
 <?php
    
     //include header.php file
-    include ('header.php');
+    include('new_navbar.php');
 ?>
 
 

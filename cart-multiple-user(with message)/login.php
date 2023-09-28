@@ -79,7 +79,7 @@ if (isset($_POST['submit2'])) {
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/login-style.css" />
   <title>Login Account</title>
-  <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 </head>
 
 <body>
