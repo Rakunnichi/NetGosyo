@@ -327,19 +327,21 @@ if (isset($message)) {
             </div>
         </div>
 
-        <!-- <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand px-2">
+
+                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none text-dark mr-1" href="index.php">
+                    <img style="width:auto; height:25px; margin-right: 1px; margin-left: 7px; margin-bottom: 3px;"
+                        src="assets/logo.png">
                     NetGosyo
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 ">
-
                         <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>
@@ -358,25 +360,13 @@ if (isset($message)) {
                         <li class="nav-item">
                             <a class="nav-link" href="view-new-arrivals.php">New Arrivals</a>
                         </li>
-
-
-                        <li class="nav-item">
-                        <a class="nav-link" href="orders.php">Orders</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="messages.php">Messages</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
-                        </li>
-
                     </ul>
                 </div>
 
             </div>
-        </nav> -->
+        </nav>
 
-        <nav class="navbar navbar-expand-lg" id="navbar-design">
+        <!-- <nav class="navbar navbar-expand-lg" id="navbar-design">
             <div class="container-fluid">
 
                 <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="index.php">
@@ -416,7 +406,7 @@ if (isset($message)) {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> -->
                                                   
     </div>
 
