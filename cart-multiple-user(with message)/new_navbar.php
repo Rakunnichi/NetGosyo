@@ -181,9 +181,12 @@ if (isset($_POST['compose'])) {
     </script>
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
+    
     <!-- Vendor CSS Files -->
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    
     <!-- Owl-carousel CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
@@ -209,16 +212,18 @@ if (isset($_POST['compose'])) {
 
 <body>
 
-    <div class="main-navbar shadow-sm sticky-top">
+    <div class="main-navbar shadow-sm sticky-top" id="main-navbar-design">
         <div class="top-navbar">
             <div class="container-fluid">
                 <div class="row">
+
                     <div class="col-md-4 my-auto d-none d-sm-none d-md-block d-lg-block" href="index.php">
                         <a class="brand-name">
                             <img style="width:auto; height:40px; margin-right: 5px;"src="assets/logo.png">
                             NetGosyo
                         </a>
                     </div>
+
                     <div class="col-md-4 my-auto">
                         <form role="search" method="GET" action="search-page.php">
                             <div class="input-group">
@@ -230,6 +235,7 @@ if (isset($_POST['compose'])) {
                             </div>
                         </form>
                     </div>
+
                     <div class="col-md-4 my-auto">
                         <ul class="nav justify-content-end">
                             <?php if($user_id == 3){?>
@@ -293,8 +299,7 @@ if (isset($_POST['compose'])) {
                                     <li><a class="dropdown-item" href="user-changepass.php"><i
                                                 class="fa fa-cog text-dark mr-1"></i> Change Password</a></li> -->
 
-                                    <li><a class="dropdown-item" href="logout.php"><i
-                                                class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
+                                    <li><a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
                                 </ul>
                             </li>
                             <?php
@@ -305,7 +310,7 @@ if (isset($_POST['compose'])) {
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg" id="navbar-design">
             <div class="container-fluid">
                 <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="index.php">
                     <img style="width:auto; height:25px; margin-right: 1px; margin-left: 7px; margin-bottom: 3px;" src="assets/logo.png">
@@ -318,7 +323,7 @@ if (isset($_POST['compose'])) {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                             <a class="nav-link" href="index.php">Home</a>
                         </li>

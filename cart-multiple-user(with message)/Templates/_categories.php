@@ -1,8 +1,7 @@
 <section>
     <div class="container py-3">
-        <div class="col-md-12 category text-center">
-            <div class="category_text font-rubik font-size-20"><b>All Categories</b></div>
-        </div>
+        <h1 class="text-center pt-3 pb-2"><b>All Categories</b></h1>
+       
         <!-- <div class="row"> -->
         <div class="row row-cols-2 row-cols-md-4 row-cols-xl-6 justify-content-center">
             <div class="col mb-2">

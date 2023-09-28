@@ -174,10 +174,14 @@ if (isset($_POST['compose'])) {
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
 
     <!--Bootstrap CDN-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
@@ -186,21 +190,27 @@ if (isset($_POST['compose'])) {
 
 
     <!-- Owl-carousel CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha256-UhQQ4fxEeABh4JrcmAJ1+16id/1dnlOEVCFOxDef9Lw=" crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha256-kksNxjDRxd/5+jGurZUJd1sdR2v+ClrCl3svESBaJqw=" crossorigin="anonymous" />
 
     <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+        integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
-    
+
     <!-- Animate CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     <!-- CSS File -->
     <link rel="stylesheet" href="css/style-header.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+
 
 
 
@@ -217,20 +227,17 @@ if (isset($message)) {
 
 <body>
     <!-- Navbar start -->
-    <div class="main-navbar shadow-sm sticky-top">
+    <div class="main-navbar shadow-sm sticky-top" id="main-navbar-design">
         <div class="top-navbar">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 my-auto">
-                        <ul class="nav justify-content-start">
-                            <li class="nav-item">
-                                <a class="brand-name ml-4" href="index.php"><img style="width:50px; height:auto;"
-                                        src="assets/logo.png"><span>NetGosyo</span></a>
-                            </li>
-
-                        </ul>
+                    <div class="col-md-4 my-auto d-none d-sm-none d-md-block d-lg-block" href="index.php">
+                        <a class="brand-name">
+                            <img style="width:auto; height:40px; margin-right: 5px;" src="assets/logo.png">
+                            NetGosyo
+                        </a>
                     </div>
-
+                  
                     <div class="col-md-4 my-auto">
                         <form role="search" method="GET" action="search-page.php">
                             <div class="input-group">
@@ -244,7 +251,9 @@ if (isset($message)) {
                             </div>
                         </form>
                     </div>
+
                     <div class="col-md-4 my-auto">
+
                         <ul class="nav justify-content-end">
 
                             <?php if($user_id == 3){?>
@@ -297,46 +306,32 @@ if (isset($message)) {
                                     <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                        <i class="fa fa-user"></i> <?php echo $fetch_user['username']; ?></a>
+                                        <i class="fa fa-user"></i>  <?php echo $fetch_user['username']; ?></a>
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                                         <li><a class="dropdown-item" href="Profile_settings.php"><i
                                                     class="fa fa-user text-dark mr-1"></i> Profile</a></li>
-                                        <li><a class="dropdown-item" href="orders.php"><i
-                                                    class="fa fa-cart-shopping text-dark mr-1"></i> Purchases</a></li>
-                                        <li><a class="dropdown-item" href="messages.php"><i
-                                                    class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
-                                        <li><a class="dropdown-item" href="notifications.php"><i
-                                                    class="fa fa-bell text-dark mr-1"></i> Notifications <span
-                                                    class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="user-changepass.php"><i
-                                                    class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
 
-                                        <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
-                                        <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
-                                        <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
-                                        <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
 
-                                        <li><a class="dropdown-item" href="logout.php"><i
-                                                    class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
+                                        <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt text-dark mr-1"></i>Logout</a></li>
                                     </ul>
                                 </li>
                                 <?php
                                 }
                                 ?>
-
+                          </div>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-        <nav class="navbar navbar-expand-lg">
+
+        <!-- <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <!-- <a class="navbar-brand px-2">
+                <a class="navbar-brand px-2">
                     NetGosyo
-                </a> -->
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -365,7 +360,7 @@ if (isset($message)) {
                         </li>
 
 
-                        <!-- <li class="nav-item">
+                        <li class="nav-item">
                         <a class="nav-link" href="orders.php">Orders</a>
                         </li>
                         <li class="nav-item">
@@ -373,56 +368,58 @@ if (isset($message)) {
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
-                        </li> -->
+                        </li>
 
                     </ul>
                 </div>
 
             </div>
-        </nav>
+        </nav> -->
 
-        <!-- <div class="header">
-            <input type="checkbox" id="nav_check" hidden>
-            <nav>
-              <div class="logo">
-                <img style="width:50px; height:auto;"  src="assets/logo.png" alt="">
-              </div>
-              <ul>
-                    <li>
-                        <a href="index.php" class="active">Home</a>
-                    </li>
-                    <li>
-                        <a href="">Products</a>
-                    </li>
-                    <li>
-                        <a href="">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="">About</a>
-                    </li>
-                    <li>
-                        <a href="">Say, hi - info@virus.com</a>
-                    </li>
-              </ul>
-            </nav>
-            <label for="nav_check" class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </label>
-        </div>
-    <script>
-        hamburger = document.querySelector(".hamburger");
-        nav = document.querySelector("nav");
-        hamburger.onclick = function() {
-            nav.classList.toggle("active");
-        }
-    </script> -->
+        <nav class="navbar navbar-expand-lg" id="navbar-design">
+            <div class="container-fluid">
+
+                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none" href="index.php">
+                    <img style="width:auto; height:25px; margin-right: 1px; margin-left: 7px; margin-bottom: 3px;"
+                        src="assets/logo.png">
+                    NetGosyo
+                </a>
+
+                <button class="navbar-toggler" style="margin-right: 7px;" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories.php">All Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-shops.php">View Shops</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-top-products.php">Top Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-special-offers.php">Special Offers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="view-new-arrivals.php">New Arrivals</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+                                                  
     </div>
-    <script type="text/javascript">
-    $('.js-scroll-trigger').click(function() {
-        $('.navbar-collapse').collapse('hide');
-    });
-    </script>
+
+
 
     <!-- Navbar end -->

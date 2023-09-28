@@ -340,3 +340,7 @@ $(document).ready(function(){
     $(".carousel-caption p").addClass('animated slideInRight');
     
 });
+
+$('.js-scroll-trigger').click(function() {
+    $('.navbar-collapse').collapse('hide');
+});

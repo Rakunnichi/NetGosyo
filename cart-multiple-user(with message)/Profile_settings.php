@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 
@@ -360,7 +360,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                                             <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
                                         </div>
                                     </div>
-                                    <input type="submit" value="Update" name="update_user" class="btn btn-warning">
+                                    <input type="submit" value="Update" name="update_user" class="btn color-orange-bg">
                                 </div>
                             </form>
                         </div>
