@@ -314,14 +314,11 @@ if (isset($message)) {
                                         <li><a class="dropdown-item" href="user-changepass.php"><i
                                                     class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
 
-<<<<<<< HEAD
                                         <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
                                         <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
                                         <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
                                         <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
 
-=======
->>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914
                                         <li><a class="dropdown-item" href="logout.php"><i
                                                     class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
                                     </ul>
@@ -345,6 +342,7 @@ if (isset($message)) {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 
                         <li class="nav-item">
@@ -367,7 +365,6 @@ if (isset($message)) {
                         </li>
 
 
-<<<<<<< HEAD
                         <!-- <li class="nav-item">
                         <a class="nav-link" href="orders.php">Orders</a>
                         </li>
@@ -378,8 +375,6 @@ if (isset($message)) {
                         <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
                         </li> -->
 
-=======
->>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914
                     </ul>
                 </div>
 

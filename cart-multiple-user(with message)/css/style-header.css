@@ -228,8 +228,6 @@ input{
     padding-right: 10px;
 }
 
-<<<<<<< HEAD
-=======
 
 /*   For Navbar */
 
@@ -297,7 +295,6 @@ input{
    font-weight: bold;
 }
 
->>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
 /*   For Ratings */
 
 .progress-label-left
@@ -749,9 +746,7 @@ input{
     text-align: center;
     padding-bottom: 30px;
   }
-<<<<<<< HEAD
   
-=======
 
    /*Search Box*/
   .searchBox {
@@ -816,7 +811,6 @@ nav{
     opacity .5s cubic-bezier(0.64,0.04,0.26,0.87);
 }
 
->>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
   #back_button{
     text-decoration: none;
     padding-right: 90%;

@@ -36,7 +36,7 @@
                   <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
                   <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
                   <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">
-                  <button type="submit" class="btn btn-warning font-size-9 addItemBtn" name="add_to_cart">Add to Cart</button>
+                  <button type="submit" class="btn btn-warning font-size-9 color-orange-bg" name="add_to_cart">Add to Cart</button>
                 </form>
 
               </div>
