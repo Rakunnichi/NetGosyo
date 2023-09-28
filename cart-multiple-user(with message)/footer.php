@@ -1,7 +1,7 @@
 </main>
 <!-- !start #main-site -->
-
-<!-- start #footer -->
+<section class="pt-5">
+    <!-- start #footer -->
 <footer id="footer" class="bg-dark text-white py-5">
     <div class="container">
         <div class="row">
@@ -45,6 +45,8 @@
     <p class="font-rale font-size-14">&copy; Copyright 2022, NetGosyo</p>
 </div>
 <!-- !start #footer -->
+
+</section>
 
 
 

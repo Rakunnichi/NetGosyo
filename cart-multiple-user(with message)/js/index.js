@@ -32,7 +32,26 @@ $("#top-products .owl-carousel").owlCarousel({
     }
 });
 
-
+//slider-shops owl carousel
+$("#slider-shops .owl-carousel").owlCarousel({
+    loop: false,
+    nav: true,
+    dots: false,
+    responsive: {
+        0:{
+            items:1
+        },
+        320:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+});
 
 // isotope filter
 var $grid = $(".grid").isotope({

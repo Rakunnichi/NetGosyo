@@ -5,6 +5,10 @@ session_start();
 $user_id = $_SESSION['user_id'] ?? '3';
 $notifications = mysqli_query($conn, "SELECT * FROM notifications WHERE user_id='$user_id' ORDER BY notification_added DESC");
 
+$products_count = mysqli_query($conn, "SELECT * FROM products WHERE user_id='$user_id' ");
+
+$orders_count = mysqli_query($conn, "SELECT * FROM orders ");
+
 if (isset($_POST['send'])) {
   $convo_id = $_GET['convo_id'];
   $body = $_POST['message'];
@@ -205,7 +209,7 @@ if (isset($_POST['compose'])) {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white " href="#">
+          <a class="nav-link text-white " href="settings.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">settings</i>
             </div>

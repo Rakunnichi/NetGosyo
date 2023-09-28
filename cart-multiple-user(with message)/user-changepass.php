@@ -122,12 +122,13 @@ if ($res = mysqli_fetch_array($findresult)) {
 								</button>
 							</div>
 						<?php } ?>
+
 						<div class="p-5">
 							<div class="d-flex justify-content-between align-items-center mb-3">
 								<h4 class="text-right" style="font-size: 30px;">Change Password</h4>
 							</div>
 							<div class="row mt-2 border-top mb-4">
-								<input type="hidden" name="user_id" value="<?php echo $fetch_cart['id']; ?>">
+								<!-- <input type="hidden" name="user_id" value="<?php echo $fetch_cart['id']; ?>"> -->
 
 								<div class="mt-3 col-md-8"><label class="labels" style="font-size: 17px;">Current Password</label>
 									<input type="password" class="form-control" name="current_password" placeholder="Enter Old Password">

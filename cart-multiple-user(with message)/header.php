@@ -274,7 +274,7 @@ if (isset($message)) {
                             <?php if($user_id == 3){?>
 
                             <?php }else{
-            ?>
+                            ?>
                             <li class="nav-item">
                                 <a class="nav-link" href="cart-main.php">
                                     <i class="fa fa-shopping-cart"></i> Cart <span id="cart-item"
@@ -288,21 +288,21 @@ if (isset($message)) {
                             </li>
 
                             <?php }
-                ?>
+                            ?>
 
                             
                             <div class="user-profile">
 
                                 <?php
-                $select_user = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id' ") or die('query failed!');
-                if (mysqli_num_rows($select_user) > 0) {
-                  $fetch_user = mysqli_fetch_assoc($select_user);
-                };
-                ?>
+                                $select_user = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id' ") or die('query failed!');
+                                if (mysqli_num_rows($select_user) > 0) {
+                                $fetch_user = mysqli_fetch_assoc($select_user);
+                                 };
+                                  ?>
 
 
                                 <?php if($user_id == 3){
-                  ?>
+                                ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -315,8 +315,8 @@ if (isset($message)) {
                                     </ul>
                                 </li>
                                 <?php
-                    }else{
-                        ?>
+                                   }else{
+                                ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -339,17 +339,17 @@ if (isset($message)) {
                                                     class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
 
                                         <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
-                      <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
-                      <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
-                      <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
+                                        <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
+                                        <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
+                                        <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
 
                                         <li><a class="dropdown-item" href="logout.php"><i
                                                     class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
                                     </ul>
                                 </li>
                                 <?php
-                    }
-                    ?>
+                                }
+                                ?>
 
                         </ul>
                     </div>
@@ -391,14 +391,14 @@ if (isset($message)) {
 
 
                         <!-- <li class="nav-item">
-                <a class="nav-link" href="orders.php">Orders</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="messages.php">Messages</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
-              </li> -->
+                        <a class="nav-link" href="orders.php">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="messages.php">Messages</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
+                        </li> -->
 
                     </ul>
                 </div>

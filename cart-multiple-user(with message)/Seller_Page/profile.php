@@ -6,7 +6,7 @@
 $username = $_SESSION["user_id"]  ?? '3';
 $findresult = mysqli_query($conn, "SELECT * FROM user_form WHERE id = '$user_id'");
 if ($res = mysqli_fetch_array($findresult)) {
-	$name = $res['name'] ?? '';
+	$name = $res['fullname'] ?? '';
 	$fullname = $res['fullname'] ?? '';
 	$username = $res['username']  ?? '';
 	$oldusername = $res['username']  ?? '';
@@ -64,12 +64,17 @@ if ($res = mysqli_fetch_array($findresult)) {
         </div>
 
         <div class="row">
+
           <div class="row">
-            <div class="col-12 col-xl-4">
+
+            <!-- <div class="col-12 col-xl-4">
+
               <div class="card card-plain h-100">
+
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Platform Settings</h6>
                 </div>
+
                 <div class="card-body p-3">
                   <h6 class="text-uppercase text-body text-xs font-weight-bolder">Account</h6>
                   <ul class="list-group">
@@ -114,20 +119,24 @@ if ($res = mysqli_fetch_array($findresult)) {
                     </li>
                   </ul>
                 </div>
+
               </div>
-            </div>
-            <div class="col-12 col-xl-4">
+            </div> -->
+
+            <div class="col-12 col-xl-12">
               <div class="card card-plain h-100">
                 <div class="card-header pb-0 p-3">
                   <div class="row">
                     <div class="col-md-8 d-flex align-items-center">
                       <h6 class="mb-0">Shop Information</h6>
                     </div>
-                    <div class="col-md-4 text-end">
+
+                    <!-- <div class="col-md-4 text-end">
                       <a href="javascript:;">
                         <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
                       </a>
-                    </div>
+                    </div> -->
+
                   </div>
                 </div>
                 <div class="card-body p-3">
@@ -158,7 +167,7 @@ if ($res = mysqli_fetch_array($findresult)) {
             </div>
 
 
-            <div class="col-12 col-xl-4">
+            <!-- <div class="col-12 col-xl-4">
               <div class="card card-plain h-100">
                 <div class="card-header pb-0 p-3">
                   <h6 class="mb-0">Conversations</h6>
@@ -218,7 +227,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> -->
             
            
           </div>

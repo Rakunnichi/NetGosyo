@@ -4,9 +4,9 @@ include 'header.php';
 $id = $_SESSION['user_id'] ?? '3';
 $name = '';
 
+
 $sql = "SELECT * FROM user_form WHERE id=$id";
 $user = mysqli_query($conn, $sql);
-
 
 if (mysqli_num_rows($user) > 0) {
   $row = mysqli_fetch_assoc($user);
@@ -14,6 +14,8 @@ if (mysqli_num_rows($user) > 0) {
   $phone = $row["phonenumber"];
   $address = $row["address"];
 }
+
+
 
 function acronym_with_timestamp($string) {
   $string = strtoupper($string);
@@ -117,11 +119,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h6>Choose A Payment Method</h6>
             <select name="pmode" class="custom-select" id="payment-method">
             <option selected>Choose...</option>
-            <option value="Cash on Delivery">Cash on Delivery</option>
-            <option value="GCash E- Wallet">GCash E- Wallet</option>
+            <?php
+              $select_method = mysqli_query($conn, "SELECT * FROM `pmethod` ") or die('query failed!');
+              if (mysqli_num_rows($select_method) > 0) {
+              while ($fetch_method = mysqli_fetch_assoc($select_method)) {
+            ?>
+            <option value="<?php echo $fetch_method['name']; ?>">
+            <?php echo $fetch_method['name']; ?>
+            </option>
+             
+            <?php
+              }
+              }; 
+            ?>
             </select>
           </div>
-          
+            
         </form>
       </div>
       <div class="col-md-5">
