@@ -1,6 +1,6 @@
 <?php
 
-include('header.php');
+include('new_navbar.php');
 include ('Templates/_banner-area.php');
 include('Templates/_top-products.php');
 include ('Templates/_banner-ads.php');

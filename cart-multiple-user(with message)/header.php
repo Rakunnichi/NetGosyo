@@ -201,30 +201,10 @@ if (isset($_POST['compose'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' />
 
 
 
 
-    <style>
-    .btn-warning {
-        background-color: #e6873c !important;
-        color: #fff;
-        border-color: #e6873c !important;
-    }
-
-    .btn-warning {
-        color: #fff !important
-    }
-
-    .row {
-        align-items: flex-start;
-    }
-
-    .color_left {
-        min-height: 620px !important;
-    }
-    </style>
 </head>
 
 <?php
@@ -236,27 +216,23 @@ if (isset($message)) {
 ?>
 
 <body>
-
     <!-- Navbar start -->
     <div class="main-navbar shadow-sm sticky-top">
         <div class="top-navbar">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4">
-                        <a class="brand-name ml-4" href="index.php">NetGosyo</a>
+                    <div class="col-md-4 my-auto">
+                        <ul class="nav justify-content-start">
+                            <li class="nav-item">
+                                <a class="brand-name ml-4" href="index.php"><img style="width:50px; height:auto;"
+                                        src="assets/logo.png"><span>NetGosyo</span></a>
+                            </li>
+
+                        </ul>
                     </div>
 
                     <div class="col-md-4 my-auto">
-                        <!-- <form role="search" method="GET" action="category-page.php">
-                            <div class="searchBox">
-                                <input class="searchInput" type="text" name="search" placeholder="Search Products"
-                                    value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
-                                <button class="searchButton" href="#">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </form> -->
-                        <form role="search" method="GET" action="category-page.php">
+                        <form role="search" method="GET" action="search-page.php">
                             <div class="input-group">
                                 <input type="text" name="search" placeholder="Search Products" class="form-control"
                                     value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" />
@@ -290,7 +266,7 @@ if (isset($message)) {
                             <?php }
                             ?>
 
-                            
+
                             <div class="user-profile">
 
                                 <?php
@@ -325,7 +301,7 @@ if (isset($message)) {
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                                        <li><a class="dropdown-item" href="user.php"><i
+                                        <li><a class="dropdown-item" href="Profile_settings.php"><i
                                                     class="fa fa-user text-dark mr-1"></i> Profile</a></li>
                                         <li><a class="dropdown-item" href="orders.php"><i
                                                     class="fa fa-cart-shopping text-dark mr-1"></i> Purchases</a></li>
@@ -338,11 +314,14 @@ if (isset($message)) {
                                         <li><a class="dropdown-item" href="user-changepass.php"><i
                                                     class="fa fa-cog text-dark mr-1"></i> Change Password</a></li>
 
+<<<<<<< HEAD
                                         <!-- <li><a class="dropdown-item" href="user.php"><i class="fa fa-user text-dark mr-1"></i> Profile</a></li>
                                         <li><a class="dropdown-item" href="orders.php"><i class="fa fa-cart-shopping text-dark mr-1"></i> Orders</a></li>
                                         <li><a class="dropdown-item" href="messages.php"><i class="fa fa-envelope text-dark mr-1"></i> Messages</a></li>
                                         <li><a class="dropdown-item" href="notifications.php"><i class="fa fa-bell text-dark mr-1"></i> Notifications <span class="badge badge-danger"><?= mysqli_num_rows($notifications) ?></span></a></li> -->
 
+=======
+>>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914
                                         <li><a class="dropdown-item" href="logout.php"><i
                                                     class="fa fa-sign-out text-dark mr-1"></i> Logout</a></li>
                                     </ul>
@@ -358,16 +337,14 @@ if (isset($message)) {
         </div>
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand d-block d-sm-block d-md-none d-lg-none px-4">
+                <!-- <a class="navbar-brand px-2">
                     NetGosyo
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                </a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 
                         <li class="nav-item">
@@ -390,6 +367,7 @@ if (isset($message)) {
                         </li>
 
 
+<<<<<<< HEAD
                         <!-- <li class="nav-item">
                         <a class="nav-link" href="orders.php">Orders</a>
                         </li>
@@ -400,10 +378,56 @@ if (isset($message)) {
                         <a class="nav-link" href="notifications.php">Notifications (<?= mysqli_num_rows($notifications) ?>)</a>
                         </li> -->
 
+=======
+>>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914
                     </ul>
                 </div>
 
             </div>
         </nav>
+
+        <!-- <div class="header">
+            <input type="checkbox" id="nav_check" hidden>
+            <nav>
+              <div class="logo">
+                <img style="width:50px; height:auto;"  src="assets/logo.png" alt="">
+              </div>
+              <ul>
+                    <li>
+                        <a href="index.php" class="active">Home</a>
+                    </li>
+                    <li>
+                        <a href="">Products</a>
+                    </li>
+                    <li>
+                        <a href="">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="">About</a>
+                    </li>
+                    <li>
+                        <a href="">Say, hi - info@virus.com</a>
+                    </li>
+              </ul>
+            </nav>
+            <label for="nav_check" class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </div>
+    <script>
+        hamburger = document.querySelector(".hamburger");
+        nav = document.querySelector("nav");
+        hamburger.onclick = function() {
+            nav.classList.toggle("active");
+        }
+    </script> -->
     </div>
+    <script type="text/javascript">
+    $('.js-scroll-trigger').click(function() {
+        $('.navbar-collapse').collapse('hide');
+    });
+    </script>
+
     <!-- Navbar end -->

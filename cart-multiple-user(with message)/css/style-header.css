@@ -78,7 +78,6 @@ button, button:focus {
     color: #E6873C !important;
 }
 
-
 .text-grey{
     color: #333333;
 }
@@ -90,12 +89,7 @@ nav{
     align-content: center;
     justify-content: space-between;
 }
-.logo{
-    height: 43px;
-    width: 48px;
-    margin-left: 60px;
-    margin-top: 0px;
-}
+
 .collapse{
     display: flex;
     justify-content: center;
@@ -219,17 +213,13 @@ input{
     margin-top: 20px;
 }
 .margin-right-10{
-    margin-right: 10px;
+    margin-right: 0px;
 }
 .margin-left-10{
     margin-left: 10px;
     margin-right: 10px;
 }
-h5{
-    font-size: 10px;
-    margin-left: 10px;
     
-}
 .text-blue{
     color: #67BCCE;
 }
@@ -238,6 +228,8 @@ h5{
     padding-right: 10px;
 }
 
+<<<<<<< HEAD
+=======
 
 /*   For Navbar */
 
@@ -305,6 +297,7 @@ h5{
    font-weight: bold;
 }
 
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
 /*   For Ratings */
 
 .progress-label-left
@@ -345,7 +338,7 @@ h5{
 
 .gadgets {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -353,6 +346,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none; 
+    box-shadow: 1px 1px 5px #333333;
 }
 .gadgets:hover{
     -webkit-transform: scale(1.1);
@@ -363,7 +357,7 @@ h5{
 }
 .women-apparel {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -371,6 +365,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-apparel:hover{
     -webkit-transform: scale(1.1);
@@ -381,7 +376,7 @@ h5{
 }
 .men-apparel {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -389,6 +384,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-apparel:hover{
     -webkit-transform: scale(1.1);
@@ -399,16 +395,15 @@ h5{
 }
 .delicacies {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
     border-radius: 5px;   
     background: #ede9e6; 
     color: black;
-    text-decoration:none; 
-    color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .delicacies:hover{
     -webkit-transform: scale(1.1);
@@ -419,7 +414,7 @@ h5{
 }
 .women-bags {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -427,6 +422,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-bags:hover{
     -webkit-transform: scale(1.1);
@@ -437,14 +433,15 @@ h5{
 }
 .women-accessories {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
     border-radius: 5px;   
     background: #ede9e6; 
     color: black;
-    text-decoration:none;  
+    text-decoration:none; 
+    box-shadow: 1px 1px 5px #333333; 
 }
 .women-accessories:hover{
     -webkit-transform: scale(1.1);
@@ -455,7 +452,7 @@ h5{
 }
 .men-bags {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -463,6 +460,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-bags:hover{
     -webkit-transform: scale(1.1);
@@ -473,7 +471,7 @@ h5{
 }
 .makeup {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -481,6 +479,7 @@ h5{
     background: #ede9e6;  
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .makeup:hover{
     -webkit-transform: scale(1.1);
@@ -491,7 +490,7 @@ h5{
 }
 .furniture {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -499,6 +498,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .furniture:hover{
     -webkit-transform: scale(1.1);
@@ -509,7 +509,7 @@ h5{
 }
 .home-living {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -517,6 +517,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .home-living:hover{
     -webkit-transform: scale(1.1);
@@ -527,7 +528,7 @@ h5{
 }
 .souvenir {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -535,6 +536,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .souvenir:hover{
     -webkit-transform: scale(1.1);
@@ -545,7 +547,7 @@ h5{
 }
 .men-shoes {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -553,6 +555,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .men-shoes:hover{
     -webkit-transform: scale(1.1);
@@ -563,7 +566,7 @@ h5{
 }
 .women-shoes {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -571,6 +574,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .women-shoes:hover{
     -webkit-transform: scale(1.1);
@@ -581,7 +585,7 @@ h5{
 }
 .babies {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -589,6 +593,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .babies:hover{
     -webkit-transform: scale(1.1);
@@ -599,7 +604,7 @@ h5{
 }
 .lingerie {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -607,6 +612,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .lingerie:hover{
     -webkit-transform: scale(1.1);
@@ -617,7 +623,7 @@ h5{
 }
 .toys {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -625,6 +631,7 @@ h5{
     background: #ede9e6;  
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .toys:hover{
     -webkit-transform: scale(1.1);
@@ -635,7 +642,7 @@ h5{
 }
 .pottery {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -643,6 +650,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .pottery:hover{
     -webkit-transform: scale(1.1);
@@ -653,7 +661,7 @@ h5{
 }
 .sports {
     height: 90px;
-    width: 150px;
+    width: 130px;
     margin: 2px 2px 2px 2px;
     overflow: hidden;
     border: none;
@@ -661,6 +669,7 @@ h5{
     background: #ede9e6; 
     color: black;
     text-decoration:none;  
+    box-shadow: 1px 1px 5px #333333;
 }
 .sports:hover {
     -webkit-transform: scale(1.1);
@@ -740,6 +749,9 @@ h5{
     text-align: center;
     padding-bottom: 30px;
   }
+<<<<<<< HEAD
+  
+=======
 
    /*Search Box*/
   .searchBox {
@@ -804,6 +816,7 @@ nav{
     opacity .5s cubic-bezier(0.64,0.04,0.26,0.87);
 }
 
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
   #back_button{
     text-decoration: none;
     padding-right: 90%;
@@ -815,6 +828,8 @@ nav{
     color: #000000;
 
 }
+<<<<<<< HEAD
+=======
 
 
  /* Hover View-Top-Products */
@@ -882,4 +897,8 @@ nav{
         margin-top: 20px;
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
+>>>>>>> a7133d8e40b68c8c67c819f19190c9cc9a8a9914

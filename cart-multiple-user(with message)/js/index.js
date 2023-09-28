@@ -3,6 +3,7 @@ $(document).ready(function(){
 // banner owl carousel
 $("#banner-area .owl-carousel").owlCarousel({
     dots: true,
+    loop: true,
     loop:true,
     autoplay:true,
     autoplayTimeout:3000,
@@ -14,7 +15,6 @@ $("#banner-area .owl-carousel").owlCarousel({
 //top products owl carousel
 $("#top-products .owl-carousel").owlCarousel({
     loop: true,
-    nav: true,
     dots: false,
     responsive: {
         0:{
