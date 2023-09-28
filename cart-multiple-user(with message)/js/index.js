@@ -3,8 +3,16 @@ $(document).ready(function(){
 // banner owl carousel
 $("#banner-area .owl-carousel").owlCarousel({
     dots: true,
+<<<<<<< HEAD
     loop: true,
+=======
+    loop:true,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
     items:1
+    
 });
 
 //top products owl carousel
@@ -308,4 +316,11 @@ $(document).ready(function(){
 
 });
 
-
+//NetGosyo Style
+$(document).ready(function(){
+            
+    $(".carousel-caption h5").addClass('animated slideInLeft');
+    
+    $(".carousel-caption p").addClass('animated slideInRight');
+    
+});

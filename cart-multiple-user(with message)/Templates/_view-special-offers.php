@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5" id="view_special_offers">
     <div class="text-center">
         <h4 class="font-rubik font-size-50"><b>Special Offers</b></h4>
     </div>
@@ -17,7 +17,9 @@
                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">For You!
                     </div>
 
+                    <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>">
                     <img class="card-img-top" src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="..." />
+                    </a>
 
                     <div class="card-body p-4">
                         <div class="text-center">

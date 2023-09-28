@@ -29,7 +29,8 @@
                                 </div>
                         <form method="post">
                             <input type="hidden" min="1" name="product_quantity" value="1">
-                            <input type="hidden" name="product_id" value="<?php echo $fetch_product['id']; ?>"> 
+                            <input type="hidden" name="product_id" value="<?php echo $fetch_product['id']; ?>">
+                            <input type="hidden" name="seller_id" value="<?php echo $fetch_product['user_id']; ?>"> 
                             <input type="hidden" name="product_image" value="<?php echo $fetch_product['image']; ?>">
                             <input type="hidden" name="product_name" value="<?php echo $fetch_product['name']; ?>">
                             <input type="hidden" name="product_price" value="<?php echo $fetch_product['price']; ?>">

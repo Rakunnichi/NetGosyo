@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5" id="view_top_products">
     <div class="text-center">
         <h4 class="font-rubik font-size-50"><b>Top Products</b></h4>
     </div>
@@ -17,7 +17,9 @@
                     <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
                     </div>
 
+                    <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>">
                     <img class="card-img-top" src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="..." />
+                    </a>
 
                     <div class="card-body p-4">
                         <div class="text-center">
@@ -34,9 +36,6 @@
 
                             <b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b>
                         </div>
-                    </div>
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-warning" href="#">Add to cart</a></div>
                     </div>
                 </div>
             </div>

@@ -251,7 +251,7 @@
 
                   <tbody>
                   <?php
-                        $sr_no=1;
+                    $sr_no=1;
   			            $select_product = mysqli_query($conn, "SELECT * FROM `products` where user_id = '$user_id' ") or die('query failed!');
                         if(mysqli_num_rows($select_product) > 0){
                         while($fetch_product = mysqli_fetch_assoc($select_product)){    
@@ -282,9 +282,9 @@
 
                       <td class="align-middle text-center">
   
-                        <button type="button" class="btn button-update btn-sm">Update</button>
+                      <a href="update_product.php?id=<?php echo $fetch_product['id'];?>"><button type="button" class="btn button-update btn-sm">Update</button></a>
                       
-                        <button type="button" class="btn button-remove btn-sm">Remove</button>
+                        <a href="seller-action.php?id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Remove</button></a>
                                                 
                       </td>
                     </tr>

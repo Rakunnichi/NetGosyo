@@ -228,6 +228,76 @@ input{
     padding-right: 10px;
 }
 
+<<<<<<< HEAD
+=======
+
+/*   For Navbar */
+
+.main-navbar{
+    border-bottom: 1px solid #ccc;
+}
+.main-navbar .top-navbar{
+    background-color: #E6873C;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.main-navbar .top-navbar .brand-name{
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.main-navbar .top-navbar .nav-link{
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+.main-navbar .top-navbar .dropdown-menu{
+    padding: 0px 0px;
+    border-radius: 0px;
+}
+.main-navbar .top-navbar .dropdown-menu .dropdown-item{
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+.main-navbar .top-navbar .dropdown-menu .dropdown-item i{
+    width: 20px;
+    text-align: center;
+    color: #2874f0;
+    font-size: 14px;
+}
+.main-navbar .navbar{
+    padding: 0px;
+    background-color: #ddd;
+}
+.main-navbar .navbar .nav-item .nav-link{
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link{
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .main-navbar .top-navbar .nav-link{
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
+
+#navbar-icon-design{
+   font-size: 50px;
+   font-weight: bold;
+}
+
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
 /*   For Ratings */
 
 .progress-label-left
@@ -679,7 +749,74 @@ input{
     text-align: center;
     padding-bottom: 30px;
   }
+<<<<<<< HEAD
   
+=======
+
+   /*Search Box*/
+  .searchBox {
+    display: flex;
+    width: 300px;
+    max-width: 500px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: #ffffff;
+    border-radius: 50px;
+    position: relative;
+  }
+  
+  .searchButton {
+    color: white;
+    position: absolute;
+    right: 8px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+    border: 0;
+    display: inline-block;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  }
+  /*hover effect*/
+  #searchButton:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+    transform: translateY(-3px);
+  }
+  /*button pressing effect*/
+  button:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+  
+  .searchInput {
+    border: none;
+    background: none;
+    color: #333333;
+    font-size: 15px;
+    padding: 14px 26px 14px 16px;
+  }
+  
+  /*   For Navbar */
+.navbar{
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    /* border-bottom: 1px solid #ccc; */
+    /* box-shadow: 0px 8px 8px -6px rgba(0, 0, 0, 0.836); */
+    
+}
+nav{
+    /* background-color: #252525; */
+    transition: background-color 0.5s ease;
+    opacity: 1;
+    /* background-color: transparent; */
+    transition: transform .2s cubic-bezier(0.64,0.04,0.26,0.87),
+    opacity .5s cubic-bezier(0.64,0.04,0.26,0.87);
+}
+
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507
   #back_button{
     text-decoration: none;
     padding-right: 90%;
@@ -689,5 +826,75 @@ input{
 
   #back_button:hover{
     color: #000000;
-   
+
 }
+<<<<<<< HEAD
+=======
+
+
+ /* Hover View-Top-Products */
+#view_top_products .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+#view_top_products .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
+
+ /* Hover View-New-Arrivals */
+#view_new_arrivals .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+
+#view_new_arrivals .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
+
+ /* Hover View-Special-Offers */
+ #view_special_offers .container .row .col .card img{
+    transition: transform 0.5s ease;
+}
+
+#view_special_offers .container .row .col .card img:hover{
+    transform: scale(1.1);
+}
+
+
+ /* #NetGosyo Styles */
+.carousel-caption{
+    bottom: 90px;
+}
+
+.carousel-indicators {
+	li{
+        width: 70px;
+        height: 36px;
+        border: 1px solid #222;
+    }
+    .active{
+        border: 1px solid rgb(255, 116, 116);
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .carousel-indicators{
+        position: relative !important;
+        bottom: 0;
+    }
+    .carousel-caption {
+        bottom: 0px;
+        top: 80px;
+        
+        h5{
+            font-size: 12px;
+            font-weight: bold;
+        }
+        p{
+            font-size: 10px;
+        }
+    }
+    .carousel-title{
+        font-size: 18px;
+        margin-top: 20px;
+    }
+}
+>>>>>>> 2cbc89cd0d5123096edcc8b8839f0e32a7f6f507

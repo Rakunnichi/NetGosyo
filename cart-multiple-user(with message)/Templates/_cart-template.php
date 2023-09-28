@@ -16,7 +16,7 @@
             <!-- Cart Items1 -->
             <div class="row border-top py-3 mt-3">
               <div class="col-sm-2">
-                <img src="image/<?php echo $fetch_cart['image'] ?? "./assets/products/1.png"; ?>" style="height:120px;" alt="cart1" class="img-fluid">
+                <img src="Seller-uploads/<?php echo $fetch_cart['image'] ?? "./assets/products/1.png"; ?>" style="height:120px;" alt="cart1" class="img-fluid">
               </div>
               <div class="col-sm-8">
                 <h5 class="font-baloo font-size-20 ml-0 mb-0"><?php echo $fetch_cart['name'] ?? "Unknown"; ?></h5>

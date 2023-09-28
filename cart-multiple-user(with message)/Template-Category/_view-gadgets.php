@@ -1,4 +1,4 @@
-<section class="py-5">
+<section class="py-5" id="view_top_products">
     <div class="text-center">
         <a href="categories.php" id="back_button"><b><i class="fas fa-arrow-left"></i> Back</b></a> 
         <h4 class="font-rubik font-size-50"><b>Gadgets</b></h4>
@@ -16,8 +16,10 @@
                 <div class="card h-100">
 
                     
-                   
+                    <a href="<?php printf('%s?id=%s', 'product.php',  $fetch_product['id']); ?>">
                     <img class="card-img-top" src="Seller-uploads/<?php echo $fetch_product['image']; ?>" alt="..." />
+                    </a>
+                   
 
                     <div class="card-body p-4">
                         <div class="text-center">

@@ -1,39 +1,72 @@
 <?php
   include('header.php');
+  ob_start();
+  ?>
 
+<?php
+    $id =  $_GET["id"];
 
-  if(isset($_POST['addprod-submit'])){
+    $sql = "SELECT * FROM products WHERE id=$id";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
 
-    $prodname = mysqli_real_escape_string($conn, $_POST['prodname']);
-    $prodprice = mysqli_real_escape_string($conn, $_POST['prodprice']);
-    $prodquantity = mysqli_real_escape_string($conn, $_POST['prodquantity']);
-    $prodcategory = mysqli_real_escape_string($conn, $_POST['category']);
+    $name = $row["name"];
+    $price = $row["price"];
+    $image =$row["image"];
+    $itembrand = $row["item_brand"];
+    $quantity = $row["quantity"];
+
+if(isset($_POST['update-submit'])){
    
-    $file_name = $_FILES['file']['name'];
-    $file_tmp = $_FILES['file']['tmp_name'];
-    $file_type = $_FILES['file']['type'];
-    $tmp = explode('.', $_FILES['file']['name']);
-    $file_ext = strtolower(end($tmp));
-    $extensions = array("jpeg","jpg","png");
-    
-    if(in_array($file_ext,$extensions) === false){
-        echo "Extension not allowed, please choose a JPEG or PNG file.";
-        exit();
+    $id = mysqli_real_escape_string($conn, $_POST["id"]);
+    $name = mysqli_real_escape_string($conn, $_POST["name"]);
+    $price = mysqli_real_escape_string($conn, $_POST["price"]);
+    $itembrand = mysqli_real_escape_string($conn, $_POST["item_brand"]);
+    $quantity = mysqli_real_escape_string($conn, $_POST["quantity"]);
+   
+    $old_image = mysqli_real_escape_string($conn, $_POST["product_img_old"]);
+    $new_image = $_FILES['prod_image']['name'];
+
+    if($new_image != ''){
+
+        $update_filename = $_FILES['prod_image']['name'];
+
+
+    }else{
+        $update_filename = $old_image;
+    }
+
+    if(file_exists("../Seller-uploads/". $_FILES['prod_image']['name'])){
+
+        $filename = $_FILES['prod_image']['name'];
+        $Message = "Image Already Exist!";
+
+    }else{
+
+        $sql = "UPDATE products SET name='$name', price = '$price', image = '$update_filename', item_brand='$itembrand', quantity = '$quantity' where id=$id ";
+        $result = $conn->query($sql);
+        
+        if($result){
+
+            if($_FILES['prod_image']['name'] != ''){
+                move_uploaded_file($_FILES['prod_image']['tmp_name'], "../Seller-uploads/".$_FILES['prod_image']['name']);
+                unlink("../Seller-uploads/" .$old_image);
+            }
+
+            $Message = "Product Updated Successfully";
+           
+        }else{
+            $Message = "Invalid query: " . $conn->error;
+        }
+
     }
     
-    $new_file_name = time().'-'.$file_name;
    
-    $destination = "../Seller-uploads/".$new_file_name;
-    move_uploaded_file($file_tmp, $destination);
-    
-    mysqli_query($conn, "INSERT INTO `products` (user_id, name, price, image, item_brand, quantity) VALUES('$user_id', '$prodname', '$prodprice', '$new_file_name', '$prodcategory', '$prodquantity')") or die ('query failed');
-       
-    $Message = "Product Added Successfully";
-    
+
 }
 
-?>
 
+?>
 
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
 
@@ -44,9 +77,9 @@
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a>
                     </li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Add New Product</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Update Product</li>
                 </ol>
-                <h6 class="font-weight-bolder mb-0">Add New Product</h6>
+                <h6 class="font-weight-bolder mb-0">Update Product</h6>
             </nav>
 
 
@@ -66,8 +99,9 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title mb-4">Add New Product</h5>
-                            <?php
+                            <h5 class="card-title mb-4">Update Product</h5>
+
+                        <?php
                             if(!empty($Message)){
                                 echo"
                                 <div class='alert alert-secondary alert-dismissible text-white color-orange-bg' role='alert'>
@@ -82,39 +116,47 @@
                             }
                         ?>
                             
+
                             <form action="" method="post" enctype='multipart/form-data'>
-                                <input type="hidden" name="user_id" value="">
+                                <input type="hidden" name="id" value="<?php echo $id; ?>">
                                 <div class="row">
+
                                     <div class="col-md-6">
+                                        <label>Product Name:</label>
                                         <div class="input-group input-group-outline my-3">
-                                            <input type="text" name="prodname" placeholder="Product Name"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="input-group input-group-outline my-3">
-                                            <input type="number" name="prodprice" placeholder="Product Price"
+                                            <input type="text" value="<?php echo $name; ?>" name="name"
                                                 class="form-control">
                                         </div>
                                     </div>
 
-                                    
-                                </div>
-                                <div class="row">
                                     <div class="col-md-6">
+                                        <label>Product Price:</label>
                                         <div class="input-group input-group-outline my-3">
-                                            <input type="number" name="prodquantity" placeholder="Product Quantity"
+                                            <input type="number" name="price" value="<?php echo $price; ?>"
                                                 class="form-control">
                                         </div>
                                     </div>
+
+
+                                </div>
+                                <div class="row">
+
                                     <div class="col-md-6">
+                                        <label>Product Quantity:</label>
                                         <div class="input-group input-group-outline my-3">
-                                            <select class="form-control" name="category" id="category">
-                                                <option selected>Choose a Category</option>
+                                            <input type="number" name="quantity" value="<?php echo $quantity; ?>"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>Product Category:</label>
+                                        <div class="input-group input-group-outline my-3">
+                                            <select class="form-control" name="item_brand" id="category">
+                                                <option selected=""><?php echo $itembrand; ?></option>
                                                 <option value="Gadget">Gadgets</option>
                                                 <option value="Women-Apparel">Women-Apparel</option>
                                                 <option value="Men-Apparel">Men-Apparel</option>
-                                                <option value="Women-Accesories">Women-Accesories</option>
                                                 <option value="Men-Bag-Accesories">Men-Bag-Accesories</option>
                                                 <option value="Makeup-Fragrance">Makeup-Fragrance</option>
                                                 <option value="Women-Bag">Women-Bag</option>
@@ -128,25 +170,35 @@
                                                 <option value="Toys">Toys</option>
                                                 <option value="Lingerie-Loungewear">Lingerie-Loungewear</option>
                                                 <option value="Pottery">Pottery</option>
-                                                <option value="Babies-Kids">Babies-Kids</option>         
+                                                <option value="Babies-Kids">Babies-Kids</option>
                                             </select>
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 pt-3" style="max-width:100px">
+                                        <img src="../Seller-uploads/<?php echo $image; ?>" class="img-fluid">
+                                    </div>
+
+                                    <div class="col-md-5 pb-4">
                                         <div class="input-group input-group-outline my-2">
-                                        <label>Add Image &#8595;</label>
-                                        <input class="form-control" type="file" name="file" style="width:100%;">
+                                            <label>Change Product Image &#8595;</label>
+                                            <input class="form-control" type="file" name="prod_image" style="width:100%;">
+                                            <input type="hidden" name="product_img_old" value="<?php echo $image; ?>">
                                         </div>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-icon btn-3 button-update" type="submit" name="addprod-submit">
-                                    <span class="btn-inner--icon"><i class="material-icons">add_circle</i></span>
-                                    <span class="btn-inner--text">Add Product</span>
+                                <button class="btn btn-icon btn-3 button-update" type="submit" name="update-submit">
+                                    <span class="btn-inner--icon"><i class="material-icons">arrow_circle_up</i></span>
+                                    <span class="btn-inner--text">Update Product</span>
                                 </button>
-                            </form>
 
+                                <a href="my_products.php" class="btn btn-icon btn-3 button-remove">
+                                    <span class="btn-inner--icon"><i class="material-icons">arrow_back</i></span>
+                                    <span class="btn-inner--text">Back</span>
+                                    <a>
+
+                            </form>
 
                         </div>
                     </div>
