@@ -361,7 +361,10 @@ if ($res = mysqli_fetch_array($findresult)) {
                                             </select>
                                             <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
                                         </div>
-                                        <input type="submit" value="Update" name="update_user" class="btn btn-warning">
+                                        <div class="mt-1     col-md-7"><label class="labels" style="font-size: 17px;">
+                                        <input type="submit" value="Update" name="update_user" class="btn color-orange-bg">
+                                        </div>
+                                        
                                     </div>
 
                                 </div>

@@ -320,7 +320,7 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
                                         <div class="table-wrapper">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <h4 class="text-right" style="font-size: 30px;">Messages</h4>
-                                                <button class="btn btn-warning" data-toggle="modal"
+                                                <button class="btn color-orange-bg" data-toggle="modal"
                                                     data-target="#messageModal">+</button>
                                             </div>
 
