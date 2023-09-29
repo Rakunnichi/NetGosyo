@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 $user_id = $_SESSION["user_id"];
