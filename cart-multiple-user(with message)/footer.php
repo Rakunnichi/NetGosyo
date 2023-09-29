@@ -1,6 +1,5 @@
 </main>
 <!-- !start #main-site -->
-<section class="pt-5">
     <!-- start #footer -->
 <footer id="footer" class="bg-dark text-white py-5">
     <div class="container">

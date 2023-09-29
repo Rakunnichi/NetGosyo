@@ -140,7 +140,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                                     stroke-linejoin="round" class="feather feather-bell mr-2">
                                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>Notification
+                                </svg>Notification<span class="badge badge-danger ml-2"><?= mysqli_num_rows($notifications) ?>
                             </a>
                             <a href="Profile_changepass.php" class="nav-item nav-link has-icon nav-link-faded active">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -191,7 +191,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                                         stroke-linejoin="round" class="feather feather-bell">
                                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                    </svg></a>
+                                    </svg><span class="badge badge-danger ml-1"><?= mysqli_num_rows($notifications) ?></a>
                             </li>
                             <li class="nav-item">
                                 <a href="Profile_changepass.php" class="nav-link has-icon active"><svg
@@ -270,10 +270,10 @@ if ($res = mysqli_fetch_array($findresult)) {
                                 }
                                 ?>
                                 <div class="p-3">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div class="d-flex justify-content-between align-items-center">
                                         <h4 class="text-right" style="font-size: 30px;">Change Password</h4>
                                     </div>
-                                    <div class="row mt-2 border-top mb-4">
+                                    <div class="row mt-2 border-top">
                                         <input type="hidden" name="user_id" value="<?php echo $fetch_cart['id']; ?>">
 
                                         <div class="mt-3 col-md-8"><label class="labels"
@@ -289,16 +289,18 @@ if ($res = mysqli_fetch_array($findresult)) {
                                                 placeholder="Enter New Password">
                                         </div>
 
-                                        <div class="mt-3 col-md-8"><label class="labels"
+                                        <div class="mt-3 mb-4 col-md-8"><label class="labels"
                                                 style="font-size: 17px;">Confirm
                                                 New Password</label>
                                             <input type="password" class="form-control" name="confirm_pass"
                                                 placeholder="Confirm New Password">
                                         </div>
+
+                                        <input type="submit" value="Change Password" name="change_pass"
+                                        class="btn btn-warning">
                                     </div>
 
-                                    <input type="submit" value="Change Password" name="change_pass"
-                                        class="btn btn-warning">
+                                    
                                 </div>
                             </form>
                         </div>

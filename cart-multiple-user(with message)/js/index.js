@@ -35,7 +35,6 @@ $("#top-products .owl-carousel").owlCarousel({
 //slider-shops owl carousel
 $("#slider-shops .owl-carousel").owlCarousel({
     loop: false,
-    nav: true,
     dots: false,
     responsive: {
         0:{
