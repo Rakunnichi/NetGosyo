@@ -311,15 +311,10 @@ if ($res = mysqli_fetch_array($findresult)) {
                                                 placeholder="Confirm New Password">
                                         </div>
 
-<<<<<<< HEAD
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
                                     <input type="submit" value="Change Password" name="change_pass"
-                                        class="btn btn-warning" style="font-weight: 600;">
-=======
-                                        <input type="submit" value="Change Password" name="change_pass"
-                                        class="btn color-orange-bg">
->>>>>>> 23b2f365d8eaf2a70b30d358a94735354f4e800c
+                                        class="btn color-orange-bg" style="font-weight: 600;">
                                     </div>
 
                                     

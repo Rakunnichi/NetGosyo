@@ -39,12 +39,12 @@ if ($res = mysqli_fetch_array($findresult)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
 
     <!-- crop 2.0 -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
-		<link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
-		<link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
-		<script src="https://unpkg.com/dropzone"></script>
-		<script src="https://unpkg.com/cropperjs"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
+    <link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet" />
+    <script src="https://unpkg.com/dropzone"></script>
+    <script src="https://unpkg.com/cropperjs"></script>
 
     <style type="text/css">
     body {
@@ -469,14 +469,8 @@ if ($res = mysqli_fetch_array($findresult)) {
                                             </select>
                                             <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
                                         </div>
-<<<<<<< HEAD
 
-=======
-                                        <div class="mt-1     col-md-7"><label class="labels" style="font-size: 17px;">
-                                        <input type="submit" value="Update" name="update_user" class="btn color-orange-bg">
-                                        </div>
-                                        
->>>>>>> 23b2f365d8eaf2a70b30d358a94735354f4e800c
+
                                     </div>
 
 
@@ -506,13 +500,13 @@ if ($res = mysqli_fetch_array($findresult)) {
                                     <div class="image_area">
                                         <form method="post">
                                             <label for="upload_image">
-                                            <?php if ($image == NULL) {
+                                                <?php if ($image == NULL) {
                                             echo '<img src="user_profile/profile.png" class="img-fluid" id="uploaded_image">';
                                         } else {
                                             echo '<img src="user-profiles/' . $image . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image">';
                                         }
                                         ?>
-                                                    
+
                                                 <div class="overlay">
                                                     <div class="text">Change Profile Image</div>
                                                 </div>
@@ -543,7 +537,8 @@ if ($res = mysqli_fetch_array($findresult)) {
                                 </div>  -->
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <input type="submit" value="Update" name="update_user" class="btn btn-warning" style="font-weight: 600;">
+                                    <input type="submit" value="Update" name="update_user" class="btn color-orange-bg"
+                                        style="font-weight: 600;">
                                 </div>
                             </div>
 
@@ -596,73 +591,71 @@ if ($res = mysqli_fetch_array($findresult)) {
     <script type="text/javascript"></script>
 
     <script>
+    $(document).ready(function() {
 
-$(document).ready(function(){
+        var $modal = $('#modal');
 
-	var $modal = $('#modal');
+        var image = document.getElementById('sample_image');
 
-	var image = document.getElementById('sample_image');
+        var cropper;
 
-	var cropper;
+        $('#upload_image').change(function(event) {
+            var files = event.target.files;
 
-	$('#upload_image').change(function(event){
-		var files = event.target.files;
+            var done = function(url) {
+                image.src = url;
+                $modal.modal('show');
+            };
 
-		var done = function(url){
-			image.src = url;
-			$modal.modal('show');
-		};
+            if (files && files.length > 0) {
+                reader = new FileReader();
+                reader.onload = function(event) {
+                    done(reader.result);
+                };
+                reader.readAsDataURL(files[0]);
+            }
+        });
 
-		if(files && files.length > 0)
-		{
-			reader = new FileReader();
-			reader.onload = function(event)
-			{
-				done(reader.result);
-			};
-			reader.readAsDataURL(files[0]);
-		}
-	});
+        $modal.on('shown.bs.modal', function() {
+            cropper = new Cropper(image, {
+                aspectRatio: 1,
+                viewMode: 3,
+                preview: '.preview'
+            });
+        }).on('hidden.bs.modal', function() {
+            cropper.destroy();
+            cropper = null;
+        });
 
-	$modal.on('shown.bs.modal', function() {
-		cropper = new Cropper(image, {
-			aspectRatio: 1,
-			viewMode: 3,
-			preview:'.preview'
-		});
-	}).on('hidden.bs.modal', function(){
-		cropper.destroy();
-   		cropper = null;
-	});
+        $('#crop').click(function() {
+            canvas = cropper.getCroppedCanvas({
+                width: 400,
+                height: 400
+            });
 
-	$('#crop').click(function(){
-		canvas = cropper.getCroppedCanvas({
-			width:400,
-			height:400
-		});
+            canvas.toBlob(function(blob) {
+                url = URL.createObjectURL(blob);
+                var reader = new FileReader();
+                reader.readAsDataURL(blob);
+                reader.onloadend = function() {
+                    var base64data = reader.result;
+                    $.ajax({
+                        url: 'upload.php',
+                        method: 'POST',
+                        data: {
+                            image: base64data
+                        },
+                        success: function(data) {
+                            $modal.modal('hide');
+                            $('#uploaded_image').attr('src', data);
+                        }
+                    });
+                };
+            });
+        });
 
-		canvas.toBlob(function(blob){
-			url = URL.createObjectURL(blob);
-			var reader = new FileReader();
-			reader.readAsDataURL(blob);
-			reader.onloadend = function(){
-				var base64data = reader.result;
-				$.ajax({
-					url:'upload.php',
-					method:'POST',
-					data:{image:base64data},
-					success:function(data)
-					{
-						$modal.modal('hide');
-						$('#uploaded_image').attr('src', data);
-					}
-				});
-			};
-		});
-	});
-	
-});
-</script>
+    });
+    </script>
 
 </body>
 
