@@ -488,7 +488,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                             <div class="p-3">
                                 <div class="">
                                     <label class="labels" style="font-size: 17px;">
-                                        <span class="form-title">Upload your file</span>
+                                        <span class="form-title">Change Profile</span>
                                         <p class="form-paragraph">
                                             File size: maximum 10 MB <br>
                                             File extension: .JPEG, .PNG, .JPG
