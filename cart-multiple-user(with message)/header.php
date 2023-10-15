@@ -15,7 +15,18 @@ if (mysqli_num_rows($select_review) > 0) {
   $reviewer_name = $row["username"];
  
 }
-
+$findresult = mysqli_query($conn, "SELECT * FROM user_form WHERE id = '$user_id'");
+if ($res = mysqli_fetch_array($findresult)) {
+	$fullname = $res['fullname'] ?? '';
+	$username = $res['username']  ?? '';
+	$oldusername = $res['username']  ?? '';
+	$email = $res['email']  ?? '';
+	$phonenumber = $res['phonenumber']  ?? '';
+	$address = $res['address']  ?? '';
+	$dateofbirth = $res['dateofbirth']  ?? '';
+	$gender = $res['gender']  ?? '';
+	$image = $res['image']  ?? '';
+}
 
 
 if (isset($_GET['logout'])) {
@@ -231,13 +242,13 @@ if (isset($message)) {
         <div class="top-navbar">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-4 my-auto d-none d-sm-none d-md-block d-lg-block" href="index.php">
-                        <a class="brand-name">
+                    <div class="col-md-4 my-auto d-none d-sm-none d-md-block d-lg-block">
+                        <a class="brand-name" href="index.php">
                             <img style="width:auto; height:40px; margin-right: 5px;" src="assets/logo.png">
                             NetGosyo
                         </a>
                     </div>
-                  
+
                     <div class="col-md-4 my-auto">
                         <form role="search" method="GET" action="search-page.php">
                             <div class="input-group">
@@ -295,7 +306,8 @@ if (isset($message)) {
                                         <i class="fa fa-user"></i></a>
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <li><a class="dropdown-item" href="login.php"><i class="fas fa-sign-in-alt text-dark mr-1"></i></i>Sign
+                                        <li><a class="dropdown-item" href="login.php"><i
+                                                    class="fas fa-sign-in-alt text-dark mr-1"></i></i>Sign
                                                 In</a></li>
                                     </ul>
                                 </li>
@@ -306,7 +318,12 @@ if (isset($message)) {
                                     <a class="nav-link dropdown-toggle" href="javascript:" id="navbarDropdown"
                                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-                                        <i class="fa fa-user"></i>  <?php echo $fetch_user['username']; ?></a>
+                                        <?php if ($image == NULL) {
+                                    echo '<img src="user_profile/profile_587153058.png" class="img-fluid">';
+                                } else {
+                                    echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:25px; width: 25px; box-shadow: 1px 1px 5px #333333;">';
+                                }
+                            ?> <?php echo $fetch_user['username']; ?></a>
 
                                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
@@ -314,13 +331,14 @@ if (isset($message)) {
                                                     class="fa fa-user text-dark mr-1"></i> Profile</a></li>
 
 
-                                        <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt text-dark mr-1"></i>Logout</a></li>
+                                        <li><a class="dropdown-item" href="logout.php"><i
+                                                    class="fas fa-sign-out-alt text-dark mr-1"></i>Logout</a></li>
                                     </ul>
                                 </li>
                                 <?php
                                 }
                                 ?>
-                          </div>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -335,7 +353,9 @@ if (isset($message)) {
                         src="assets/logo.png">
                     NetGosyo
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
                 </button>
 
@@ -407,7 +427,7 @@ if (isset($message)) {
                 </div>
             </div>
         </nav> -->
-                                                  
+
     </div>
 
 

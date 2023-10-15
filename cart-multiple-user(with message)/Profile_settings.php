@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 
@@ -32,10 +32,20 @@ if ($res = mysqli_fetch_array($findresult)) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css" />
 
-
-    <title>Profile settings - Bootdey.com</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- crop -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
+
+    <!-- crop 2.0 -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>        
+		<link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />
+		<link href="https://unpkg.com/cropperjs/dist/cropper.css" rel="stylesheet"/>
+		<script src="https://unpkg.com/dropzone"></script>
+		<script src="https://unpkg.com/cropperjs"></script>
+
     <style type="text/css">
     body {
 
@@ -103,135 +113,213 @@ if ($res = mysqli_fetch_array($findresult)) {
     .shadow-none {
         box-shadow: none !important;
     }
+
+
+    .form-title {
+        color: #000000;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .form-paragraph {
+        font-size: 0.9rem;
+        color: rgb(105, 105, 105);
+    }
+
+    .btn:hover {
+        color: #ffffff;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .preview {
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 10px;
+        border: 1px solid red;
+    }
+
+    /* img */
+    .image_area {
+        position: relative;
+        margin-left: 10px;
+        width: 150px;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .preview {
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 10px;
+        border: 1px solid red;
+    }
+
+    .modal-lg {
+        max-width: 1000px !important;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        height: 0;
+        transition: .5s ease;
+        width: 100%;
+    }
+
+    .image_area:hover .overlay {
+        height: 40%;
+        cursor: pointer;
+    }
+
+    .text {
+        color: #333;
+        font-size: 1rem;
+        font-weight: 500;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="row gutters-sm">
-            <div class="col-md-4 d-none d-md-block">
-                <div class="card">
-                    <div class="card-body">
-                        <nav class="nav flex-column nav-pills nav-gap-y-1">
-                            <a href="Profile_settings.php" class="nav-item nav-link has-icon nav-link-faded active">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-user mr-2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>Profile Information
-                            </a>
-                            <a href="Profile_purchases.php" class="nav-item nav-link has-icon nav-link-faded">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="currentColor" class="feather feather-settings mr-2">
-                                    <path
-                                        d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z">
-                                    </path>
-                                </svg>Purchases
-                            </a>
-                            <a href="Profile_messages.php" class="nav-item nav-link has-icon nav-link-faded">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="currentColor" class="feather feather-settings mr-2">
-                                    <path
-                                        d="M4 4h16v12H5.17L4 17.17V4m0-2c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4zm2 10h12v2H6v-2zm0-3h12v2H6V9zm0-3h12v2H6V6z">
-                                    </path>
-                                </svg>Messages
-                            </a>
-                            <a href="Profile_notifications.php" class="nav-item nav-link has-icon nav-link-faded">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-bell mr-2">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>Notification<span
-                                    class="badge badge-danger ml-2"><?= mysqli_num_rows($notifications) ?></span>
-                            </a>
-                            <a href="Profile_changepass.php" class="nav-item nav-link has-icon nav-link-faded">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="feather feather-shield mr-2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>Change Password
-                            </a>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header border-bottom mb-3 d-flex d-md-none">
-                        <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
-                            <li class="nav-item">
-                                <a href="Profile_settings.php" class="nav-link has-icon active"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+        <form action="" method="post" enctype='multipart/form-data'>
+            <div class="row gutters-sm">
+
+                <div class="col-md-3 d-none d-md-block">
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="text-align: center;" class="mt-2 mb-3">
+                                <?php if ($image == NULL) {
+                                    echo '<img src="user_profile/profile_587153058.png" class="img-fluid">';
+                                } else {
+                                    echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:150px; width: 150px; box-shadow: 1px 1px 5px #333333;">';
+                                }
+                            ?>
+                                <h5 style="text-align: center;" class="mt-3"><?php echo $fullname; ?></h5>
+                                <h6 style="text-align: center;"> <?php echo $email; ?></h6>
+
+
+                            </div>
+                            <nav class="nav flex-column nav-pills nav-gap-y-1">
+                                <a href="Profile_settings.php" class="nav-item nav-link has-icon nav-link-faded active">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-user">
+                                        stroke-linejoin="round" class="feather feather-user mr-2">
                                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                                         <circle cx="12" cy="7" r="4"></circle>
-                                    </svg></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="Profile_purchases.php" class="nav-link has-icon"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                        fill="currentColor" stroke-linejoin="round" class="feather feather-settings">
+                                    </svg>Profile Information
+                                </a>
+                                <a href="Profile_purchases.php" class="nav-item nav-link has-icon nav-link-faded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="currentColor" class="feather feather-settings mr-2">
                                         <path
                                             d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z">
                                         </path>
-                                    </svg></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="Profile_messages.php" class="nav-link has-icon"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                        fill="currentColor" stroke-linejoin="round" class="feather feather-bell">
+                                    </svg>Purchases
+                                </a>
+                                <a href="Profile_messages.php" class="nav-item nav-link has-icon nav-link-faded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="currentColor" class="feather feather-settings mr-2">
                                         <path
                                             d="M4 4h16v12H5.17L4 17.17V4m0-2c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4zm2 10h12v2H6v-2zm0-3h12v2H6V9zm0-3h12v2H6V6z">
                                         </path>
-                                    </svg></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="Profile_notifications.php" class="nav-link has-icon"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    </svg>Messages
+                                </a>
+                                <a href="Profile_notifications.php" class="nav-item nav-link has-icon nav-link-faded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-bell">
+                                        stroke-linejoin="round" class="feather feather-bell mr-2">
                                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                    </svg><span
-                                        class="badge badge-danger ml-1"><?= mysqli_num_rows($notifications) ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="Profile_changepass.php" class="nav-link has-icon"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    </svg>Notification<span
+                                        class="badge badge-danger ml-2"><?= mysqli_num_rows($notifications) ?></span>
+                                </a>
+                                <a href="Profile_changepass.php" class="nav-item nav-link has-icon nav-link-faded">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" class="feather feather-shield">
+                                        stroke-linejoin="round" class="feather feather-shield mr-2">
                                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                    </svg></a>
-                            </li>
-                        </ul>
+                                    </svg>Change Password
+                                </a>
+                            </nav>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <?php if (isset($_GET['error'])) { ?>
-                        <div class="alert alert-warning alert-dismissible fade show center-block bg-danger text-white mb-0"
-                            role="alert" style="height: 60px">
-                            <strong>Error!</strong> <?php echo $_GET['error']; ?>
-                            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
-                                    aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <?php } ?>
-                        <?php if (isset($_GET['status'])) { ?>
-                        <div class="alert alert-warning alert-dismissible fade show center-block bg-success bg-gradient text-white mb-0"
-                            role="alert" style="height: 60px">
-                            <strong>Success!</strong> <?php echo $_GET['status']; ?>
-                            <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
-                                    aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <?php } ?>
+                </div>
 
-                        <div class="tab-pane active" id="profile">
-                            <form action="" method="post" enctype='multipart/form-data'>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header border-bottom mb-3 d-flex d-md-none">
+                            <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+                                <li class="nav-item">
+                                    <a href="Profile_settings.php" class="nav-link has-icon active"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Profile_purchases.php" class="nav-link has-icon"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor" stroke-linejoin="round"
+                                            class="feather feather-settings">
+                                            <path
+                                                d="M17 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2M1 2h3.27l.94 2H20a1 1 0 0 1 1 1c0 .17-.05.34-.12.5l-3.58 6.47c-.34.61-1 1.03-1.75 1.03H8.1l-.9 1.63l-.03.12a.25.25 0 0 0 .25.25H19v2H7a2 2 0 0 1-2-2c0-.35.09-.68.24-.96l1.36-2.45L3 4H1V2m6 16a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2m9-7l2.78-5H6.14l2.36 5H16Z">
+                                            </path>
+                                        </svg></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Profile_messages.php" class="nav-link has-icon"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="currentColor" stroke-linejoin="round"
+                                            class="feather feather-bell">
+                                            <path
+                                                d="M4 4h16v12H5.17L4 17.17V4m0-2c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4zm2 10h12v2H6v-2zm0-3h12v2H6V9zm0-3h12v2H6V6z">
+                                            </path>
+                                        </svg></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Profile_notifications.php" class="nav-link has-icon"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                        </svg><span
+                                            class="badge badge-danger ml-1"><?= mysqli_num_rows($notifications) ?></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="Profile_changepass.php" class="nav-link has-icon"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="feather feather-shield">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
 
-                                <?php
+                            <?php
                                 if (isset($_POST['update_user'])) {
                                     $fullname = $_POST['fullname'];
                                     $username = $_POST['username'];
@@ -248,10 +336,9 @@ if ($res = mysqli_fetch_array($findresult)) {
                                     $extension = end($file_name_array);
 
                                     $new_image_name = 'profile_' . rand() . '.' . $extension;
+                                   
+                                    var_dump($_FILES['image']['name']);
 
-                                    // echo "<pre>";
-                                    // print_r(var_dump($_FILES['image']['name']));
-                                    // die;
                                     if ($_FILES['image']['name']) {
                                         if ($_FILES["image"]["size"] > 10000000) {
                                             header("location: Profile_settings.php?error=Sorry, your image is too large. Upload less than 10 MB in size .");
@@ -303,11 +390,32 @@ if ($res = mysqli_fetch_array($findresult)) {
                                     }
                                 }
                                 ?>
+                            <?php if (isset($_GET['error'])) { ?>
+                            <div class="alert alert-warning alert-dismissible fade show center-block bg-danger text-white mb-0"
+                                role="alert" style="height: 60px">
+                                <strong>Error!</strong> <?php echo $_GET['error']; ?>
+                                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php } ?>
+                            <?php if (isset($_GET['status'])) { ?>
+                            <div class="alert alert-warning alert-dismissible fade show center-block bg-success bg-gradient text-white mb-0"
+                                role="alert" style="height: 60px">
+                                <strong>Success!</strong> <?php echo $_GET['status']; ?>
+                                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php } ?>
+
+                            <div class="tab-pane active" id="profile">
+
                                 <div class="p-3">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <h4 class="text-right" style="font-size: 30px;">Your Profile Information</h4>
                                     </div>
-                                    <div class="row mt-2 border-top">
+                                    <div class="row mt-2 border-top border-bottom">
                                         <input type="hidden" name="user_id" value="<?php echo $fetch_user['id']; ?>">
 
                                         <div class="mt-3 col-md-6"><label class="labels" style="font-size: 17px;">Full
@@ -361,17 +469,117 @@ if ($res = mysqli_fetch_array($findresult)) {
                                             </select>
                                             <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
                                         </div>
-                                        <input type="submit" value="Update" name="update_user" class="btn btn-warning">
+
                                     </div>
 
-                                </div>
-                            </form>
-                        </div>
 
+                                </div>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="p-3">
+                                <div class="">
+                                    <label class="labels" style="font-size: 17px;">
+                                        <span class="form-title">Upload your file</span>
+                                        <p class="form-paragraph">
+                                            File size: maximum 10 MB <br>
+                                            File extension: .JPEG, .PNG, .JPG
+                                        </p>
+                                    </label>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="image_area">
+                                        <form method="post">
+                                            <label for="upload_image">
+                                            <?php if ($image == NULL) {
+                                            echo '<img src="user_profile/profile.png" class="img-fluid" id="uploaded_image">';
+                                        } else {
+                                            echo '<img src="user-profiles/' . $image . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image">';
+                                        }
+                                        ?>
+                                                    
+                                                <div class="overlay">
+                                                    <div class="text">Change Profile Image</div>
+                                                </div>
+                                                <input type="file" name="image" class="image" id="upload_image"
+                                                    style="display:none" />
+                                            </label>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="d-flex flex-column align-items-center text-center">
+                                    <div style="max-width:256px">
+                                        <?php if ($image == NULL) {
+                                            echo '<img src="user_profile/profile.png" class="img-fluid">';
+                                        } else {
+                                            echo '<img src="user-profiles/' . $image . '" style="height:100px; width: 100px; border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid>';
+                                        }
+                                        ?>
+                                        <div class="overlay">
+                                                    <div class="text">Click to Change Profile Image</div>
+                                                </div>
+                                    </div>
+                                        <br>
+                                        <input type="file" name="image" class="image mt-2" style="width:100%;">
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>  -->
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <input type="submit" value="Update" name="update_user" class="btn btn-warning" style="font-weight: 600;">
+                                </div>
+                            </div>
+
+
+                            <!-- modal 2.0 -->
+
+                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Crop Image Before Upload</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="img-container">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <img src="" id="sample_image" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="preview"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="crop" class="btn btn-primary">Crop</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </form>
     </div>
 
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -379,48 +587,76 @@ if ($res = mysqli_fetch_array($findresult)) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js">
     </script>
     <script type="text/javascript"></script>
-    <script>
-    $(document).ready(function() {
-        $.noConflict();
-        $('#myTable').dataTable();
-    });
-    </script>
 
     <script>
-    $('.order').click(function() {
-        let items = $(this).data('items');
-        let total = 0;
-        $('#tbody').html('');
-        $('#modalTitle').text(items[0]['order_number']);
-        items.map(row => {
-            total += row.qty * row.price
-            const html = `
-				<tr>
-					<td>${row.name}</td>
-					<td>₱${row.price}</td>
-					<td>${row.qty}</td>
-					<td>₱${row.qty * row.price}</td>
-				</tr>
-			`;
-            $('#tbody').append(html);
-        });
-        const total_row = `
-				<tr>
-					<td>Grand Total</td>
-					<td></td>					
-					<td></td>
-					<td>₱${total}</td>
-				</tr>
-			`;
 
-        $('#tbody').append(total_row);
-        $('#orderModal').modal('show');
-    });
+$(document).ready(function(){
 
-    $('[data-dismiss="modal"]').click(function() {
-        $('#orderModal').modal('hide');
-    });
-    </script>
+	var $modal = $('#modal');
+
+	var image = document.getElementById('sample_image');
+
+	var cropper;
+
+	$('#upload_image').change(function(event){
+		var files = event.target.files;
+
+		var done = function(url){
+			image.src = url;
+			$modal.modal('show');
+		};
+
+		if(files && files.length > 0)
+		{
+			reader = new FileReader();
+			reader.onload = function(event)
+			{
+				done(reader.result);
+			};
+			reader.readAsDataURL(files[0]);
+		}
+	});
+
+	$modal.on('shown.bs.modal', function() {
+		cropper = new Cropper(image, {
+			aspectRatio: 1,
+			viewMode: 3,
+			preview:'.preview'
+		});
+	}).on('hidden.bs.modal', function(){
+		cropper.destroy();
+   		cropper = null;
+	});
+
+	$('#crop').click(function(){
+		canvas = cropper.getCroppedCanvas({
+			width:400,
+			height:400
+		});
+
+		canvas.toBlob(function(blob){
+			url = URL.createObjectURL(blob);
+			var reader = new FileReader();
+			reader.readAsDataURL(blob);
+			reader.onloadend = function(){
+				var base64data = reader.result;
+				$.ajax({
+					url:'upload.php',
+					method:'POST',
+					data:{image:base64data},
+					success:function(data)
+					{
+						$modal.modal('hide');
+						$('#uploaded_image').attr('src', data);
+					}
+				});
+			};
+		});
+	});
+	
+});
+</script>
+
 </body>
 
 </html>

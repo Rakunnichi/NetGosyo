@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 function dd($data) {
@@ -135,6 +135,79 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
     .shadow-none {
         box-shadow: none !important;
     }
+
+    
+    .form-title {
+        color: #000000;
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .form-paragraph {
+        font-size: 0.7rem;
+        color: rgb(105, 105, 105);
+    }
+
+    .drop-container {
+        background-color: #fff;
+        position: relative;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px dashed rgb(171, 202, 255);
+        color: #444;
+        cursor: pointer;
+        transition: background .2s ease-in-out, border .2s ease-in-out;
+    }
+
+    .drop-container:hover {
+        background: rgba(0, 140, 255, 0.164);
+        border-color: rgba(17, 17, 17, 0.616);
+    }
+
+    .drop-container:hover .drop-title {
+        color: #222;
+    }
+
+    .drop-title {
+        color: #444;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        transition: color .2s ease-in-out;
+    }
+
+    #file-input {
+        width: 100%;
+        max-width: 100%;
+        color: #444;
+        padding: 2px;
+        background: #fff;
+        border-radius: 10px;
+        border: 1px solid rgba(8, 8, 8, 0.288);
+    }
+
+    #file-input::file-selector-button {
+        margin-right: 20px;
+        border: none;
+        background: #0d6efd;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        transition: background .2s ease-in-out;
+    }
+
+    #file-input::file-selector-button:hover {
+        background: #0d45a5;
+    }
+    .btn:hover{
+    color: #ffffff;
+    }
     </style>
 </head>
 
@@ -217,6 +290,18 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
             <div class="col-md-4 d-none d-md-block">
                 <div class="card">
                     <div class="card-body">
+                        <div style="text-align: center;" class="mt-2 mb-3">
+                            <?php if ($image == NULL) {
+                                    echo '<img src="user_profile/profile_587153058.png" class="img-fluid">';
+                                } else {
+                                    echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:150px; width: 150px; box-shadow: 1px 1px 5px #333333;">';
+                                }
+                            ?>
+                            <h5 style="text-align: center;" class="mt-3"><?php echo $fullname; ?></h5>
+                            <h6 style="text-align: center;"> <?php echo $email; ?></h6>
+
+
+                        </div>
                         <nav class="nav flex-column nav-pills nav-gap-y-1">
                             <a href="Profile_settings.php" class="nav-item nav-link has-icon nav-link-faded">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -321,7 +406,8 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <h4 class="text-right" style="font-size: 30px;">Messages</h4>
                                                 <button class="btn btn-warning" data-toggle="modal"
-                                                    data-target="#messageModal">+</button>
+                                                    data-target="#messageModal"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"/><path fill="currentColor" d="M10.5 20a1.5 1.5 0 0 0 3 0v-6.5H20a1.5 1.5 0 0 0 0-3h-6.5V4a1.5 1.5 0 0 0-3 0v6.5H4a1.5 1.5 0 0 0 0 3h6.5V20Z"/></g></svg>
+                                                </button>
                                             </div>
 
                                             <div class="card-body px-0 pb-2 mt-2 border-top">
@@ -341,7 +427,7 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
                                                                 <tr>
                                                                     <?php if ($row['user_id'] == $user_id) { ?>
                                                                     <td><a href="message.php?convo_id=<?= $row['convo_id'] ?>"
-                                                                            style="color:#333;text-decoration: none;"><?= $row['email'] ?></a>
+                                                                            style="color:#333;text-decoration: none;"><?= $row['fullname'] ?></a>
                                                                     </td>
 
                                                                     <?php } else { ?>
@@ -416,9 +502,8 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
                                                         required></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Attachment</label>
-                                                    <input type="file" name="attachment" accept="image/*,video/*"
-                                                        class="form-control">
+                                                    <label>Attachment</label><br>
+                                                    <input type="file" name="attachment" accept="image/*,video/*" required="" id="file-input">
                                                 </div>
                                             </form>
                                         </div>

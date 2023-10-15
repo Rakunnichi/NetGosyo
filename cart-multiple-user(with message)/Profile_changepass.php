@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 $username = $_SESSION["user_id"] ?? '3';
@@ -100,6 +100,9 @@ if ($res = mysqli_fetch_array($findresult)) {
     .shadow-none {
         box-shadow: none !important;
     }
+    .btn:hover{
+    color: #ffffff;
+    }
     </style>
 </head>
 
@@ -109,6 +112,18 @@ if ($res = mysqli_fetch_array($findresult)) {
             <div class="col-md-4 d-none d-md-block">
                 <div class="card">
                     <div class="card-body">
+                        <div style="text-align: center;" class="mt-2 mb-3">
+                            <?php if ($image == NULL) {
+                                    echo '<img src="user_profile/profile_587153058.png" class="img-fluid">';
+                                } else {
+                                    echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:150px; width: 150px; box-shadow: 1px 1px 5px #333333;">';
+                                }
+                            ?>
+                            <h5 style="text-align: center;" class="mt-3"><?php echo $fullname; ?></h5>
+                            <h6 style="text-align: center;"> <?php echo $email; ?></h6>
+
+
+                        </div>
                         <nav class="nav flex-column nav-pills nav-gap-y-1">
                             <a href="Profile_settings.php" class="nav-item nav-link has-icon nav-link-faded">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -296,8 +311,10 @@ if ($res = mysqli_fetch_array($findresult)) {
                                                 placeholder="Confirm New Password">
                                         </div>
 
-                                        <input type="submit" value="Change Password" name="change_pass"
-                                        class="btn btn-warning">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                    <input type="submit" value="Change Password" name="change_pass"
+                                        class="btn btn-warning" style="font-weight: 600;">
                                     </div>
 
                                     

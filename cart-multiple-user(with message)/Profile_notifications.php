@@ -1,7 +1,7 @@
 <?php
 ob_start();
 //include header.php file
-include('new_navbar.php');
+include('header.php');
 include('config.php');
 
 $user_id = $_SESSION["user_id"];
@@ -105,11 +105,23 @@ if ($res = mysqli_fetch_array($result)) {
 
 <body>
     <div class="container">
-        
+
         <div class="row gutters-sm">
             <div class="col-md-4 d-none d-md-block">
                 <div class="card">
                     <div class="card-body">
+                        <div style="text-align: center;" class="mt-2 mb-3">
+                            <?php if ($image == NULL) {
+                                    echo '<img src="user_profile/profile_587153058.png" class="img-fluid">';
+                                } else {
+                                    echo '<img src="user-profiles/' . $image . '" class="rounded-circle img-fluid " style="height:150px; width: 150px; box-shadow: 1px 1px 5px #333333;">';
+                                }
+                            ?>
+                            <h5 style="text-align: center;" class="mt-3"><?php echo $fullname; ?></h5>
+                            <h6 style="text-align: center;"> <?php echo $email; ?></h6>
+
+
+                        </div>
                         <nav class="nav flex-column nav-pills nav-gap-y-1">
                             <a href="Profile_settings.php" class="nav-item nav-link has-icon nav-link-faded">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -142,7 +154,8 @@ if ($res = mysqli_fetch_array($result)) {
                                     stroke-linejoin="round" class="feather feather-bell mr-2">
                                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                </svg>Notification<span class="badge badge-danger ml-2"><?= mysqli_num_rows($notifications) ?>
+                                </svg>Notification<span
+                                    class="badge badge-danger ml-2"><?= mysqli_num_rows($notifications) ?>
                             </a>
                             <a href="Profile_changepass.php" class="nav-item nav-link has-icon nav-link-faded">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -193,7 +206,8 @@ if ($res = mysqli_fetch_array($result)) {
                                         stroke-linejoin="round" class="feather feather-bell">
                                         <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
                                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                                    </svg><span class="badge badge-danger ml-1"><?= mysqli_num_rows($notifications) ?></a>
+                                    </svg><span
+                                        class="badge badge-danger ml-1"><?= mysqli_num_rows($notifications) ?></a>
                             </li>
                             <li class="nav-item">
                                 <a href="Profile_changepass.php" class="nav-link has-icon"><svg
@@ -224,50 +238,7 @@ if ($res = mysqli_fetch_array($result)) {
                             </button>
                         </div>
                         <?php } ?>
-                        <?php
-                        
-			if (isset($_POST['change_pass'])) {
 
-				$current_password = $_POST['current_password'];
-				$new_password = $_POST['new_pass'];
-				$confirm_password = $_POST['confirm_pass'];
-
-
-				if ($new_password != $confirm_password) {
-					header("location: user-changepass.php?error=New password and confirm password do not match");
-					exit;
-				}
-
-				$sql = "SELECT password FROM user_form WHERE id = '$user_id'";
-				$result = mysqli_query($conn, $sql);
-
-				if (mysqli_num_rows($result) > 0) {
-					$row = mysqli_fetch_assoc($result);
-					$current_password_hash = $row["password"];
-				} else {
-					header("location: user-changepass.php?error=User not found");
-					exit;
-				}
-
-				if (md5($current_password) != $current_password_hash) {
-					header("location: user-changepass.php?error=Current password is incorrect");
-					exit;
-				}
-
-
-				$new_password_hash = md5($new_password);
-
-				$sql = "UPDATE user_form SET password = '$new_password_hash' WHERE id = '$user_id'";
-
-				if (mysqli_query($conn, $sql)) {
-					header("location: user-changepass.php?status=Your password has been updated");
-				} else {
-					echo "Error updating password: " . mysqli_error($conn);
-				}
-
-				mysqli_close($conn);
-			}
-			?>
 
 
                         <div class="tab-pane" id="notification">
@@ -282,6 +253,37 @@ if ($res = mysqli_fetch_array($result)) {
                                             </div>
                                             <div class="card-body px-0 pb-2 mt-2 border-top">
                                                 <div class="table-responsive p-0">
+                                                    <!-- <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Notification</th>
+                                                                <th>Date</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php if (!$notifications->num_rows) { ?>
+                                                            <tr>
+                                                                <td colspan="2" class="text-center">No notification</td>
+                                                            </tr>
+                                                            <?php } ?>
+                                                            <?php foreach ($notifications as $row) { ?>
+                                                            <tr>
+                                                                <td><?= $row['notification'] ?></td>
+                                                                <td><?= $row['notification_added'] ?></td>
+                                                                <td><a href="action-notif.php?user_id=<?= $user_id?>"
+                                                                        onclick="return confirm('Are you sure do you want to Delete this Notification?')">
+                                                                        <button type="button"
+                                                                            class="btn btn-danger">Delete</button>
+                                                                    </a></td>
+                                                            </tr>
+
+
+                                                            <?php } ?>
+
+
+                                                        </tbody>
+                                                    </table> -->
                                                     <table  class="table table-striped table-hover" id="myTable">
                                                         <thead>
                                                             <tr>
@@ -292,8 +294,7 @@ if ($res = mysqli_fetch_array($result)) {
                                                         <tbody>
                                                             <?php if (!$notifications->num_rows) { ?>
                                                             <tr>
-                                                                <td colspan="2" class="text-center">No
-                                                                    notification</td>
+                                                                <td colspan="2" class="text-center">No notification</td>
                                                             </tr>
                                                             <?php } ?>
                                                             <?php foreach ($notifications as $row) { ?>
@@ -311,7 +312,6 @@ if ($res = mysqli_fetch_array($result)) {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -328,7 +328,6 @@ if ($res = mysqli_fetch_array($result)) {
         $('#myTable').dataTable();
     });
     </script>
-
     <script>
     $('.order').click(function() {
         let items = $(this).data('items');
