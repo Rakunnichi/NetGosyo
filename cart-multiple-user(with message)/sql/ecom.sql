@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2023 at 10:13 AM
+-- Generation Time: Oct 06, 2023 at 06:57 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -58,10 +58,17 @@ CREATE TABLE `categories` (
   `category_id` int(11) NOT NULL,
   `name` varchar(250) NOT NULL,
   `keywords` varchar(250) NOT NULL,
-  `slug` varchar(250) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `image` varchar(250) NOT NULL,
   `dateadded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`category_id`, `name`, `keywords`, `description`, `image`, `dateadded`) VALUES
+(3, 'Pet Care', 'Pet Necessities', 'pet toys, pet accessories, pet foods, nutrients', '1696450282-cute-and-happy-dog-png.png', '2023-10-04 20:11:22');
 
 -- --------------------------------------------------------
 
@@ -370,15 +377,14 @@ CREATE TABLE `user_form` (
 --
 
 INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`, `shopname`, `vkey`, `verified`, `register_date`) VALUES
-(1, 'Earl Cartney Centino', 'izukumidoriya032@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_924862043.JPG', 'user', '', 1, '2023-09-28 18:51:11'),
-(2, 'Kuya Ey', 'centinoearl@gmail.com', 'Joey', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-09-02 11:47:44'),
-(3, 'dummy', 'dummy@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', '', 0, '2023-08-03 08:07:16'),
-(4, 'Franz', 'franz@gmail.com', '', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', '', 0, '2023-08-03 08:07:31'),
-(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'test', '', 'user', '', 0, '2023-08-03 08:32:01'),
-(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '5fa72358f0b4fb4f2c5d7de8c9a41846', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-09-28 19:15:40'),
+(1, 'Andrew Afable Agda', 'izukumidoriya032@gmail.com', 'Rakunnichi', '202cb962ac59075b964b07152d234b70', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_924862043.JPG', 'user', '', 1, '2023-09-30 18:57:20'),
+(2, 'Joey Raymund Macasusi', 'centinoearl@gmail.com', 'Joey', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-09-30 18:57:49'),
+(3, 'NetGosyo Email', 'netgosyo369@gmail.com', 'Netgosyo', '81dc9bdb52d04dc20036dbd8313ed055', '09143567784', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-10-01 15:47:55'),
+(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'Female', '', 'user', '', 0, '2023-10-01 15:43:38'),
+(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-09-29 08:46:08'),
 (8, 'Seller2', 'seller2@gmail.com', 'Dariel', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Caibaan, Tacloban City', '2015-02-10', 'Male', 'profile_1123099532.jpg', 'Master Store', '', 0, '2023-09-21 09:20:47'),
 (39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Japan, Tokyo', '2023-09-12', 'Female', 'profile_1223238167.JPG', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-09-28 19:10:31'),
-(40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Rakunnichi', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', '', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-08-03 08:10:04');
+(40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Elo_Asoy', '81dc9bdb52d04dc20036dbd8313ed055', '0913226789', 'Paraiso Tacloban City', '1994-07-30', 'Male', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-10-01 15:48:46');
 
 --
 -- Indexes for dumped tables
@@ -464,7 +470,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `convo`

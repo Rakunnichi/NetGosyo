@@ -469,7 +469,14 @@ if ($res = mysqli_fetch_array($findresult)) {
                                             </select>
                                             <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
                                         </div>
+<<<<<<< HEAD
 
+=======
+                                        <div class="mt-1     col-md-7"><label class="labels" style="font-size: 17px;">
+                                        <input type="submit" value="Update" name="update_user" class="btn color-orange-bg">
+                                        </div>
+                                        
+>>>>>>> 23b2f365d8eaf2a70b30d358a94735354f4e800c
                                     </div>
 
 
