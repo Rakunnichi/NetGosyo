@@ -180,9 +180,27 @@ if (isset($_POST['compose'])) {
           </a>
         </li>
 
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+        <li class="nav-item ">
+          <a class="nav-link text-white " href="sales-report.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">summarize</i>
+            </div>
+            <span class="nav-link-text ms-1">Sales Report</span>
+          </a>
         </li>
+
+        <li class="nav-item ">
+          <a class="nav-link text-white " href="verify-badge.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">verified</i>
+            </div>
+            <span class="nav-link-text ms-1">Apply for Badge</span>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link text-white " href="profile.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -207,6 +225,8 @@ if (isset($_POST['compose'])) {
             <span class="nav-link-text ms-1">Notifications</span>
           </a>
         </li>
+
+        
 
         <li class="nav-item">
           <a class="nav-link text-white " href="settings.php">
