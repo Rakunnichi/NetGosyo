@@ -501,12 +501,11 @@ if ($res = mysqli_fetch_array($findresult)) {
                                         <form method="post">
                                             <label for="upload_image">
                                                 <?php if ($image == NULL) {
-                                            echo '<img src="user_profile/profile.png" class="img-fluid" id="uploaded_image">';
-                                        } else {
-                                            echo '<img src="user-profiles/' . $image . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image">';
-                                        }
-                                        ?>
-
+                                                    echo '<img src="user_profile/profile.png" class="img-fluid" id="uploaded_image">';
+                                                    } else {
+                                                        echo '<img src="user-profiles/' . $image . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image">';
+                                                    }
+                                                    ?>
                                                 <div class="overlay">
                                                     <div class="text">Change Profile Image</div>
                                                 </div>
@@ -522,7 +521,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                                         <?php if ($image == NULL) {
                                             echo '<img src="user_profile/profile.png" class="img-fluid">';
                                         } else {
-                                            echo '<img src="user-profiles/' . $image . '" style="height:100px; width: 100px; border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid>';
+                                            echo '<img src="user-profiles/' . $image . '" style="height:100%; width: 100%; border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid>';
                                         }
                                         ?>
                                         <div class="overlay">
