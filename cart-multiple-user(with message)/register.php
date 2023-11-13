@@ -1,7 +1,7 @@
 <?php
-
+require_once 'vendor/autoload.php';
 include 'config.php';
-require 'vendor/autoload.php';
+
 include 'controller/register_coms.php';
 
 ?>
