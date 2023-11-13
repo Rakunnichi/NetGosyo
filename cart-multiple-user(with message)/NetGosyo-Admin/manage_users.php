@@ -1,6 +1,6 @@
 
   <?php
-  include('header.php');
+  include 'header.php';
   ?>  
 
 
@@ -56,42 +56,42 @@
 
                   <tbody>
                   <?php
-                    
-                        $select_user = mysqli_query($conn, "SELECT * FROM `user_form` where shopname = 'user' ORDER BY register_date DESC ") or die('query failed!');
-                        if(mysqli_num_rows($select_user) > 0){
-                        while($fetch_user = mysqli_fetch_assoc($select_user)){    
-                  ?>
+
+                        $select_user = mysqli_query($conn, "SELECT * FROM `user_form` where shopname = 'user' ORDER BY register_date DESC ") or exit('query failed!');
+  if (mysqli_num_rows($select_user) > 0) {
+      while ($fetch_user = mysqli_fetch_assoc($select_user)) {
+          ?>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">  
                           <div class="d-flex flex-column justify-content-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['id'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['id']; ?></p>
                           </div>
                         </div>
                       </td>
                       
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['fullname'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['fullname']; ?></p>
                       </td>
 
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['username'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['username']; ?></p>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['email'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['email']; ?></span>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['phonenumber'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['phonenumber']; ?></span>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['gender'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['gender']; ?></span>
                       </td>
                       
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['dateofbirth'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['dateofbirth']; ?></span>
                       </td>
 
                       <td>
@@ -103,18 +103,18 @@
                       </td>
 
                       <td class="align-middle text-center">
-                        <?php if(  $fetch_user['is_banned']) {?>
-                          <a  href="seller-action.php?deleteUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
-                          <a  href="seller-action.php?unbanUser=1&name=<?= $fetch_user['fullname'] ?>&email=<?= $fetch_user['email'] ?>&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to UNBAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
+                        <?php if ($fetch_user['is_banned']) {?>
+                          <a  href="seller-action.php?deleteUser=1&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
+                          <a  href="seller-action.php?unbanUser=1&name=<?php echo $fetch_user['fullname']; ?>&email=<?php echo $fetch_user['email']; ?>&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to UNBAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
                           <?php } else {?>
-                          <a  href="seller-action.php?banUser=1&name=<?= $fetch_user['fullname'] ?>&email=<?= $fetch_user['email'] ?>&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
+                          <a  href="seller-action.php?banUser=1&name=<?php echo $fetch_user['fullname']; ?>&email=<?php echo $fetch_user['email']; ?>&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
                         <?php }?>                    
                       </td>
                     </tr>
                     <?php
-                        };
-                    }; 
-                     ?>
+      }
+  }
+  ?>
                   </tbody>
                 </table>
               </div>
@@ -153,42 +153,42 @@
 
                   <tbody>
                   <?php
-                    
-                        $select_user = mysqli_query($conn, "SELECT * FROM `user_form` where shopname != 'user' ORDER BY register_date DESC ") or die('query failed!');
-                        if(mysqli_num_rows($select_user) > 0){
-                        while($fetch_user = mysqli_fetch_assoc($select_user)){    
-                  ?>
+
+     $select_user = mysqli_query($conn, "SELECT * FROM `user_form` where shopname != 'user' ORDER BY register_date DESC ") or exit('query failed!');
+  if (mysqli_num_rows($select_user) > 0) {
+      while ($fetch_user = mysqli_fetch_assoc($select_user)) {
+          ?>
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">  
                           <div class="d-flex flex-column justify-content-center">
-                          <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['id'];?></p>
+                          <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['id']; ?></p>
                           </div>
                         </div>
                       </td>
                       
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['fullname'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['fullname']; ?></p>
                       </td>
 
                       <td>
-                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['username'];?></p>
+                        <p class="text-xs font-weight-bold mb-0"><?php echo $fetch_user['username']; ?></p>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['email'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['email']; ?></span>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['phonenumber'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['phonenumber']; ?></span>
                       </td>
 
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['gender'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['gender']; ?></span>
                       </td>
                       
                       <td>
-                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['dateofbirth'];?></span>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['dateofbirth']; ?></span>
                       </td>
 
                       <td>
@@ -200,18 +200,16 @@
                       </td>
 
                       <td class="align-middle text-center">
-                        <?php if(  $fetch_user['is_banned']) {?>
-                          <a  href="seller-action.php?deleteUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
-                          <a  href="seller-action.php?banUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
-                        <?php } else {?>
-                          <a  href="seller-action.php?banUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
-                        <?php }?>                       
+                      <?php if ($fetch_user['is_banned']) {?>
+                          <a  href="seller-action.php?deleteUser=1&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
+                          <a  href="seller-action.php?unbanUser=1&name=<?php echo $fetch_user['fullname']; ?>&email=<?php echo $fetch_user['email']; ?>&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to UNBAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
+                          <?php } else {?>
+                          <a  href="seller-action.php?banUser=1&name=<?php echo $fetch_user['fullname']; ?>&email=<?php echo $fetch_user['email']; ?>&id=<?php echo $fetch_user['id']; ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
+                        <?php }?>                           
                       </td>
                     </tr>
-                    <?php
-                        };
-                    }; 
-                     ?>
+                    <?php }
+      }?>
                   </tbody>
                 </table>
               </div>
@@ -224,5 +222,5 @@
   
 
   <?php
-  include('footer.php');
+      include 'footer.php';
   ?>  
