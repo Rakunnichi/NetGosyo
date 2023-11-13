@@ -1,7 +1,7 @@
 <?php
 
 include 'config.php';
-
+require 'vendor/autoload.php';
 include 'controller/register_coms.php';
 
 ?>
@@ -25,26 +25,23 @@ include 'controller/register_coms.php';
 
   <?php
   if (isset($message)) {
-    foreach ($message as $message) {
-      echo '
+      foreach ($message as $message) {
+          echo '
       <div class="wrapper role="alert" onclick="this.remove();"> 
       <div class="toast success ">
       <div class="container-1">
           <i class="fas fa-bell"></i>
       </div>
       <div class="container-2">
-          <p>'. $message .'</p>
+          <p>'.$message.'</p>
           <p></p>
       </div>
      
       </div>
       </div>';
-      
-      
-
-    }
+      }
   }
-  ?>
+?>
 
   <div class="form-container">
 
