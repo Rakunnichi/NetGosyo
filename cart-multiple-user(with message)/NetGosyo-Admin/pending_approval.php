@@ -1,6 +1,21 @@
 
 <?php
   include('header.php');
+
+  $select_user = mysqli_query($conn, "SELECT * FROM `user_form` where shopname != 'user' AND id_pic != '' ORDER BY register_date DESC, has_verified_badge DESC ") or die('query failed!');
+  $sellers = array();
+
+  while($fetch_user = mysqli_fetch_assoc($select_user) ){
+    if($fetch_user['has_verified_badge'] == 1 && $fetch_user['id_pic']){
+        $fetch_user['status'] = 'Verified';
+      } else if($fetch_user['has_verified_badge'] == 0 && $fetch_user['id_pic']){
+        $fetch_user['status'] =  'Pending Verification';
+      } else {
+        $fetch_user['status'] =  'Not Verified';
+      }
+        array_push($sellers, $fetch_user);
+
+  }
   ?>  
 
 
@@ -23,6 +38,74 @@
     
 
     <div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+
+          <div class="card my-4">
+
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                  <?php foreach ($sellers as $row) { ?>
+                        <tr>
+                        <td><p class="text-s font-weight-bold mb-0"> <?= $row['fullname'] ?></p></td>
+                        <td>
+                        <?php if ($row['id_pic'] != NULL) {
+                        echo '<div><img src="../user-profiles/' . $row['id_pic'] . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image"></div>';
+                        }?>
+                        </td>
+
+
+                        <?php if ($row['status'] == 'Pending Verification') { ?>
+                      <td class="align-middle text-center text-sm">
+                        <a href="../action.php?badge_action=accept&user_id=<?= $row['id'] ?>" onclick="return confirm('Are you sure do you want to Approve this seller?')">
+                        <span class="badge badge-sm bg-gradient-success cursor-pointer">Approve</span>
+                        </a>
+                        <a href="../action.php?badge_action=reject&user_id=<?= $row['id'] ?>" onclick="return confirm('Are you sure do you want to REJECT this seller?')">
+                        <span class="badge badge-sm bg-gradient-danger cursor-pointer">Reject</span>
+                        </a>
+                        <!-- <span class="badge badge-sm bg-gradient-success cursor-pointer" href="../action.php?action=accept&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to ACCEPT this order?')">Accept</span>
+                        <span class="badge badge-sm bg-gradient-danger cursor-pointer" href="../action.php?action=reject&id=<?= $row['order_id'] ?>&user_id=<?= $row['user_id'] ?>"onclick="return confirm('Are you sure do you want to REJECT this order?')">Reject</span> -->
+                      </td>
+
+
+                      <?php }else if($row['status'] == 'Verified'){ ?>
+
+                         <td class="align-middle text-center text-sm">
+                         <span class="badge badge-sm bg-gradient-success cursor-pointer" disabled>Accepted</span>
+                         </td>
+                      
+                      <?php }else if($row['status'] == 'Rejected'){ ?>
+
+                         <td class="align-middle text-center text-sm">
+                         <span class="badge badge-sm bg-gradient-danger cursor-pointer"disabled>Rejected</span>
+                         </td>
+                        
+                      <?php } ?>
+                        </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+  
+                
+                <!-- Modal -->
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
 
       
 

@@ -31,6 +31,28 @@ if (isset($_GET['action'])) {
 	}
 }
 
+if (isset($_GET['badge_action'])) {
+	$action = $_GET['badge_action'];
+	if ($action == 'accept') {
+		$user_id = $_GET['user_id'];
+		mysqli_query($conn, "UPDATE user_form SET has_verified_badge='1' WHERE id='$user_id'");
+		mysqli_query($conn, "INSERT INTO notifications SET user_id='$user_id', notification='Your badge application has been approved.'");
+		header("location: Netgosyo-Admin/pending_approval.php");
+	} elseif ($action == 'reject') {
+		$user_id = $_GET['user_id'];
+
+		$stmt = mysqli_query($conn, "SELECT id_pic FROM  user_form WHERE id = '$user_id'");
+      $row = mysqli_fetch_array($stmt);
+      $deleteimage = $row['id_pic'];
+      if(file_exists('user-profiles/' . $deleteimage) && $deleteimage){
+        unlink('user-profiles/' . $deleteimage);
+      }
+		mysqli_query($conn, "UPDATE user_form SET has_verified_badge='0', id_pic = '' WHERE id='$user_id'");
+		mysqli_query($conn, "INSERT INTO notifications SET user_id='$user_id', notification='Your badge application has been rejected. Resubmit ID.'");
+		header("location: Netgosyo-Admin/pending_approval.php");
+	}
+}
+
 // if(isset($_GET['id'])){
 	
 //     $id = $_GET['id'];

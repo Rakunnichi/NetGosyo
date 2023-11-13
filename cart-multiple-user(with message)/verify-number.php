@@ -3,6 +3,76 @@ ob_start();
 // include header.php file
 include 'header.php';
 include 'config.php';
+require __DIR__.'/vendor/autoload.php'; // Adjust the path based on your project structure
+
+use GuzzleHttp\Client;
+use GuzzleHttp\RequestOptions;
+
+$otp = rand(1000, 9999);
+$number = '';
+$status = 'unverified';
+
+if (isset($_GET['phone_number'])) {
+    $number = $_GET['phone_number'];
+
+    // Check if the number starts with "09"
+    if (substr($number, 0, 2) === '09') {
+        // Replace "09" with "639"
+        $number = '639'.substr($number, 2);
+    }
+
+    $client = new Client([
+        'base_uri' => 'https://e1elr1.api.infobip.com/',
+        'headers' => [
+            'Authorization' => 'App c6ce382c477c6deee35f1c2d507f9273-f6affcec-e3b1-4c35-8abd-cce9cd6d5819',
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ],
+    ]);
+
+    $response = $client->request(
+        'POST',
+        'sms/2/text/advanced',
+        [
+            RequestOptions::JSON => [
+                'messages' => [
+                    [
+                        'from' => 'InfoSMS',
+                        'destinations' => [
+                            ['to' => $number],
+                        ],
+                        'text' => 'OTP :'.$otp,
+                    ],
+                ],
+            ],
+        ]
+    );
+}
+
+$try = 0;
+$error = 0;
+
+if (isset($_GET['try'])) {
+    $try = 1;
+}
+
+if (isset($_GET['error'])) {
+    $error = 1;
+}
+
+if (isset($_POST['phone_number'])) {
+    $otp = $_POST['otp'];
+    $otp_input = $_POST['otp_input'];
+    $user_id = $_POST['user_id'];
+    $phone_number = $_POST['phone_number'];
+
+    if ($otp == $otp_input) {
+        mysqli_query($conn, "UPDATE user_form SET number_verified=1 WHERE id='$user_id'");
+        header('location: Profile_settings.php');
+    } else {
+        header('location: verify-number.php?phone_number='.$phone_number.'&try=1&error=1');
+    }
+}
 
 $username = $_SESSION['user_id'];
 
@@ -389,16 +459,20 @@ if ($res = mysqli_fetch_array($findresult)) {
             }
         }
     }
-    if (isset($error)) {
-        foreach ($error as $error) {
-            echo '<p class="errmsg">'.$error.'</p>';
-        }
-    }
 ?>
-                            <?php if (isset($_GET['error'])) { ?>
+                            <?php if ($error != 0) { ?>
                             <div class="alert alert-warning alert-dismissible fade show center-block bg-danger text-white mb-0"
                                 role="alert" style="height: 60px">
-                                <strong>Error!</strong> <?php echo $_GET['error']; ?>
+                                <strong>Wrong OTP input
+                                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
+                                        aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php } ?>
+                            <?php if ($try != 0) { ?>
+                            <div class="alert alert-success alert-dismissible fade show center-block bg-success text-white mb-0"
+                                role="alert" style="height: 60px">
+                                <strong>New OTP Code hase been sent
                                 <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"> <span
                                         aria-hidden="true">&times;</span>
                                 </button>
@@ -418,66 +492,20 @@ if ($res = mysqli_fetch_array($findresult)) {
 
                                 <div class="p-3">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <h4 class="text-right" style="font-size: 30px;">Your Profile Information</h4>
+                                        <h4 class="text-right" style="font-size: 30px;">Verify Number</h4>
                                     </div>
-                                    <div class="row mt-2 border-top border-bottom">
+                                    <div class="mt-2 pb-5 border-top border-bottom">
                                         <input type="hidden" name="user_id" value="<?php echo $fetch_user['id']; ?>">
-
-                                        <div class="mt-3 col-md-6"><label class="labels" style="font-size: 17px;">Full
-                                                Name</label>
-                                            <input type="text" name="fullname" placeholder="Enter your fullname"
-                                                class="form-control" value="<?php echo $fullname; ?>">
+                                        <input type="hidden" name="phone_number" value="<?php echo $number; ?>">
+                                        <input type="hidden" name="otp" value="<?php echo $otp; ?>">
+                                        <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Enter the OTP sent</label>
+                                            <input type="number" name="otp_input" class="form-control"
+                                               >
                                         </div>
-
-                                        <div class="mt-3 col-md-6"><label class="labels"
-                                                style="font-size: 17px;">Username</label>
-                                            <input type="text" name="username" placeholder="Enter your username"
-                                                class="form-control" value="<?php echo $username; ?>">
-                                        </div>
-
-                                        <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Email
-                                                Address</label>
-                                            <input type="text" name="emails" placeholder="Enter your email address"
-                                                class="form-control" value="<?php echo $email; ?>">
-                                        </div>
-
-                                        <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Mobile
-                                                Number <?php echo $numberVerified == 0 ? '<small><a style="color:red" href="verify-number.php?phone_number='.$phonenumber.'">(UNVERIFIED)</a></small>' : ''; ?></label>
-                                            <input type="text" name="number" placeholder="Enter your mobile number"
-                                                class="form-control" value="<?php echo $phonenumber; ?>" style="<?php echo $numberVerified == 0 ? 'border:1px solid red' : ''; ?>">
-                                        </div>
-
-                                        <div class="mt-2 col-md-6"><label class="labels"
-                                                style="font-size: 17px;">Address</label>
-                                            <input type="text" name="address" placeholder="Enter your address"
-                                                class="form-control" value="<?php echo $address; ?>">
-                                        </div>
-
-                                        <div class="mt-2 col-md-6"><label class="labels" style="font-size: 17px;">Date
-                                                of
-                                                Birth</label>
-                                            <input type="date" name="datebirth" class="form-control"
-                                                value="<?php echo $dateofbirth; ?>">
-                                        </div>
-
-                                        <div class="mt-2 mb-4 col-md-6"><label class="labels"
-                                                style="font-size: 17px;">Gender</label>
-                                            <select name="Gender" class="custom-select" id="gender">
-                                                <?php if (empty($gender['gender'])) { ?>
-                                                <option selected><?php echo $gender; ?></option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                <?php } else { ?>
-                                                <option selected><?php echo $gender; ?></option>
-
-                                                <?php } ?>
-                                            </select>
-                                            <!-- <input type="list" name="Gender" placeholder="Enter your gender" class="form-control" value="<?php echo $gender; ?>"> -->
-                                        </div>
-
-                                         <input type="hidden" id="new_file" name="new_file" value=''/>
+                                        <br>
+                                        <a style="color:gray; cursor:pointer;" href="verify-number.php?phone_number=<?php echo $number; ?>&try=1">Resend Code</a>
+                                        <button class="m-2 btn btn-success" type="submit">VERIFY</button>
                                     </div>
-
 
                                 </div>
 
@@ -487,102 +515,7 @@ if ($res = mysqli_fetch_array($findresult)) {
                     </div>
                 </div>
 
-                <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="p-3">
-                                <div class="">
-                                    <label class="labels" style="font-size: 17px;">
-                                        <span class="form-title">Change Profile</span>
-                                        <p class="form-paragraph">
-                                            File size: maximum 10 MB <br>
-                                            File extension: .JPEG, .PNG, .JPG
-                                        </p>
-                                    </label>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="image_area">
-                                        <form method="post">
-                                            <label for="upload_image">
-                                                <?php if ($image == null) {
-                                                    echo '<img src="user_profile/profile.png" class="img-fluid" id="uploaded_image">';
-                                                } else {
-                                                    echo '<img src="user-profiles/'.$image.'" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image">';
-                                                }
-?>
-                                                <div class="overlay">
-                                                    <div class="text">Change Profile Image</div>
-                                                </div>
-                                                <input type="file" name="image" class="image" id="upload_image"
-                                                    style="display:none" />
-                                            </label>
-                                        </form>
-                                    </div>
-                                </div>
-
-                                <!-- <div class="d-flex flex-column align-items-center text-center">
-                                    <div style="max-width:256px">
-                                        <?php if ($image == null) {
-                                            echo '<img src="user_profile/profile.png" class="img-fluid">';
-                                        } else {
-                                            echo '<img src="user-profiles/'.$image.'" style="height:100%; width: 100%; border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid>';
-                                        }
-?>
-                                        <div class="overlay">
-                                                    <div class="text">Click to Change Profile Image</div>
-                                                </div>
-                                    </div>
-                                        <br>
-                                        <input type="file" name="image" class="image mt-2" style="width:100%;">
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>  -->
-
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <input type="submit" value="Update" name="update_user" class="btn color-orange-bg"
-                                        style="font-weight: 600;">
-                                </div>
-                            </div>
-
-
-                            <!-- modal 2.0 -->
-
-                            <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-lg" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Crop Image Before Upload</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="img-container">
-                                                <div class="row">
-                                                    <div class="col-md-8">
-                                                        <img src="" id="sample_image" />
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="preview"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" id="crop" class="btn btn-primary">Crop</button>
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Cancel</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                
 
             </div>
         </form>
@@ -593,76 +526,6 @@ if ($res = mysqli_fetch_array($findresult)) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js">
     </script>
     <script type="text/javascript"></script>
-
-    <script>
-    $(document).ready(function() {
-
-        var $modal = $('#modal');
-
-        var image = document.getElementById('sample_image');
-
-        var cropper;
-
-        $('#upload_image').change(function(event) {
-            var files = event.target.files;
-
-            var done = function(url) {
-                image.src = url;
-                $modal.modal('show');
-            };
-
-            if (files && files.length > 0) {
-                reader = new FileReader();
-                reader.onload = function(event) {
-                    done(reader.result);
-                };
-                reader.readAsDataURL(files[0]);
-            }
-        });
-
-        $modal.on('shown.bs.modal', function() {
-            cropper = new Cropper(image, {
-                aspectRatio: 1,
-                viewMode: 3,
-                preview: '.preview'
-            });
-        }).on('hidden.bs.modal', function() {
-            cropper.destroy();
-            cropper = null;
-        });
-
-        $('#crop').click(function() {
-            canvas = cropper.getCroppedCanvas({
-                width: 400,
-                height: 400
-            });
-
-            canvas.toBlob(function(blob) {
-                url = URL.createObjectURL(blob);
-                var reader = new FileReader();
-                reader.readAsDataURL(blob);
-                reader.onloadend = function() {
-                    var base64data = reader.result;
-                    $.ajax({
-                        url: 'upload.php',
-                        method: 'POST',
-                        data: {
-                            image: base64data
-                        },
-                        success: function(data) {
-                            $modal.modal('hide');
-                            console.log(data);
-                            $('#uploaded_image').attr('src', data);
-                            $('#new_file').attr('value', data);
-                        }
-                    });
-                };
-            });
-        });
-
-    });
-    </script>
-
 </body>
 
 </html>

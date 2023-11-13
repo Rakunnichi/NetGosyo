@@ -94,7 +94,7 @@
 
                       <td class="align-middle text-center">
   
-                        <a href="seller-action.php?id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Delete</button></a>
+                        <a href="seller-action.php?deleteProduct=1&id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Delete</button></a>
                                                 
                       </td>
                     </tr>

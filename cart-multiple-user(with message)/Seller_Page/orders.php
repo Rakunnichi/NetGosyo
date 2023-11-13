@@ -22,38 +22,31 @@ if ($res = mysqli_fetch_array($result)) {
     $image = $res['image']  ?? '';
 }
 
-$orders_query = mysqli_query($conn, "SELECT * FROM orders");
+$orders_query = mysqli_query($conn, "SELECT * FROM orders WHERE seller_id = '$user_id'");
 $orders = array();
 
 while ($order_row = mysqli_fetch_assoc($orders_query)) {
-    $order_id = $order_row['order_id'];
+  $order_id = $order_row['order_id'];
 
-    if ($_SESSION['role'] == 'user') {
-        $sql = "SELECT *
-            FROM orders
-                    JOIN items ON items.order_id = orders.order_id
-            JOIN products ON products.id = items.product_id
-                    WHERE items.order_id='$order_id' AND orders.user_id='$user_id'";
-    } else {
-        $sql = "SELECT *
-            FROM orders
-                    JOIN items ON items.order_id = orders.order_id
-            JOIN products ON products.id = items.product_id
-            WHERE items.order_id='$order_id'";
-    }
-    $items_query = mysqli_query($conn, $sql);
+  $sql = "SELECT *
+      FROM  items
+      JOIN products ON products.id = items.product_id
+      WHERE items.order_id='$order_id' ";
+  $items_query = mysqli_query($conn, $sql);
 
-    $total = 0;
-    $items = [];
+  $total = 0; 
+  $items = [];
+  $items_rows = []; // New array to store all fetched items
 
-    while ($item_row = mysqli_fetch_assoc($items_query)) {
-        $subtotal = $item_row['price'] * $item_row['qty'];
-        $total += $subtotal;
-        array_push($items, $item_row);
-    }
-    $order_row['total'] = $total;
-    $order_row['items'] = $items;
-    $orders[] = $order_row;
+  while ($item_row = mysqli_fetch_assoc($items_query)) {
+      $subtotal = $item_row['price'] * $item_row['qty'];
+      $total += $subtotal;
+      $items_rows[] = $item_row; // Add each item row to the array
+  }
+
+  $order_row['total'] = $total;
+  $order_row['items'] = $items_rows; // Assign the array of items to the 'items' key
+  $orders[] = $order_row;
 }
   ?>  
 

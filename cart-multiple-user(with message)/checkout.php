@@ -35,7 +35,6 @@ function acronym_with_timestamp($string) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Get form data
   
-  $order_number = acronym_with_timestamp($_POST["name"]);
   $name = $_POST["name"];
   $contact = $_POST["contact"];
   $address = $_POST["address"];
@@ -45,28 +44,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $pmode = $_POST["pmode"];
 
   // Prepare SQL statement
-  $addOrder = "INSERT INTO orders (user_id, order_number, name, contact, address, city, state, zip,pmode) VALUES ('$id', '$order_number', '$name', '$contact', '$address', '$city', '$state', '$zip', '$pmode')";
+  $destinctSeller = "SELECT DISTINCT seller_id FROM cart WHERE user_id=$id";
 
-  if (mysqli_query($conn, $addOrder)) {
-    $order_id = mysqli_insert_id($conn);
-    $result = mysqli_query($conn, "SELECT * FROM cart WHERE user_id=$id");
-    if (mysqli_num_rows($result) > 0) {
-      while ($row = mysqli_fetch_assoc($result)) {
-        $product_id = $row['product_id'];
-        $seller_id = $row['seller_id'];
-        $qty = $row['quantity'];
-        $addItem = "INSERT INTO items (order_id, user_id, product_id, seller_id, qty) VALUES ('$order_id', '$id', '$product_id','$seller_id', '$qty')";
-        mysqli_query($conn, $addItem);
+  $destinctSeller = mysqli_query($conn, $destinctSeller);
+
+  if($destinctSeller){
+    while ($row = mysqli_fetch_assoc($destinctSeller)) {
+      $seller_id = $row['seller_id'];
+      $order_number = acronym_with_timestamp($_POST["name"]) . $seller_id;
+      $addOrder = "INSERT INTO orders (user_id, order_number, name, contact, address, city, state, zip,pmode,seller_id) VALUES ('$id', '$order_number', '$name', '$contact', '$address', '$city', '$state', '$zip', '$pmode', '$seller_id')";
+      mysqli_query($conn, "INSERT INTO notifications SET user_id='$seller_id', notification='A buyer placed an order. Go to the orders page for more information.'");
+      
+      if (mysqli_query($conn, $addOrder)) {
+        $order_id = mysqli_insert_id($conn);
+        $result = mysqli_query($conn, "SELECT * FROM cart WHERE user_id=$id AND seller_id = ' $seller_id' ");
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $product_id = $row['product_id'];
+            $qty = $row['quantity'];
+            $addItem = "INSERT INTO items (order_id, user_id, product_id, seller_id, qty) VALUES ('$order_id', '$id', '$product_id','$seller_id', '$qty')";
+            mysqli_query($conn, $addItem);
+          }
+        }
+    
+        mysqli_query($conn, "DELETE FROM cart WHERE user_id = $id");
+        mysqli_query($conn, "UPDATE products SET quantity = quantity - 1 WHERE id='$product_id'");
+        echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Order placed successfully!</div>";
+      } else {
+        echo "<div class='alert alert-danger text-center' role='alert' style='margin: 16px auto 0;width:600px;'>An error occured!</div>";
       }
-    }
 
-    mysqli_query($conn, "DELETE FROM cart WHERE user_id = $id");
-    mysqli_query($conn, "UPDATE products SET quantity = quantity - 1 WHERE id='$product_id'");
-    mysqli_query($conn, "INSERT INTO notifications SET user_id='1', notification='A buyer placed an order. Go to the orders page for more information.'");
-    echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Order placed successfully!</div>";
-  } else {
-    echo "<div class='alert alert-danger text-center' role='alert' style='margin: 16px auto 0;width:600px;'>An error occured!</div>";
+
+    }
   }
+    
+
+
+ 
 } else {
   $getCart = "SELECT * FROM cart WHERE user_id=$id";
   $result = mysqli_query($conn, $getCart);

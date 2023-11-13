@@ -42,7 +42,7 @@ if ($res = mysqli_fetch_array($result)) {
 	$image = $res['image']  ?? '';
 }
 
-$orders_query = mysqli_query($conn, "SELECT * FROM orders ORDER BY order_id DESC");
+$orders_query = mysqli_query($conn, "SELECT * FROM orders WHERE user_id = '$user_id 'ORDER BY order_id DESC");
 $orders = array();
 
 while ($order_row = mysqli_fetch_assoc($orders_query)) {

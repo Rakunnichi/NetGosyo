@@ -193,6 +193,9 @@ if (isset($_POST['compose'])) {
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
 
+<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+
 
     <!-- Vendor CSS Files -->
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">

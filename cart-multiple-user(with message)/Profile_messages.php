@@ -531,7 +531,7 @@ while ($convo_row = mysqli_fetch_assoc($convo_query)) {
     <script>
     $(document).ready(function() {
         $.noConflict();
-        $('#myTable').dataTable();
+        // $('#myTable').dataTable();
     });
     </script>
 

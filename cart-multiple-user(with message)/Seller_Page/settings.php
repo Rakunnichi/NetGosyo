@@ -13,8 +13,49 @@
       $gender = $res['gender'];
       $image = $res['image'];
   }
+  if (isset($_POST['change_pass'])) {
+    $current_password = $_POST['current_password'];
+    $new_password = $_POST['new_pass'];
+    $confirm_password = $_POST['confirm_pass'];
+    $Message = "";
 
+    if ($current_password && $new_password && $confirm_password) {
+        if ($new_password != $confirm_password) {
+            $Message = "New password and confirm password do not match";
+        } else {
+            $sql = "SELECT password FROM user_form WHERE id = '$user_id'";
+            $result = mysqli_query($conn, $sql);
 
+            if ($result) {
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $current_password_hash = $row["password"];
+
+                    if (md5($current_password) != $current_password_hash) {
+                        $Message = "Current password is incorrect!";
+                    } else {
+                        $new_password_hash = md5($new_password);
+
+                        $updateSql = "UPDATE user_form SET password = '$new_password_hash' WHERE id = '$user_id'";
+
+                        if (mysqli_query($conn, $updateSql)) {
+                            $Message = "Your Password has Been Updated!";
+                        } else {
+                            $Message = "Error updating password: " . mysqli_error($conn);
+                        }
+                    }
+                } else {
+                    $Message = "User not found";
+                }
+            } else {
+                $Message = "Error retrieving data: " . mysqli_error($conn);
+            }
+        }
+    } else {
+        $Message = "Error! Incomplete form!";
+    }
+}
+                        
 ?>
 
 
@@ -51,53 +92,7 @@
                     <div class="card">
 
                     <form action="" method="post" >
-                        <?php
-                                                        
-                                if (isset($_POST['change_pass'])) {
-
-                                    $current_password = $_POST['current_password'];
-                                    $new_password = $_POST['new_pass'];
-                                    $confirm_password = $_POST['confirm_pass'];
-
-
-                                    if ($new_password != $confirm_password) {
-                                        $Message = "New password and confirm password do not match";
-                                        exit;
-                                    }
-
-                                    $sql = "SELECT password FROM user_form WHERE id = '$user_id'";
-                                    $result = mysqli_query($conn, $sql);
-
-                                    if (mysqli_num_rows($result) > 0) {
-                                        $row = mysqli_fetch_assoc($result);
-                                        $current_password_hash = $row["password"];
-                                    } else {
-                                        $Message = "User not found";
-                                        exit;
-                                    }
-
-                                    if (md5($current_password) != $current_password_hash) {
-                                        $Message = "Current password is incorrect!";
-                                        exit;
-                                    }
-
-
-                                    $new_password_hash = md5($new_password);
-
-                                    $sql = "UPDATE user_form SET password = '$new_password_hash' WHERE id = '$user_id'";
-
-                                    if (mysqli_query($conn, $sql)) {
-
-                                        $Message = "Your Password has Been Updated!";
-                                    } else {
-                                        $Message = "Error updating password:!" . mysqli_error($conn);
-                                    
-                                    }
-
-                                    mysqli_close($conn);
-                                }
-                                                    
-                        ?>
+                       
 
                         <div class="card-body">
                             <h5 class="card-title mb-4">Change Password</h5>

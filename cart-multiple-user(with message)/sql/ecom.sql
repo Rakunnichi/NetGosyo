@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2023 at 05:20 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Nov 13, 2023 at 10:03 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,7 +36,7 @@ CREATE TABLE `cart` (
   `price` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
   `quantity` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `cart`
@@ -61,7 +61,7 @@ CREATE TABLE `categories` (
   `description` varchar(255) NOT NULL,
   `image` varchar(250) NOT NULL,
   `dateadded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
@@ -83,7 +83,7 @@ CREATE TABLE `convo` (
   `subject` varchar(255) NOT NULL,
   `convo_added` datetime NOT NULL DEFAULT current_timestamp(),
   `convo_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `convo`
@@ -94,7 +94,8 @@ INSERT INTO `convo` (`convo_id`, `user_id`, `recipient`, `subject`, `convo_added
 (2, 5, '1', 'Order', '2023-05-31 20:09:24', NULL),
 (3, 2, '1', 'Order', '2023-06-01 14:17:30', NULL),
 (4, 7, '2', 'sasad', '2023-07-12 00:22:32', NULL),
-(5, 7, '8', 'programmer', '2023-07-14 17:45:07', NULL);
+(5, 7, '8', 'programmer', '2023-07-14 17:45:07', NULL),
+(6, 41, '2', 'asda', '2023-11-13 14:49:46', NULL);
 
 -- --------------------------------------------------------
 
@@ -109,7 +110,7 @@ CREATE TABLE `items` (
   `product_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `items`
@@ -121,7 +122,17 @@ INSERT INTO `items` (`item_id`, `order_id`, `user_id`, `product_id`, `seller_id`
 (40, 34, 1, 3, 0, 1),
 (41, 34, 1, 9, 0, 1),
 (42, 35, 1, 2, 8, 1),
-(43, 36, 1, 1, 8, 1);
+(43, 36, 1, 1, 8, 1),
+(44, 37, 41, 1, 8, 1),
+(45, 38, 41, 1, 8, 1),
+(46, 39, 41, 1, 8, 1),
+(47, 42, 41, 1, 8, 4),
+(48, 41, 41, 9, 7, 1),
+(49, 43, 41, 1, 8, 2),
+(50, 45, 41, 1, 8, 1),
+(51, 45, 41, 2, 8, 1),
+(52, 47, 41, 1, 8, 0),
+(53, 48, 41, 1, 8, 3);
 
 -- --------------------------------------------------------
 
@@ -138,7 +149,7 @@ CREATE TABLE `messages` (
   `attachment` varchar(500) NOT NULL,
   `message_added` datetime NOT NULL DEFAULT current_timestamp(),
   `message_updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `messages`
@@ -159,7 +170,8 @@ INSERT INTO `messages` (`message_id`, `convo_id`, `message`, `from_id`, `to_id`,
 (13, 4, 'sadasdsa', 7, 2, '', '2023-07-13 15:08:14', '2023-07-13 15:08:14'),
 (14, 5, 'helloo', 7, 8, '', '2023-07-14 17:45:07', '2023-07-14 17:45:07'),
 (15, 5, 'helloo', 7, 8, '', '2023-07-14 17:45:07', '2023-07-14 17:45:07'),
-(16, 5, 'hello pooo', 8, 7, '', '2023-07-14 17:48:54', '2023-07-14 17:48:54');
+(16, 5, 'hello pooo', 8, 7, '', '2023-07-14 17:48:54', '2023-07-14 17:48:54'),
+(17, 6, 'asdasd', 41, 2, 'attachments/test.jpeg', '2023-11-13 14:49:46', '2023-11-13 14:49:46');
 
 -- --------------------------------------------------------
 
@@ -173,7 +185,7 @@ CREATE TABLE `notifications` (
   `notification` varchar(255) NOT NULL,
   `notification_added` datetime NOT NULL DEFAULT current_timestamp(),
   `notification_updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notifications`
@@ -227,7 +239,32 @@ INSERT INTO `notifications` (`notification_id`, `user_id`, `notification`, `noti
 (105, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-09-27 18:28:14', '2023-09-27 18:28:14'),
 (106, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-09-27 18:31:02', '2023-09-27 18:31:02'),
 (107, 1, 'The seller rejected your order. You can contact the seller for more info. Thank you!', '2023-09-29 02:26:29', '2023-09-29 02:26:29'),
-(108, 1, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-09-29 02:26:33', '2023-09-29 02:26:33');
+(108, 1, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-09-29 02:26:33', '2023-09-29 02:26:33'),
+(109, 1, 'A new user registered to NetGosyo. Congratulations!', '2023-11-11 23:34:35', '2023-11-11 23:34:35'),
+(110, 41, 'Thank you for registering to NetGosyo. Have a happy shopping!', '2023-11-11 23:34:35', '2023-11-11 23:34:35'),
+(111, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-11 23:41:46', '2023-11-11 23:41:46'),
+(112, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-11 23:42:52', '2023-11-11 23:42:52'),
+(113, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-12 00:12:16', '2023-11-12 00:12:16'),
+(114, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-12 00:53:03', '2023-11-12 00:53:03'),
+(115, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 00:53:30', '2023-11-12 00:53:30'),
+(116, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-12 00:53:48', '2023-11-12 00:53:48'),
+(117, 1, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:00:17', '2023-11-12 01:00:17'),
+(118, 7, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:16:02', '2023-11-12 01:16:02'),
+(119, 8, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:16:02', '2023-11-12 01:16:02'),
+(120, 8, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:20:05', '2023-11-12 01:20:05'),
+(121, 7, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:20:05', '2023-11-12 01:20:05'),
+(122, 8, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:49:51', '2023-11-12 01:49:51'),
+(123, 7, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 01:49:51', '2023-11-12 01:49:51'),
+(124, 8, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 16:36:43', '2023-11-12 16:36:43'),
+(125, 8, 'A buyer placed an order. Go to the orders page for more information.', '2023-11-12 16:37:59', '2023-11-12 16:37:59'),
+(126, 8, 'Your badge application has been rejected. Resubmit ID.', '2023-11-13 10:23:38', '2023-11-13 10:23:38'),
+(127, 8, 'Your badge application has been rejected. Resubmit ID.', '2023-11-13 10:25:45', '2023-11-13 10:25:45'),
+(128, 8, 'Your badge application has been rejected. Resubmit ID.', '2023-11-13 10:25:56', '2023-11-13 10:25:56'),
+(129, 8, 'Your badge application has been rejected. Resubmit ID.', '2023-11-13 10:27:06', '2023-11-13 10:27:06'),
+(130, 8, 'Your badge application has been approved.', '2023-11-13 10:27:19', '2023-11-13 10:27:19'),
+(131, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-13 12:52:51', '2023-11-13 12:52:51'),
+(132, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-13 12:52:53', '2023-11-13 12:52:53'),
+(133, 41, 'The seller accepted your order. Expected to arrive in 2-3 business days. Thank you!', '2023-11-13 12:52:55', '2023-11-13 12:52:55');
 
 -- --------------------------------------------------------
 
@@ -248,19 +285,32 @@ CREATE TABLE `orders` (
   `pmode` varchar(100) NOT NULL,
   `status` varchar(255) NOT NULL DEFAULT 'Pending',
   `order_added` datetime NOT NULL DEFAULT current_timestamp(),
-  `order_updated` datetime DEFAULT NULL ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `order_updated` datetime DEFAULT NULL ON UPDATE current_timestamp(),
+  `seller_id` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `order_number`, `name`, `contact`, `address`, `city`, `state`, `zip`, `pmode`, `status`, `order_added`, `order_updated`) VALUES
-(32, 1, 'ECC1695721592', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Accepted', '2023-09-26 17:46:32', '2023-09-26 17:50:24'),
-(33, 1, 'ECC1695722079', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Accepted', '2023-09-26 17:54:39', '2023-09-26 17:57:08'),
-(34, 1, 'ECC1695723301', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Rejected', '2023-09-26 18:15:01', '2023-09-26 18:16:10'),
-(35, 1, 'ECC1695810494', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Rejected', '2023-09-27 18:28:14', '2023-09-29 02:26:29'),
-(36, 1, 'ECC1695810662', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'GCash E- Wallet', 'Accepted', '2023-09-27 18:31:02', '2023-09-29 02:26:33');
+INSERT INTO `orders` (`order_id`, `user_id`, `order_number`, `name`, `contact`, `address`, `city`, `state`, `zip`, `pmode`, `status`, `order_added`, `order_updated`, `seller_id`) VALUES
+(32, 1, 'ECC1695721592', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Accepted', '2023-09-26 17:46:32', '2023-09-26 17:50:24', 0),
+(33, 1, 'ECC1695722079', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Accepted', '2023-09-26 17:54:39', '2023-09-26 17:57:08', 0),
+(34, 1, 'ECC1695723301', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Rejected', '2023-09-26 18:15:01', '2023-09-26 18:16:10', 0),
+(35, 1, 'ECC1695810494', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'Cash on Delivery', 'Rejected', '2023-09-27 18:28:14', '2023-09-29 02:26:29', 0),
+(36, 1, 'ECC1695810662', 'Earl Cartney Centino', '09154715779', 'Rainbow Village', 'Tacloban City', 'Leyte', '6500', 'GCash E- Wallet', 'Accepted', '2023-09-27 18:31:02', '2023-09-29 02:26:33', 0),
+(37, 41, 'J1699717306', 'Julius', '091919191', 'asdasd', 'asdasd', 'asdasd', '123123', 'Cash on Delivery', 'Accepted', '2023-11-11 23:41:46', '2023-11-12 00:12:16', 0),
+(38, 41, 'J1699717371', 'Julius', 'adasd', 'asda', 'asda', 'asda', '123123', 'Cash on Delivery', 'Accepted', '2023-11-11 23:42:51', '2023-11-12 00:53:03', 0),
+(39, 41, 'J1699721610', 'Julius', 'asda', 'asdaa', 'asda', 'asd', '1231', 'Cash on Delivery', 'Accepted', '2023-11-12 00:53:30', '2023-11-12 00:53:48', 0),
+(40, 41, 'J1699722017', 'Julius', 'asdas', 'asda', 'asda', 'asda', '123', 'Cash on Delivery', 'Pending', '2023-11-12 01:00:17', NULL, 0),
+(41, 41, 'J16997229627', 'Julius', 'asda', 'asda', 'asda', 'asda', '1231', 'Cash on Delivery', 'Pending', '2023-11-12 01:16:02', NULL, 7),
+(42, 41, 'J16997229628', 'Julius', 'asda', 'asda', 'asda', 'asda', '1231', 'Cash on Delivery', 'Accepted', '2023-11-12 01:16:02', '2023-11-13 12:52:51', 8),
+(43, 41, 'J16997232058', 'Julius', 'test', 'test', 'test', 'ts', '123', 'Cash on Delivery', 'Accepted', '2023-11-12 01:20:05', '2023-11-13 12:52:53', 8),
+(44, 41, 'J16997232057', 'Julius', 'test', 'test', 'test', 'ts', '123', 'Cash on Delivery', 'Pending', '2023-11-12 01:20:05', NULL, 7),
+(45, 41, 'J16997249918', 'Julius', 'asdas', 'a', 'asd', 'asd', '123', 'Cash on Delivery', 'Accepted', '2023-11-12 01:49:51', '2023-11-13 12:52:55', 8),
+(46, 41, 'J16997249917', 'Julius', 'asdas', 'a', 'asd', 'asd', '123', 'Cash on Delivery', 'Pending', '2023-11-12 01:49:51', NULL, 7),
+(47, 41, 'J16997782038', 'Julius', 'asda', 'asda', 'asda', 'asdas', '1231', 'Cash on Delivery', 'Pending', '2023-11-12 16:36:43', NULL, 8),
+(48, 41, 'J16997782798', 'Julius', 'asdas', 'asda', 'asdasd', '123', '123', 'Cash on Delivery', 'Pending', '2023-11-12 16:37:59', NULL, 8);
 
 -- --------------------------------------------------------
 
@@ -273,7 +323,7 @@ CREATE TABLE `pmethod` (
   `name` varchar(250) NOT NULL,
   `provider` varchar(250) NOT NULL,
   `dateadded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pmethod`
@@ -298,22 +348,23 @@ CREATE TABLE `products` (
   `item_brand` varchar(100) NOT NULL,
   `quantity` int(100) NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `user_id`, `name`, `price`, `image`, `item_brand`, `quantity`, `date_added`) VALUES
-(1, 8, 'Banig Bag - Rounded', '200', '1.png', 'Women-Bag', 18, '2023-09-27 10:31:02'),
-(2, 8, 'Banig Bag - Rectangular', '300', '2.png', 'Women-Bag', 97, '2023-09-27 10:28:14'),
+(1, 8, 'Banig Bag - Rounded', '200', '1.png', 'Women-Bag', 10, '2023-11-12 08:37:59'),
+(2, 8, 'Banig Bag - Rectangular', '300', '2.png', 'Women-Bag', 95, '2023-11-11 17:49:51'),
 (3, 7, 'Banig Bag - ZigZag', '500', '3.png', 'Women-Bag', 19, '2023-09-26 09:13:24'),
 (4, 7, 'I Love Tacloban Shirt', '250', '4.png', 'Men-Apparel', 29, '2023-09-26 09:46:32'),
 (5, 7, 'Baybayin Jacket', '200', '5.png', 'Men-Apparel', 60, '2023-09-22 11:58:34'),
 (6, 7, 'Baybayin Taktop', '134', '6.png', 'Men-Apparel', 60, '2023-09-21 11:58:04'),
 (7, 7, 'Leyte`s Special Binagol', '150', '7.png', 'Foods', 200, '2023-07-09 17:22:44'),
 (8, 7, 'Leyte`s Chocolate Moron', '45', '8.png', 'Foods', 211, '2023-07-09 17:22:57'),
-(9, 7, 'Samsung Galaxy S7', '500', '1690791628-12.png', 'Gadget', 22, '2023-09-26 10:15:01');
+(9, 7, 'Samsung Galaxy S7', '500', '1690791628-12.png', 'Gadget', 20, '2023-11-11 17:16:02'),
+(14, 7, 'TestProduct', '123123', '1699718030-test.jpeg', 'Gadget', 123, '2023-11-11 15:53:50');
 
 -- --------------------------------------------------------
 
@@ -324,11 +375,11 @@ INSERT INTO `products` (`id`, `user_id`, `name`, `price`, `image`, `item_brand`,
 CREATE TABLE `review_table` (
   `review_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `user_name` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+  `user_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `user_rating` int(1) NOT NULL,
-  `user_review` text CHARACTER SET utf8mb4 NOT NULL,
+  `user_review` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `datetime` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `review_table`
@@ -347,7 +398,12 @@ INSERT INTO `review_table` (`review_id`, `product_id`, `user_name`, `user_rating
 (10, 9, 'Earl Cartney Centino', 4, 'Sample Review Readonly', 1693654404),
 (11, 10, 'Rakunnichi', 2, 'Hey Hey Hey', 1693721304),
 (12, 5, 'Rakunnichi', 2, 'Not true to size', 1693742995),
-(13, 12, 'Rakunnichi', 3, 'Good Read', 1695648248);
+(13, 12, 'Rakunnichi', 3, 'Good Read', 1695648248),
+(14, 1, 'Julius', 0, 'asdasd', 1699717466),
+(15, 1, 'Julius', 0, 'asdasdasdasda', 1699717506),
+(16, 1, 'Julius', 4, 'asdasda', 1699717541),
+(17, 1, 'Julius', 4, 'asdasdaaaa', 1699717549),
+(18, 1, 'Julius', 4, 'asdsa', 1699721645);
 
 -- --------------------------------------------------------
 
@@ -369,22 +425,27 @@ CREATE TABLE `user_form` (
   `shopname` varchar(250) NOT NULL DEFAULT 'user',
   `vkey` varchar(50) NOT NULL,
   `verified` tinyint(1) NOT NULL DEFAULT 0,
-  `register_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `register_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `id_pic` varchar(255) DEFAULT NULL,
+  `has_verified_badge` tinyint(1) DEFAULT NULL,
+  `is_banned` tinyint(1) NOT NULL DEFAULT 0,
+  `number_verified` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_form`
 --
 
-INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`, `shopname`, `vkey`, `verified`, `register_date`) VALUES
-(1, 'Andrew Afable Agda', 'izukumidoriya032@gmail.com', 'Rakunnichi', '202cb962ac59075b964b07152d234b70', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_902284549.jpg', 'user', '', 1, '2023-10-20 11:18:16'),
-(2, 'Joey Raymund Macasusi', 'centinoearl@gmail.com', 'Joey', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-09-30 18:57:49'),
-(3, 'NetGosyo Email', 'netgosyo369@gmail.com', 'Netgosyo', '81dc9bdb52d04dc20036dbd8313ed055', '09143567784', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-10-01 15:47:55'),
-(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'Female', '', 'user', '', 0, '2023-10-01 15:43:38'),
-(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '81dc9bdb52d04dc20036dbd8313ed055', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-09-29 08:46:08'),
-(8, 'Seller2', 'seller2@gmail.com', 'Dariel', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Caibaan, Tacloban City', '2015-02-10', 'Male', 'profile_1123099532.jpg', 'Master Store', '', 1, '2023-10-21 03:16:59'),
-(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Japan, Tokyo', '2023-09-12', 'Female', 'profile_1223238167.JPG', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-09-28 19:10:31'),
-(40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Elo_Asoy', '81dc9bdb52d04dc20036dbd8313ed055', '0913226789', 'Paraiso Tacloban City', '1994-07-30', 'Male', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-10-01 15:48:46');
+INSERT INTO `user_form` (`id`, `fullname`, `email`, `username`, `password`, `phonenumber`, `address`, `dateofbirth`, `gender`, `image`, `shopname`, `vkey`, `verified`, `register_date`, `id_pic`, `has_verified_badge`, `is_banned`, `number_verified`) VALUES
+(1, 'Andrew Afable Agda', 'izukumidoriya032@gmail.com', 'Rakunnichi', '202cb962ac59075b964b07152d234b70', '09154715779', 'Rainbow Village', '2000-07-02', 'Male', 'profile_902284549.jpg', 'user', '', 1, '2023-11-13 05:14:25', '', 0, 1, 0),
+(2, 'Joey Raymund Macasusi', 'centinoearl@gmail.com', 'Joey', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-09-30 18:57:49', '', 0, 0, 0),
+(3, 'NetGosyo Email', 'netgosyo369@gmail.com', 'Netgosyo', '81dc9bdb52d04dc20036dbd8313ed055', '09143567784', 'Tacloban City', '2023-09-12', 'Male', '', 'user', '', 0, '2023-10-01 15:47:55', '', 0, 0, 0),
+(5, 'Test Admin', 'test@test.com', 'test', '098f6bcd4621d373cade4e832627b4f6', '09150125941', 'Tacloban City', '1994-07-30', 'Female', '', 'user', '', 0, '2023-10-01 15:43:38', '', 0, 0, 0),
+(7, 'Earl Cartney N. Centino', 'seller@gmail.com', 'Seller102', '7815696ecbf1c96e6894b779456d330e', '09154715779', 'Rainbow Village Tacloban City', '2000-07-02', 'Male', 'profile_1030987840.jpg', 'Anyeong Ukay', '', 1, '2023-11-12 09:13:15', '', 0, 0, 0),
+(8, 'Seller2', 'seller2@gmail.com', 'Dariel', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Caibaan, Tacloban City', '2015-02-10', 'Male', 'profile_1123099532.jpg', 'Master Store', '', 1, '2023-11-13 05:16:58', 'id_pic_1387739491.jpeg', 1, 1, 0),
+(39, 'Dariel Rarugal', 'centino.earlcartney.n@gmail.com', 'Seler101', '81dc9bdb52d04dc20036dbd8313ed055', '09154715772', 'Japan, Tokyo', '2023-09-12', 'Female', 'profile_1223238167.JPG', 'Earl`s Ukay', 'bf5e7bece61ea61e580983f2ce115bfd', 1, '2023-09-28 19:10:31', '', 0, 0, 0),
+(40, 'Mark Angelo Asoy', 'centinoearlcartney@gmail.com', 'Elo_Asoy', '81dc9bdb52d04dc20036dbd8313ed055', '0913226789', 'Paraiso Tacloban City', '1994-07-30', 'Male', '', 'user', 'a9fb5181f187c6e291d595e22f49cf50', 0, '2023-10-01 15:48:46', '', 0, 0, 0),
+(41, 'Julius', 'juliusacidre@gmail.com', 'Julius', '6537e99af2c2223642df9f70a0b5afca', '09455218507', '', '', '', 'profile_839574480.jpeg', 'user', '496cb6dd36e33de06c92dfb3fc4f70da', 1, '2023-11-13 08:56:39', '', 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -464,7 +525,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -476,31 +537,31 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `convo`
 --
 ALTER TABLE `convo`
-  MODIFY `convo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `convo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `pmethod`
@@ -512,19 +573,19 @@ ALTER TABLE `pmethod`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `review_table`
 --
 ALTER TABLE `review_table`
-  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user_form`
 --
 ALTER TABLE `user_form`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

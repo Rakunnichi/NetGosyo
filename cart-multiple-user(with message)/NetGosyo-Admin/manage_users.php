@@ -48,6 +48,7 @@
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Gender</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date of Birth</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Added</th>
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                       
                     </tr>
@@ -97,10 +98,17 @@
                         <span class="text-xs font-weight-bold"><?php echo $fetch_user['register_date']; ?></span>
                       </td>
 
+                      <td>
+                        <span class="text-xs font-weight-bold"><?php echo $fetch_user['is_banned'] ? 'BANNED' : 'ACTIVE'; ?></span>
+                      </td>
+
                       <td class="align-middle text-center">
-  
-                        <a href="seller-action.php?id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Delete</button></a>
-                                                
+                        <?php if(  $fetch_user['is_banned']) {?>
+                          <a  href="seller-action.php?deleteUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
+                          <a  href="seller-action.php?unbanUser=1&name=<?= $fetch_user['fullname'] ?>&email=<?= $fetch_user['email'] ?>&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to UNBAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
+                          <?php } else {?>
+                          <a  href="seller-action.php?banUser=1&name=<?= $fetch_user['fullname'] ?>&email=<?= $fetch_user['email'] ?>&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
+                        <?php }?>                    
                       </td>
                     </tr>
                     <?php
@@ -137,6 +145,7 @@
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Gender</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date of Birth</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Date Added</th>
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Status</th>
                       <th class="text-uppercase text-secondary text-xs font-weight-bolder text-center opacity-7 ps-2">Action</th>
                       
                     </tr>
@@ -186,10 +195,17 @@
                         <span class="text-xs font-weight-bold"><?php echo $fetch_user['register_date']; ?></span>
                       </td>
 
+                      <td>
+                      <span class="text-xs font-weight-bold"><?php echo $fetch_user['is_banned'] ? 'BANNED' : 'ACTIVE'; ?></span>
+                      </td>
+
                       <td class="align-middle text-center">
-  
-                        <a href="seller-action.php?id=<?= $fetch_product['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this Product?')"><button type="button" class="btn button-remove btn-sm">Delete</button></a>
-                                                
+                        <?php if(  $fetch_user['is_banned']) {?>
+                          <a  href="seller-action.php?deleteUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to Delete this User?')"><button type="button" class="btn button-remove btn-sm" >Delete</button></a>
+                          <a  href="seller-action.php?banUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn btn-success btn-sm">UNBAN</button></a>
+                        <?php } else {?>
+                          <a  href="seller-action.php?banUser=1&id=<?= $fetch_user['id'] ?>" onclick="return confirm('Are you sure do you want to BAN this User?')"><button type="button" class="btn button-remove btn-sm">BAN</button></a>
+                        <?php }?>                       
                       </td>
                     </tr>
                     <?php

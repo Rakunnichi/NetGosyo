@@ -1,69 +1,54 @@
 <?php
-
 include 'config.php';
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-  header('location:index.php');
+    header('location:index.php');
 }
 
-if (isset($_POST['submit'])) {
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $pass = mysqli_real_escape_string($conn, md5($_POST['password']));
+if (isset($_POST['submit']) || isset($_POST['submit2'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? $_POST['email2']);
+    $pass = mysqli_real_escape_string($conn, md5($_POST['password'] ?? $_POST['password2']));
 
-  $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass' ") or die('query failed');
-  if (mysqli_num_rows($select) > 0) {
-    $row = mysqli_fetch_assoc($select);
-    $_SESSION = $row;
-    $verified = $row['verified'];
-    $ifseller = $row['shopname'];
-    $_SESSION['user_id'] = $row['id'];
-    $_SESSION['role'] = 'user';
-  
-    if($ifseller == 'user'){
-      header('Location:index.php');
-    
-    }else if($verified != 1){
-      $message[] = 'Please Check Your Email First To Verify your Account!';
-     
-    }else{
-      $message[] = 'The Account your trying to login is not a User Account!';
-    
+    $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass' ") or die('query failed');
+    $ifseller = '';
+    if (mysqli_num_rows($select) > 0) {
+        $row = mysqli_fetch_assoc($select);
+        $_SESSION = $row;
+        $verified = $row['verified'];
+        $ifseller = $row['shopname'];
+        if($row['is_banned'] == 0){
+          if (isset($_POST['submit'])) {
+            $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+
+            if ($ifseller == 'user') {
+              $_SESSION['user_id'] = $row['id'];
+                header('Location:index.php');
+            } elseif ($verified != 1) {
+                $message[] = 'Please Check Your Email First To Verify your Account!';
+            } else {
+                $message[] = 'The Account you are trying to login is not a User Account!';
+            }
+          } elseif (isset($_POST['submit2'])) {
+              $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+
+              if ($ifseller != 'user' && $verified == 1) {
+                  $_SESSION['user_id'] = $row['id'];
+                  header('location:Seller_Page/index.php');
+              } elseif ($ifseller == 'user') {
+                  $message[] = 'The Account you are trying to login is not a Seller Account!';
+              } else {
+                  $message[] = 'Please Check Your Email First To Verify your Account!';
+              }
+          }
+        } else {
+          $message[] = 'Your Account is Banned';
+        }
+
+        
+    } else {
+        $message[] = 'Incorrect Credentials!';
     }
-  } 
-  else {
-    $message[] = 'Incorrect Credentials!';
-  }
-}
-
-if (isset($_POST['submit2'])) {
-  $email = mysqli_real_escape_string($conn, $_POST['email2']);
-  $pass = mysqli_real_escape_string($conn, md5($_POST['password2']));
-
-  $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
-  if (mysqli_num_rows($select) > 0) {
-    $row = mysqli_fetch_assoc($select);
-    $_SESSION['user_id'] = $row['id'];
-    $ifuser = $row['shopname'];
-    $verified = $row['verified'];
-    $_SESSION['role'] = 'seller';
-   
-    if($ifuser != 'user'){
-     
-      if($verified == 1){
-        header('location:Seller_Page/index.php');
-      }else{
-        $message[] = 'Please Check Your Email First To Verify your Account!';
-      }
-    }else if($ifuser == 'user'){
-
-      $message[] = 'The Account your trying to login is not a Seller Account!';
-         
-    }
-   
-  } else {
-    $message[] = 'Incorrect Credentials!';
-  }
 }
 
 ?>

@@ -42,8 +42,10 @@
                     </a>
                   </li>
 
-                <?php } ?>
-                <?php foreach ($notifications as $row) { ?>
+                <?php }
+                
+                $i = 0;
+                foreach ($notifications as $row) { ?>
 
                   <li class="mb-2">
                     <a class="dropdown-item border-radius-md" href="javascript:;">
@@ -63,7 +65,19 @@
                       </div>
                     </a>
                   </li>
-                  <?php } ?>
+                  <?php 
+                  if(++$i > 4) {
+                    ?>
+                    <li class="mb-2">
+                    <a class="dropdown-item border-radius-md text-center" href="notifications.php">
+                      See more. . .
+                    </a>
+                  </li>
+
+                    <?php
+                    break;
+                  };
+                } ?>
 
                 </ul>
               </li>
