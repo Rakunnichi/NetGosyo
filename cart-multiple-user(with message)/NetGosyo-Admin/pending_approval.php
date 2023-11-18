@@ -50,6 +50,9 @@
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Email</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone Number</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">ID</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
@@ -59,6 +62,9 @@
                   <?php foreach ($sellers as $row) { ?>
                         <tr>
                         <td><p class="text-s font-weight-bold mb-0"> <?= $row['fullname'] ?></p></td>
+                        <td><p class="text-s font-weight-bold mb-0"> <?= $row['email'] ?></p></td>
+                        <td><p class="text-s font-weight-bold mb-0"> <?= $row['username'] ?></p></td>
+                        <td><p class="text-s font-weight-bold mb-0"> <?= $row['phonenumber'] ?></p></td>
                         <td>
                         <?php if ($row['id_pic'] != NULL) {
                         echo '<div><img src="../user-profiles/' . $row['id_pic'] . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image"></div>';

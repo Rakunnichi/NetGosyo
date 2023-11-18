@@ -56,7 +56,7 @@ if (isset($_POST['add_to_cart'])) {
   } else {
     mysqli_query($conn, "INSERT INTO `cart` (user_id, product_id, seller_id, name, price, image, quantity) VALUES
         ('$user_id', '$product_id', '$seller_id', '$product_name', '$product_price', '$product_image', '$product_quantity')") or die('query failed');
-    $message[] = 'Product Added to Cart!';
+    // $message[] = 'Product Added to Cart!';
   }
 }
 }
@@ -65,7 +65,7 @@ if (isset($_POST['update_cart'])) {
   $update_quantity = $_POST['cart_quantity'];
   $update_id = $_POST['cart_id'];
   mysqli_query($conn, "UPDATE `cart` SET quantity = '$update_quantity' WHERE id= '$update_id'") or die('query failed');
-  $message[] = 'quantity updated!';
+  
 }
 
 if (isset($_GET['remove'])) {
@@ -117,7 +117,7 @@ if (isset($_POST['send'])) {
     }
   } else {
     $addMessage = "INSERT INTO messages (convo_id, message, from_id, to_id) VALUES ('$convo_id', '$body', '$user_id', '$recipient')";
-    $message[] = 'Message successfully sent!';
+    // $message[] = 'Message successfully sent!';
     mysqli_query($conn, $addMessage);
   }
 }
@@ -192,9 +192,7 @@ if (isset($_POST['compose'])) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
     </script>
-
-<script src=
-"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 
 
     <!-- Vendor CSS Files -->
@@ -220,6 +218,8 @@ if (isset($_POST['compose'])) {
 
     <!-- CSS File -->
     <link rel="stylesheet" href="css/style-header.css">
+ 
+    <!-- <link href="css/category-page.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css' />
@@ -240,6 +240,7 @@ if (isset($message)) {
 ?>
 
 <body>
+
     <!-- Navbar start -->
     <div class="main-navbar shadow-sm sticky-top" id="main-navbar-design">
         <div class="top-navbar">

@@ -2,7 +2,7 @@
 
 <section id="cart" class="py-3">
   <div class="container-fluid width w-75">
-    <h5 class="font-baloo font-size-20 ml-0">Cart Details</h5>
+    <h5 class="font-baloo font-size-20 ml-0"><b>Cart Details</b></h5>
 
     <!-- Shopping Cart Items -->
     <div class="row">
@@ -14,45 +14,50 @@
           while ($fetch_cart = mysqli_fetch_assoc($cart_query)) {
         ?>
             <!-- Cart Items1 -->
-            <div class="row border-top py-3 mt-3">
-              <div class="col-sm-2">
-                <img src="Seller-uploads/<?php echo $fetch_cart['image'] ?? "./assets/products/1.png"; ?>" style="height:120px;" alt="cart1" class="img-fluid">
+            
+            <div id="cart-product" class="row border-top py-3 mt-3">
+           
+            <h5  id="cart-prod-name-1" class="font-baloo font-size-20 ml-0 mb-0"><?php echo $fetch_cart['name'] ?? "Unknown"; ?></h5>
+          
+              <div id="cart-image" class="col-sm-2">
+                <img src="Seller-uploads/<?php echo $fetch_cart['image'] ?? "./assets/products/1.png"; ?>" style="height:110px;" alt="cart1" class="img-fluid">
               </div>
-              <div class="col-sm-8">
-                <h5 class="font-baloo font-size-20 ml-0 mb-0"><?php echo $fetch_cart['name'] ?? "Unknown"; ?></h5>
-                <small>by <?php echo $fetch_cart['item_brand'] ?? "Brand"; ?></small>
-                <!-- Product Ratings -->
-                <div class="d-flex mb-3">
-                  <div class="rating text-orange  font-size-12">
-                    <span><i class="fas fa-star"></i></span>
-                    <span><i class="fas fa-star"></i></span>
-                    <span><i class="fas fa-star"></i></span>
-                    <span><i class="fas fa-star"></i></span>
-                    <span><i class="fas fa-star"></i></span>
-                  </div>
-                </div>
-                <!-- !Product Ratings -->
-
+              <div id="cart-name" class="col-sm-8">
+                <h5  id="cart-prod-name" class="font-baloo font-size-20 ml-0 mb-0"><?php echo $fetch_cart['name'] ?? "Unknown"; ?></h5>
+              
+              
                 <!-- Product Qty -->
                 <div class="qty d-flex pt-2">
 
                   <form method="post">
                     <div class="d-flex font-rale w-30">
                       <input type="hidden" name="cart_id" value="<?php echo $fetch_cart['id']; ?>">
-                      <input type="number" class="qty_input border px-2 w-100 bg-light" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>">
-                      <button type="submit" name="update_cart" class="btn font-baloo text-danger px-3 border-right">Update</button>
+                      <!-- <input  id="quantity-input" type="number" class="qty_input border px-2 w-100 bg-light" min="1" name="cart_quantity" value="<?php echo $fetch_cart['quantity']; ?>"> -->
+                     
+                    
+                        <div class="input-group-prepend">
+                            <button type="submit" type="submit" name="update_cart" class="btn btn-outline-secondary" onclick="decrement('<?php echo $fetch_cart['id']; ?>')">-</button>
+                        </div>
+                        <input type="text" id="quantity_<?php echo $fetch_cart['id']; ?>" type="number" name="cart_quantity"  min="1" class="form-control text-center" value="<?php echo $fetch_cart['quantity']; ?>">
+                        <div class="input-group-append">
+                            <button  id="cart-update" type="submit" name="update_cart" class="btn btn-outline-secondary" onclick="increment('<?php echo $fetch_cart['id']; ?>')">+</button>
+                        </div>
+                  
+
+                      <!-- <button type="submit" id="cart-update" name="update_cart" class="btn font-baloo text-danger px-3 border-right ">Update</button> -->
                     </div>
                   </form>
 
 
-                  <a href="index.php?remove=<?php echo $fetch_cart['id']; ?>" class="btn font-baloo text-danger px-3 border-right" onclick="return confirm('remove item from cart?');">Remove</a>
+                  <a href="index.php?remove=<?php echo $fetch_cart['id']; ?>" id="cart-delete" class="btn font-baloo text-danger px-3 border-right" onclick="return confirm('remove item from cart?');">Remove</a>
+                  <a href="#" id="pricing-cart" class="btn font-baloo text-danger px-3 border-right">₱<span class="product_price" data-id=""><?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity']); ?></span></a>
                 </div>
                 <!-- Product Qty -->
               </div>
 
-              <div class="col-sm-2 text-right">
+              <div id="cart-price" class="col-sm-2 text-right">
                 <div class="font-size-20 text-danger font-baloo">
-                  ₱<span class="product_price" data-id=""><?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity']); ?></span>
+                  ₱<span class="product_price" data-id=""><?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity'], 2, '.', ''); ?></span>
                 </div>
               </div>
             </div>

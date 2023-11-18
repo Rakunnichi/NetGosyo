@@ -136,16 +136,16 @@ session_start();
                         <div class="col-12 col-md-6">
                             <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white" target="_blank">NetGosyo</a>
+                                    <a href="#" class="nav-link text-white">NetGosyo</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white" target="_blank">About Us</a>
+                                    <a href="../about-us.php" class="nav-link text-white" >About Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link text-white" target="_blank">Blog</a>
+                                    <a href="#" class="nav-link text-white" >Privacy Policy</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link pe-0 text-white" target="_blank">License</a>
+                                    <a href="#" class="nav-link pe-0 text-white">Terms & Conditions</a>
                                 </li>
                             </ul>
                         </div>

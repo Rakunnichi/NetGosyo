@@ -18,16 +18,16 @@
                           
                             <img class="card-img-top" src="user-profiles/<?php echo $fetch_seller['image'] ?? '0'; ?>" alt="..." />
                           
-                            <div class="card-body p-4">
+                            <div class="card-body">
                                 <div class="text-center">
                                    
-                                    <h5 class="fw-bolder"><?php echo $fetch_seller['shopname'] ?? '0'; ?></h5>
+                                    <h4 id="smaller-text-for-viewshops" class="fw-bolder"><?php echo $fetch_seller['shopname'] ?? '0'; ?></h4>
                                  
-                                   <p>About Shop</p>
+                               
                                 </div>
                             </div>
                           
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="card-footer p-3 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="<?php printf('%s?id=%s', 'view-shop-details.php',  $fetch_seller['id']); ?>">View Shop</a></div>
                             </div>
                         </div>

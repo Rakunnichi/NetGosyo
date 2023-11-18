@@ -12,43 +12,82 @@ if (isset($_POST['submit']) || isset($_POST['submit2'])) {
 
     $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass' ") or die('query failed');
     $ifseller = '';
-    if (mysqli_num_rows($select) > 0) {
-        $row = mysqli_fetch_assoc($select);
-        $_SESSION = $row;
-        $verified = $row['verified'];
-        $ifseller = $row['shopname'];
-        if($row['is_banned'] == 0){
-          if (isset($_POST['submit'])) {
-            $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
 
-            if ($ifseller == 'user') {
-              $_SESSION['user_id'] = $row['id'];
-                header('Location:index.php');
-            } elseif ($verified != 1) {
-                $message[] = 'Please Check Your Email First To Verify your Account!';
-            } else {
-                $message[] = 'The Account you are trying to login is not a User Account!';
-            }
-          } elseif (isset($_POST['submit2'])) {
-              $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+    // if (mysqli_num_rows($select) > 0) {
+    //     $row = mysqli_fetch_assoc($select);
+    //     $_SESSION = $row;
+    //     $verified = $row['verified'];
+    //     $ifseller = $row['shopname'];
 
-              if ($ifseller != 'user' && $verified == 1) {
-                  $_SESSION['user_id'] = $row['id'];
-                  header('location:Seller_Page/index.php');
-              } elseif ($ifseller == 'user') {
-                  $message[] = 'The Account you are trying to login is not a Seller Account!';
-              } else {
-                  $message[] = 'Please Check Your Email First To Verify your Account!';
-              }
-          }
-        } else {
-          $message[] = 'Your Account is Banned';
-        }
+    //     if($row['is_banned'] == 0){
+    //       if (isset($_POST['submit'])) {
+    //         $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+
+    //         if ($ifseller == 'user') {
+    //           $_SESSION['user_id'] = $row['id'];
+    //             header('Location:index.php');
+    //         } else if ( $row['verified'] != 1) {
+               
+    //             $message[] = 'Please Check Your Email First To Verify your Account!';
+    //         } else {
+    //             $message[] = 'The Account you are trying to login is not a User Account!';
+    //         }
+    //       } elseif (isset($_POST['submit2'])) {
+    //           $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+
+    //           if ($ifseller != 'user' && $verified == 1) {
+    //               $_SESSION['user_id'] = $row['id'];
+    //               header('location:Seller_Page/index.php');
+    //           } elseif ($ifseller == 'user') {
+    //               $message[] = 'The Account you are trying to login is not a Seller Account!';
+    //           } else {
+    //               $message[] = 'Please Check Your Email First To Verify your Account!';
+    //           }
+    //       }
+    //     } else {
+    //       $message[] = 'Your Account is Banned';
+    //     }
 
         
-    } else {
-        $message[] = 'Incorrect Credentials!';
-    }
+    // } else {
+    //     $message[] = 'Incorrect Credentials!';
+    // }
+
+
+if (mysqli_num_rows($select) > 0) {
+  $row = mysqli_fetch_assoc($select);
+  $_SESSION = $row;
+  $verified = $row['verified'];
+
+  // Check if the account is banned
+  if ($row['is_banned'] == 0) {
+      if ($row['verified'] == 1) { // Check if the account is verified
+          $ifseller = $row['shopname'];
+
+          if (isset($_POST['submit'])) {
+            $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+            $_SESSION['user_id'] = $row['id'];
+            header('Location:index.php');
+
+          } elseif (isset($_POST['submit2'])) {
+            $_SESSION['role'] = ($ifseller == 'user') ? 'user' : 'seller';
+            $_SESSION['user_id'] = $row['id'];
+            header('location:Seller_Page/index.php');
+
+          }
+      } else {
+          $message[] = 'Your account is not yet verified. Please check your email for the verification link.';
+      }
+  } else {
+      $message[] = 'Your account is banned.';
+  }
+} else {
+  $message[] = 'Incorrect Credentials!';
+}
+
+
+
+
 }
 
 ?>
@@ -94,7 +133,8 @@ if (isset($_POST['submit']) || isset($_POST['submit2'])) {
 
           <input type="submit" value="Login" class="btn solid" name="submit" form="frmUser">
 
-          <p class="social-text">Don't have an account? <a href="register.php">Register Here!</p>
+          <p class="social-text">Don't have an account? <a href="user-register.php">Register Here!</a></p>
+          <p class="social-text">Forgot Password? <a href="forgot-password.php">Click Here!</a></p>
           <div class="social-media">
             <a href="https://facebook.com" target="_blank" class="social-icon">
               <i class="fab fa-facebook-f"></i>
@@ -124,8 +164,8 @@ if (isset($_POST['submit']) || isset($_POST['submit2'])) {
 
           <input type="submit" class="btn" value="Login" name="submit2" form="frmSeller">
 
-          <p class="social-text">Don`t have an account? <a href="register-seller.php">Register Here!
-          </p>
+          <p class="social-text">Don`t have an account? <a href="seller-register.php">Register Here!</a></p>
+          <p class="social-text">Forgot Password? <a href="forgot-password.php">Click Here!</a></p>
           <div class="social-media">
             <a href="https://facebook.com" target="_blank" class="social-icon">
               <i class="fab fa-facebook-f"></i>
@@ -155,6 +195,7 @@ if (isset($_POST['submit']) || isset($_POST['submit2'])) {
           <button class="btn transparent" id="sign-up-btn">
             Switch
           </button>
+          <img src="assets/user-login.png" class="image" alt="" />
         </div>
       </div>
       <div class="panel right-panel">
@@ -167,6 +208,7 @@ if (isset($_POST['submit']) || isset($_POST['submit2'])) {
           <button class="btn transparent" id="sign-in-btn">
             Switch
           </button>
+          <img src="assets/seller-login.png" class="image" alt="" />
         </div>
       </div>
     </div>

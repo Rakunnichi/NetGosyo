@@ -13,6 +13,7 @@ if (mysqli_num_rows($user) > 0) {
   $name = $row["fullname"];
   $phone = $row["phonenumber"];
   $address = $row["address"];
+  $storedPassword = $row["checkout_pass"];
 }
 
 
@@ -42,8 +43,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $state = $_POST["state"];
   $zip = $_POST["zip"];
   $pmode = $_POST["pmode"];
+  $enteredPassword = md5($_POST["checkoutPass"]);
 
-  // Prepare SQL statement
+  if($enteredPassword != $storedPassword ){
+    echo '<script type="text/javascript">'
+    . '$( document ).ready(function() {'
+    . '$("#exampleModal").modal("hide");'
+    . '});'
+    . '</script>';
+    echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Invalid Credentials!!</div>";
+
+    $getCart = "SELECT * FROM cart WHERE user_id=$id";
+    $result = mysqli_query($conn, $getCart);
+
+  } else{
+       // Prepare SQL statement
   $destinctSeller = "SELECT DISTINCT seller_id FROM cart WHERE user_id=$id";
 
   $destinctSeller = mysqli_query($conn, $destinctSeller);
@@ -58,17 +72,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (mysqli_query($conn, $addOrder)) {
         $order_id = mysqli_insert_id($conn);
         $result = mysqli_query($conn, "SELECT * FROM cart WHERE user_id=$id AND seller_id = ' $seller_id' ");
+
+
         if (mysqli_num_rows($result) > 0) {
           while ($row = mysqli_fetch_assoc($result)) {
             $product_id = $row['product_id'];
             $qty = $row['quantity'];
+            mysqli_query($conn, "UPDATE products SET quantity = quantity - $qty WHERE id = '$product_id'");
             $addItem = "INSERT INTO items (order_id, user_id, product_id, seller_id, qty) VALUES ('$order_id', '$id', '$product_id','$seller_id', '$qty')";
             mysqli_query($conn, $addItem);
           }
         }
     
         mysqli_query($conn, "DELETE FROM cart WHERE user_id = $id");
-        mysqli_query($conn, "UPDATE products SET quantity = quantity - 1 WHERE id='$product_id'");
+        
+        
+
         echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Order placed successfully!</div>";
       } else {
         echo "<div class='alert alert-danger text-center' role='alert' style='margin: 16px auto 0;width:600px;'>An error occured!</div>";
@@ -78,6 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
     
+  }
+ 
 
 
  
@@ -130,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           
           <div class="form-group">
-            <h6>Choose A Payment Method</h6>
+            <h6>Payment Method</h6>
             <select name="pmode" class="custom-select" id="payment-method">
             <option selected>Choose...</option>
             <?php
@@ -149,6 +170,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </select>
           </div>
             
+
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Checkout Password</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                  
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="col-form-label">Checkout Password</label>
+                                            <input type="Password" name="checkoutPass" class="form-control"
+                                                id="recipient-name" required>
+                                        </div>
+                                  
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    
+                                    <button type="submit" class="btn color-checkout-bg" form="frmCheckout">Place
+                                        Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
         </form>
       </div>
       <div class="col-md-5">
@@ -157,7 +208,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th>Id</th>
+            
               <th>Product</th>
               <th>Price</th>
               <th>Qty</th>
@@ -173,7 +224,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               while ($row = mysqli_fetch_assoc($result)) {
                 $total += $row["quantity"] * $row["price"]; ?>
                 <tr>
-                  <td><?= $row["product_id"]?></td>
+               
                   <td><?= $row["name"] ?></td>
                   <td>₱<?= number_format($row["price"], 2) ?></td>
                   <td><?= $row["quantity"] ?></td>
@@ -200,7 +251,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </table>
 
         <?php if ($cart) { ?>
-          <input type="submit" value="Place Order" class="btn color-orange-bg btn-block" form="frmCheckout">
+          <!-- <input type="submit" value="Place Order" class="btn color-orange-bg btn-block" form="frmCheckout"> -->
+          <a data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"
+                    class="btn color-orange-bg btn-block">Place Order </a>
         <?php } else { ?>
           <a href="index.php" class="btn color-orange-bg btn-block mb-2">Shop Now!</a>
         <?php } ?>
@@ -212,8 +265,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <ul>
               <li>Orders will be processed and shipped within 2-3 business days.</li>
               <li>We offer free shipping for orders over ₱100.</li>
-              <li>All orders come with a 30-day money-back guarantee.</li>
-              <li>If you have any questions or concerns, please contact us at support@netgosyo.com.</li>
+              <li>All orders come with a 5-day money-back guarantee.</li>
+              <li>If you have any questions or concerns, please contact us at netgosyo398@gmail.com.</li>
             </ul>
           </div>
         </div>

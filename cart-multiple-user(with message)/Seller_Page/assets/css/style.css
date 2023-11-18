@@ -8,6 +8,11 @@
     color: #f6f6f6;
 }
 
+.text-black{
+    color: rgb(8, 8, 8);
+    padding-left: 1.2rem;
+}
+
 .background-gray{
     background: #3f3f3f;
     color: #f6f6f6;

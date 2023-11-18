@@ -63,15 +63,6 @@ $seller_count = mysqli_query($conn, "SELECT * FROM user_form WHERE shopname!='us
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white" href="add_categories.php">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">add_circle</i>
-            </div>
-            <span class="nav-link-text ms-1">Add New Categories</span>
-          </a>
-        </li>
-
         <li class="nav-item ">
           <a class="nav-link text-white " href="manage_users.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -99,7 +90,16 @@ $seller_count = mysqli_query($conn, "SELECT * FROM user_form WHERE shopname!='us
           </a>
         </li>
 
-        <li class="nav-item mt-3">
+        <li class="nav-item ">
+          <a class="nav-link text-white " href="checkout-pass.php">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">history</i>
+            </div>
+            <span class="nav-link-text ms-1">Checkout Pass Recovery</span>
+          </a>
+        </li>
+
+        <!-- <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Concerns and Messages</h6>
         </li>
 
@@ -119,7 +119,7 @@ $seller_count = mysqli_query($conn, "SELECT * FROM user_form WHERE shopname!='us
             </div>
             <span class="nav-link-text ms-1">Notifications</span>
           </a>
-        </li>
+        </li> -->
 
       
       </ul>

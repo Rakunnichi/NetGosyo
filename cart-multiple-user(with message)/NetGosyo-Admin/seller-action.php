@@ -15,7 +15,7 @@ if(isset($_GET['deleteProduct'])){
     $id = $_GET['id'];
 	
 		mysqli_query($conn, "DELETE FROM products WHERE id='$id'");
-		header("location:produc_list.php");
+		header("location:product_list.php");
 	
 
 }
@@ -77,9 +77,9 @@ function sendEmail($email, $name, $is_banned){
 		
 		//Content
 		$mail->isHTML(true);                                  //Set email format to HTML
-		$mail->Subject = 'Email Verfication';
+		$mail->Subject = 'Account Banned!';
 		$template_file = "Templates/register_mail_template.php";
-		$mail->Body    =  $is_banned == 1 ? "Your NetGosyo Account has been BANNED by the administrator. Call customer service for more info" : "Congatulations, Your NetGosyo Account has been UNBANNED.";
+		$mail->Body    =  $is_banned == 1 ? "Your NetGosyo Account has been BANNED by the administrator. If This is a mistake please reach out to our email:<b> netgosyo398@gmail.com </b>": "Congatulations, Your NetGosyo Account has been UNBANNED.";
 		// file_get_contents($template_file);
 		
 		$mail->send();

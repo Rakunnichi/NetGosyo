@@ -51,7 +51,7 @@
 
                             <h5><b>Embrace the Casual Style</b></h5>
 
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>Discover the clothes, gadgets, and accessories that will make you stand out.</p>
 
                         </div>
 
@@ -67,7 +67,7 @@
 
                         <h5><b>Step up with NetGosyo</b></h5>
 
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>Express your bold personality while paying homage to the past with the ultimate vintage classics.</p>
 
                         </div>
 
@@ -83,7 +83,7 @@
 
                         <h5><b>The Denim Guide</b></h5>
 
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <p>Satisfy your craving for unique vintage finds without the hassle.</p>
 
                         </div>
 

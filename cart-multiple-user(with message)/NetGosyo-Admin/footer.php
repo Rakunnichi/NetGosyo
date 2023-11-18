@@ -12,13 +12,13 @@
                   <a href="#" class="nav-link text-muted">NetGosyo</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">About Us</a>
+                  <a href="../about-us.php" class="nav-link text-muted">About Us</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
+                  <a href="#" class="nav-link text-muted">Privacy Policy</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                  <a href="#" class="nav-link pe-0 text-muted">Terms & Conditions</a>
                 </li>
               </ul>
             </div>

@@ -7,7 +7,9 @@ $notifications = mysqli_query($conn, "SELECT * FROM notifications WHERE user_id=
 
 $products_count = mysqli_query($conn, "SELECT * FROM products WHERE user_id='$user_id' ");
 
-$orders_count = mysqli_query($conn, "SELECT * FROM orders ");
+$orders_count = mysqli_query($conn, "SELECT * FROM orders WHERE seller_id = '$user_id' ");
+
+$message_count = mysqli_query($conn, "SELECT * FROM convo WHERE recipient = '$user_id' ");
 
 if (isset($_POST['send'])) {
   $convo_id = $_GET['convo_id'];
@@ -70,7 +72,7 @@ if (isset($_POST['compose'])) {
       if ($attachment['error'] === UPLOAD_ERR_OK) {
         $attachmentName = $attachment['name'];
         $attachmentTmpName = $attachment['tmp_name'];
-        $attachmentPath = 'attachments/' . $attachmentName; // Specify the directory to save attachments
+        $attachmentPath = '../attachments/' . $attachmentName; // Specify the directory to save attachments
 
         // Move the uploaded attachment to the desired location
         move_uploaded_file($attachmentTmpName, $attachmentPath);
@@ -137,7 +139,7 @@ if (isset($_POST['compose'])) {
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
+      <a class="navbar-brand m-0" href="#">
         <img src="../Seller_Page/assets/img/logo.png" class="navbar-brand-img h-100 mb-3" alt="main_logo">
         <span class="ms-1 font-weight-bold h3 strokeme">NetGosyo</span>
       </a>

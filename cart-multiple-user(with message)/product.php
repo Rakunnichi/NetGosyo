@@ -9,8 +9,8 @@
     include ('Templates/_products.php');
     /*  include products area  */
 
-    include ('Templates/_user-ratings.php');
-    
+    // include ('Templates/_user-ratings.php');
+
     include ('Templates/_new-arrivals.php');
 
    

@@ -6,7 +6,8 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
             <?php
-                    $select_product = mysqli_query($conn, "SELECT * FROM `products` ORDER BY RAND()") or die('query failed!');
+                     $select_product = mysqli_query($conn, "SELECT products.* FROM products LEFT JOIN user_form ON products.user_id = user_form.id
+                     WHERE user_form.is_banned = 0 ") or die('query failed!');
                     if (mysqli_num_rows($select_product) > 0) {
                     while ($fetch_product = mysqli_fetch_assoc($select_product)) {
          
@@ -26,13 +27,7 @@
 
                             <h6 class="fw-bolder"><?php echo $fetch_product['name'] ?? '0'; ?></h6>
                             
-                            <div class="rating text-orange font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                            </div>
+                         
 
                             <b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b>
                         </div>

@@ -1,54 +1,108 @@
 </main>
 <!-- !start #main-site -->
-    <!-- start #footer -->
+<!-- start #footer -->
 <footer id="footer" class="bg-dark text-white py-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-12">
-                <h4 class="font-rubik font-size-20">NetGosyo</h4>
+            <div class="col-lg-4 col-12">
+                <h4 class="font-rubik font-size-20"><b>NetGosyo</b></h4>
                 <p class="font-size-14 font-rale text-white-50">Our products are made with the highest quality materials
                     and designed to meet your needs and preferences.</p>
             </div>
+
             <div class="col-lg-4 col-12">
-                <h4 class="font-rubik font-size-20">News Letter</h4>
-                <form class="form-row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Email">
-                    </div>
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary mb-2">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-2 col-12">
                 <h4 class="font-rubik font-size-20">Information</h4>
                 <div class="d-flex flex-column flex-wrap">
                     <a href="about-us.php" class="font-rale font-size-14 text-white-50 pb-1">About Us</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Delivery Information</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Privacy Policy</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Terms & Conditions</a>
+                    <a href="privacy-policy.php" class="font-rale font-size-14 text-white-50 pb-1">Privacy Policy</a>
+                    <a href="terms-condition.php" class="font-rale font-size-14 text-white-50 pb-1">Terms & Conditions</a>
                 </div>
             </div>
-            <div class="col-lg-2 col-12">
+            <div class="col-lg-4 col-12">
                 <h4 class="font-rubik font-size-20">Account</h4>
                 <div class="d-flex flex-column flex-wrap">
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">My Account</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Order History</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">Wish List</a>
-                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1">News Letter</a>
+
+                    <?php
+                     if($user_id == 3){
+                      
+                        ?>
+                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1" disabled>My Account</a>
+                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1" disabled>Purchases</a>
+                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1" disabled>Message</a>
+                    <a href="javascript:" class="font-rale font-size-14 text-white-50 pb-1" disabled>Notification</a>
+
+                    <?php
+                     }else{
+                        ?>
+                    <a href="Profile_settings.php" class="font-rale font-size-14 text-white-50 pb-1">My Account</a>
+                    <a href="Profile_purchases.php" class="font-rale font-size-14 text-white-50 pb-1">Purchases</a>
+                    <a href="Profile_messages.php" class="font-rale font-size-14 text-white-50 pb-1">Message</a>
+                    <a href="Profile_notifications.php"
+                        class="font-rale font-size-14 text-white-50 pb-1">Notification</a>
+
+                    <?php
+                     }
+                    
+                    ?>
+
                 </div>
             </div>
         </div>
     </div>
 </footer>
 <div class="copyright text-center bg-dark text-white py-2">
-    <p class="font-rale font-size-14">&copy; Copyright 2022, NetGosyo</p>
+    <p class="font-rale font-size-14"><b>&copy; Copyright 2022, NetGosyo</b></p>
 </div>
 <!-- !start #footer -->
 
 </section>
+<!-- Bottom Navigation Bar for Small Screens -->
+<div class="bottom-navbar d-md-none">
+    <div class="bottom-navbar-item">
+        <a href="index.php" class="text-white">
+            <i class="fas fa-home"></i>
+            <div>Home</div>
+        </a>
+    </div>
+    <div class="bottom-navbar-item">
+        <a href="view-shops.php" class="text-white">
+            <i class="fas fa-store"></i>
+            <div>View Shops</div>
+        </a>
+    </div>
+    <div class="bottom-navbar-item">
+        <a href="categories.php" class="text-white">
+            <i class="fas fa-list"></i>
+            <div>Categories</div>
+        </a>
+    </div>
+    <div class="bottom-navbar-item">
+        <?php
+         if($user_id == 3){
+        ?>
+        <a href="login.php" class="text-white">
+            <i class="fas fa-user"></i>
+            <div>Me</div>
+        </a>
+
+        <?php
+        }else{
+        ?>
+
+        <a href="Profile_settings.php" class="text-white">
+            <i class="fas fa-user"></i>
+            <div>Me</div>
+        </a>
+
+        <?php
+            }
+                      
+        ?>
 
 
+
+    </div>
+</div>
 
 <!-- JavaScript Bundle with Popper -->
 
@@ -77,7 +131,7 @@
 
 <!-- Custom Javascript -->
 <script src="js/index.js"></script>
-
+<script src="Templates/rating.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -104,48 +158,63 @@ $(document).ready(function() {
 
 <!-- crop   -->
 <script>
+// Initialize Cropper.js
+const image = document.getElementById('profileImage');
+const imageUpload = document.getElementById('imageUpload');
+const cropButton = document.getElementById('cropButton');
+let cropper;
+
+imageUpload.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+        image.src = event.target.result;
         // Initialize Cropper.js
-        const image = document.getElementById('profileImage');
-        const imageUpload = document.getElementById('imageUpload');
-        const cropButton = document.getElementById('cropButton');
-        let cropper;
-
-        imageUpload.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            const reader = new FileReader();
-
-            reader.onload = (event) => {
-                image.src = event.target.result;
-                // Initialize Cropper.js
-                cropper = new Cropper(image, {
-                    aspectRatio: 1, // Adjust the aspect ratio as needed
-                    viewMode: 2,    // Set the view mode to show the entire image
-                });
-            };
-
-            reader.readAsDataURL(file);
+        cropper = new Cropper(image, {
+            aspectRatio: 1, // Adjust the aspect ratio as needed
+            viewMode: 2, // Set the view mode to show the entire image
         });
+    };
 
-        cropButton.addEventListener('click', () => {
-            // Get the cropped data
-            const croppedData = cropper.getData('imageUpload');
-            // Send the cropped data to the server
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'user.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Handle the server response, e.g., display a success message
-                    alert('Cropped and saved successfully');
-                    location.reload(); // Reload the page to display the updated image
-                } else {
-                    // Handle errors
-                    alert('Error: ' + xhr.statusText);
-                }
-            };
-            xhr.send('croppedData=' + JSON.stringify(croppedData));
-        });
-    </script>
+    reader.readAsDataURL(file);
+});
+
+cropButton.addEventListener('click', () => {
+    // Get the cropped data
+    const croppedData = cropper.getData('imageUpload');
+    // Send the cropped data to the server
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'user.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Handle the server response, e.g., display a success message
+            alert('Cropped and saved successfully');
+            location.reload(); // Reload the page to display the updated image
+        } else {
+            // Handle errors
+            alert('Error: ' + xhr.statusText);
+        }
+    };
+    xhr.send('croppedData=' + JSON.stringify(croppedData));
+});
+</script>
+
+<script>
+   function increment(cartId) {
+    var quantityInput = document.getElementById('quantity_' + cartId);
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+}
+
+function decrement(cartId) {
+    var quantityInput = document.getElementById('quantity_' + cartId);
+    if (parseInt(quantityInput.value) > 1) {
+        quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+}
+
+</script>
 
 </body>
 

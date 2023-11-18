@@ -18,13 +18,13 @@
             $update = $mysqli ->query("update user_form set  verified = 1 where vkey= '$vkey' limit 1");
 
             if($update){
-                echo "<center>Account has been verified! you can now login</center>";
+                header('location:Templates/email_verify.php');
             }else{
                 echo $mysqli->error;
             }
 
         }else{
-            echo "Account is already verified";
+            header('location:Templates/email_already_verify.php');
         }
 
 

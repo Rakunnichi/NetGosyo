@@ -9,16 +9,14 @@
             <div class="col-lg-6">
               <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">NetGosyo</a>
+                  <a href="#" class="nav-link text-muted">NetGosyo</a>
+                </li>
+              
+                <li class="nav-item">
+                  <a href="#" class="nav-link text-muted" target="_blank">Privacy Policy</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
-                </li>
-                <li class="nav-item">
-                  <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                  <a href="#" class="nav-link pe-0 text-muted" target="_blank">Terms & Condiitons</a>
                 </li>
               </ul>
             </div>
@@ -38,6 +36,7 @@
   <script src="assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="assets/js/plugins/chartjs.min.js"></script>
   <script src="assets/js/index.js"></script>
+  <script src="assets/js/material-dashboard.js"></script>
   <script>
 	$('.order').click(function() {
 		let items = $(this).data('items');
@@ -80,6 +79,17 @@
 		convo_div.scrollTop = convo_div.scrollHeight;
 	});
 </script>
+
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+
 </body>
 
 </html>

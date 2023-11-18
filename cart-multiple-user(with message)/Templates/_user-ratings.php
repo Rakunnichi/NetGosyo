@@ -101,9 +101,9 @@
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
-				<div class="form-group">
+				<!-- <div class="form-group">
 	        		<input type="text" name="product_id" id="product_id" class="form-control" required value="<?=  $id ?>" readonly/>
-	        	</div>
+	        	</div> -->
 	        	<div class="form-group">
 	        		<input type="text" name="user_name" id="user_name" class="form-control" required value="<?=  $reviewer_name ?>" readonly/>
 	        	</div>
@@ -111,7 +111,7 @@
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
 	        	</div>
 	        	<div class="form-group text-center mt-4">
-	        		<button type="button" class="btn btn-warning" id="save_review">Submit</button>
+	        		<button type="button" class="btn color-orange-bg" id="save_review">Submit</button>
 	        	</div>
 	      	</div>
     	</div>

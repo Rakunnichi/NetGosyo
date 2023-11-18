@@ -201,7 +201,7 @@ $messages = mysqli_query($conn, $messages_query);
                                                 </a>
                                             </li>
                                             <li class="nav-item mt-1">
-                                                <h4>Conversation with: <?= $convo['fullname'] ?></h4>
+                                                <h6 id="smaller-text-for-message">Conversation with: <?= $convo['fullname'] ?></h6>
                                             </li>
                                         </ul>
 

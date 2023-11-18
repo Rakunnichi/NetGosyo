@@ -481,6 +481,7 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                                                                 <th scope="col">Action</th>
 
                                                                 <?php } ?>
+                                                               
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -524,11 +525,11 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                                                             <?php } ?>
 
                                                             <?php if (!$orders) { ?>
-                                                            <tr>
+                                                            <!-- <tr>
                                                                 <td class="text-center" colspan="5">No
                                                                     <?= $_SESSION['role'] == 'user' ? 'purchases' : 'orders' ?>
                                                                 </td>
-                                                            </tr>
+                                                            </tr> -->
                                                             <?php } ?>
 
                                                         </tbody>
@@ -546,9 +547,9 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="modalTitle">Modal title</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
-                                            </button>
+                                            </button> -->
                                         </div>
                                         <div class="modal-body">
                                             <table class="table table-bordered">

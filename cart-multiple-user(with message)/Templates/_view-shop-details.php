@@ -4,14 +4,16 @@ include('config.php');
 $id = $_GET['id'] ?? 1;
 $user_id = $_SESSION['user_id']?? '3';
 
-$sql = "SELECT * FROM user_form WHERE id=$user_id";
+$sql = "SELECT * FROM user_form WHERE id=$id";
 $user = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($user) > 0) {
-  $row = mysqli_fetch_assoc($user);
-  $name = $row["fullname"];
+  $rows = mysqli_fetch_assoc($user);
+  $badge =  $rows["has_verified_badge"];
+  $banned = $rows["is_banned"];
 }
 
+$products_count = mysqli_query($conn, "SELECT * FROM products WHERE user_id='$id' ");
 
 $stmt = $conn->prepare('SELECT * FROM user_form');
 $stmt->execute();
@@ -24,7 +26,14 @@ while ($row = $result->fetch_assoc()) :
 
 
     <div class="container">
-
+                <?php
+                    if($banned != 0){
+                ?>
+        <div class="alert alert-danger" role="alert"><b><center>This Account Has been banned because it did not follow our Community Standards or Terms of Service!</center></b></div>
+        <?php
+                                     
+         }                            
+        ?>
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-lg-9 col-xl-12">
                 <div class="card">
@@ -43,16 +52,56 @@ while ($row = $result->fetch_assoc()) :
                     <div class="p-4 text-black" style="background-color: #f8f9fa;">
                         <div class="d-flex justify-content-end text-center py-1">
                             <div>
-                                <p class="mb-1 h5">253</p>
-                                <p class="small text-muted mb-0">Sold</p>
+                                <?php
+                               if($badge == 1){
+
+                              ?>
+                                <p class="mb-1 h5"><i class="fas fa-certificate text-green"></i></p>
+                                <p class="small text-muted mb-0">Verified</p>
+                                <?php
+                                 }else{
+                                ?>
+                                <p class="mb-1 h5"><i class="fas fa-certificate text-red"></i></p>
+                                <p class="small text-muted mb-0">Unverified</p>
+
+                                <?php
+
+                                }
+
+                                ?>
+
                             </div>
                             <div class="px-3">
-                                <p class="mb-1 h5">1026</p>
+                                <p class="mb-1 h5"><?= mysqli_num_rows($products_count) ?></p>
                                 <p class="small text-muted mb-0">Products</p>
                             </div>
                             <div>
-                                <p class="mb-1 h5">4.5</p>
-                                <p class="small text-muted mb-0">Rating</p>
+                                <?php
+                                if($banned != 0){
+                             ?>
+
+
+                                <p class="mb-1 h5"><i class="fas fa-ban text-red"></i></p>
+                                <p class="small text-muted mb-0">Banned</p>
+                                <?php
+                                     
+                                    }else{
+                                    
+                                        ?>
+
+                                <p class="mb-1 h5"><i class="fas fa-signal text-green"></i></p>
+                                <p class="small text-muted mb-0">Active</p>
+
+                                <?php
+                                            
+                                    }
+                                    ?>
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -65,26 +114,19 @@ while ($row = $result->fetch_assoc()) :
             <div class="col-12 pt-4">
                 <h6 class="font-rubik font-size-20"><b>Shop Description</b></h6>
                 <hr>
-                <p class="font-rale font-size-14">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-                    inventore vero numquam error est ipsa, consequuntur temporibus debitis nobis sit, delectus officia
-                    ducimus dolorum sed corrupti. Sapiente optio sunt provident, accusantium eligendi eius reiciendis
-                    animi? Laboriosam, optio qui? Numquam, quo fuga. Maiores minus, accusantium velit numquam a aliquam
-                    vitae vel?</p>
-                <p class="font-rale font-size-14">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-                    inventore vero numquam error est ipsa, consequuntur temporibus debitis nobis sit, delectus officia
-                    ducimus dolorum sed corrupti. Sapiente optio sunt provident, accusantium eligendi eius reiciendis
-                    animi? Laboriosam, optio qui? Numquam, quo fuga. Maiores minus, accusantium velit numquam a aliquam
-                    vitae vel?</p>
+
+                <p class="font-rale font-size-16 text-justify"><?php echo $row['shopdesc'];?></p>
+               
             </div>
         </div>
     </div>
 
     <!-- !Product -->
-<?php
+    <?php
 endif;
 endwhile;
 ?>
-  
+
 </section>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>

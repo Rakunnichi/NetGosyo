@@ -24,16 +24,9 @@
                     <div class="card-body p-4">
                         <div class="text-center">
 
-                            <h6 class="fw-bolder"><?php echo $fetch_product['name'] ?? '0'; ?></h6>
+                            <h6 id="smaller-text-for-mobile" class="fw-bolder"><?php echo $fetch_product['name'] ?? '0'; ?></h6>
                             
-                            <div class="rating text-orange font-size-12">
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                                <span><i class="fas fa-star"></i></span>
-                            </div>
-
+                            
                             <b>₱&nbsp;<?php echo $fetch_product['price'] ?? '0'; ?>.00</b>
                         </div>
                     </div>
