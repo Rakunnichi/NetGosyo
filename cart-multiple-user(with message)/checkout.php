@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     . '$("#exampleModal").modal("hide");'
     . '});'
     . '</script>';
-    echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Invalid Credentials!!</div>";
+    $Message = "Invalid Credentials!";
 
     $getCart = "SELECT * FROM cart WHERE user_id=$id";
     $result = mysqli_query($conn, $getCart);
@@ -86,11 +86,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
         mysqli_query($conn, "DELETE FROM cart WHERE user_id = $id");
         
-        
-
-        echo "<div class='alert alert-success text-center' role='alert' style='margin: 16px auto 0;width:600px;'>Order placed successfully!</div>";
+        $Message = "Order Placed Successfully!";
       } else {
-        echo "<div class='alert alert-danger text-center' role='alert' style='margin: 16px auto 0;width:600px;'>An error occured!</div>";
+        $Message = "An Error Occured!";
       }
 
 
@@ -117,6 +115,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="message"></div>
     <div class="row">
       <div class="col-md-7">
+                        <?php
+                            if(!empty($Message)){
+                                echo"
+                                <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+                                <strong>$Message</strong> 
+                                <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                                  <span aria-hidden='true'>&times;</span>
+                                </button>
+                              </div>
+                                
+                                ";
+                            }
+                        ?>
         <h4 class="font-rubik font-size-20 font-weight-bold">Checkout</h4>
         <hr>
         <form id="frmCheckout" method="POST" action="">
@@ -150,6 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="number" class="form-control" id="zip" name="zip" required>
           </div>
           
+    
           <div class="form-group">
             <h6>Payment Method</h6>
             <select name="pmode" class="custom-select" id="payment-method">
@@ -276,7 +288,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </section>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js'></script>
-<script src="sweetalert/sweetalert2.all.min.js"></script>
-<script src="sweetalert/jquery-3.6.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 <?php include 'footer.php'; ?>

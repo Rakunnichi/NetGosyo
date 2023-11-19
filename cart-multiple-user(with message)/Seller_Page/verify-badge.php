@@ -192,7 +192,8 @@
                
 
                 <div class="card-body">
-                    <h5 class="card-title mb-4">Badge Application</h5>
+                    <h3 class="card-title mb-4">Badge Application</h3>
+                    
                     <?php
                     if(!empty($message)){
                         echo"
@@ -207,13 +208,91 @@
                         ";
                     }
                 ?>
-                    <span>Status: <b><?php echo $status ?></b></span>
+                    <p><b> What is A Badge Verfication?</b></p>
+                    <p class="text-justify"> Sellers are required to submit credentials, such as a valid ID, in order to authenticate their accounts. A badge will appear in the Shop of the seller account once it has been verified.</p>
+                  
+                    <p><b> Why do you need a Badge Verification?</b></p>
+                    <p class="text-justify"> All of our verified sellers go through an extensive verification process to ensure they meet all regulatory, legal, and quality requirements and a level of service that is consistent with our terms and conditions.</p>
+                    <hr>
+
+        <div class="row">
+        <div class="col-12">
+
+          <div class="card my-4">
+        
+            <div class="card-body px-0 pb-2">
+            <h4 class="card-title ml-3">Personal Details:</h4>  
+              <div class="table-responsive p-0">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 ps-2">Address</th>
+                      <th class="text-center text-uppercase text-secondary text-xs font-weight-bolder opacity-7">Date of Birth</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          <div>
+                            <img src="../user-profiles/<?php echo $image;?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                          </div>
+                          <div class="d-flex flex-column justify-content-center">
+                            <h6 class="mb-0 text-sm"><?php echo $fullname ?></h6>
+                            <p class="text-sm text-secondary mb-0"><?php echo $email ?></p>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <p class="text-sm font-weight-bold mb-0"><?php echo $address ?></p>
+                        <p class="text-sm text-secondary mb-0"><?php echo $phonenumber ?></p>
+                      </td>
+                      <td class="align-middle text-center text-sm">
+                        <p class="text-sm font-weight-bold mb-0"><?php echo $dateofbirth ?></p>
+                        <p class="text-sm text-secondary mb-0"><?php echo $gender ?></p>
+                      </td>
+                    
+                     
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+                    <span> Your Status: <b><?php echo $status ?></b></span>
                     <?php if ($status != 'Verified') { ?>
                     <?php if ($id_pic != NULL) {
-                      echo '<div><span>ID Submitted</span><br><img src="../user-profiles/' . $id_pic . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333;" class="img-fluid" id="uploaded_image"></div>';
+                      echo '<div><span>ID Submitted</span><br><a href="#" data-toggle="modal" data-target="#orderModal"><img src="../user-profiles/' . $id_pic . '" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333; width: 80%; max-width: 100px; " class="img-fluid" id="uploaded_image"> </a></div>';
                     }
                        ?>
-                   
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitle">Submitted ID</h5>  
+                        </div>
+                        <div class="modal-body text-center">
+                        <div><img src="../user-profiles/<?php echo $id_pic; ?>" style="border-radius: 5px; box-shadow: 1px 1px 5px #333333; width: 100%; max-width: 800px; " class="img-fluid" id="uploaded_image"></div>
+                            <tbody id="tbody">
+                                <!-- javascript -->
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <span class="badge badge-sm bg-gradient-danger cursor-pointer" data-dismiss="modal">Close</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>           
+                    <!-- Modal -->
+
                     <br>  <?php if ($status == 'Pending Verification') {?>
                     <h5 class="card-title mb-4">Resubmit ID</h5>
                     <?php } ?>

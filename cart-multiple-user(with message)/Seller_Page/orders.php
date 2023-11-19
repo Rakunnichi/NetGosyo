@@ -281,6 +281,7 @@ while ($order_row = mysqli_fetch_assoc($orders_query)) {
                 <!-- Modal -->
               </div>
             </div>
+            
           </div>
         </div>
       </div>
